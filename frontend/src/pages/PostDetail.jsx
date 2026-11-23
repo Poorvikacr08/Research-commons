@@ -50,7 +50,7 @@ export default function PostDetail() {
           {post.papers.length > 0 && (
             <div className="papers">
               <h3>Attached papers</h3>
-              <ul>{post.papers.map((p) => <li key={p.id}>📄 {p.title}</li>)}</ul>
+              <ul>{post.papers.map((p) => <li key={p.id}><Link to={`/papers/${p.id}`}>📄 {p.title}</Link></li>)}</ul>
             </div>
           )}
           {post.can_delete && <button className="link-button danger" onClick={handleDelete}>Delete post</button>}

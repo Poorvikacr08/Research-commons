@@ -94,6 +94,33 @@ class Upvote(SQLModel, table=True):
     created_at: datetime = Field(default_factory=utcnow)
 
 
+class Save(SQLModel, table=True):
+    __tablename__ = "saves"
+
+    id: uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True)
+    user_id: uuid.UUID = Field(foreign_key="users.id")
+    paper_id: uuid.UUID
+    saved_at: datetime = Field(default_factory=utcnow)
+
+
+class Collection(SQLModel, table=True):
+    __tablename__ = "collections"
+
+    id: uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True)
+    user_id: uuid.UUID = Field(foreign_key="users.id")
+    name: str
+    created_at: datetime = Field(default_factory=utcnow)
+
+
+class CollectionItem(SQLModel, table=True):
+    __tablename__ = "collection_items"
+
+    collection_id: uuid.UUID = Field(foreign_key="collections.id", primary_key=True)
+    paper_id: uuid.UUID = Field(primary_key=True)
+    note: Optional[str] = None            # private note, only the owner sees it
+    added_at: datetime = Field(default_factory=utcnow)
+
+
 class Event(SQLModel, table=True):
     """Activity log read by Member 2 (analytics) and Member 3 (recs, trends)."""
     __tablename__ = "events"

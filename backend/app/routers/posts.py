@@ -5,9 +5,10 @@ from typing import Dict, List, Literal, Optional
 
 from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, Field
-from sqlalchemy import bindparam, func, or_, text
+from sqlalchemy import func, or_
 from sqlmodel import Session, select
 
+from app import paper_repo
 from app.auth import get_current_user
 from app.db import get_session
 from app.events import clean_tag, log_event
@@ -114,11 +115,8 @@ def summarize(session: Session, posts: List[Post], me: User, reasons: Optional[d
 
 
 def paper_refs(session: Session, paper_ids: List[uuid.UUID]) -> List[PaperRef]:
-    """Titles from Member 2's papers table."""
-    if not paper_ids:
-        return []
-    stmt = text("SELECT id, title FROM papers WHERE id IN :ids").bindparams(bindparam("ids", expanding=True))
-    return [PaperRef(id=str(r.id), title=r.title) for r in session.exec(stmt, params={"ids": list(paper_ids)})]
+    """Titles from Member 2's papers table (via paper_repo)."""
+    return [PaperRef(id=p.id, title=p.title) for p in paper_repo.get_papers(session, list(paper_ids))]
 
 
 # ---------- posts ----------

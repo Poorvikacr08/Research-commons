@@ -2,10 +2,13 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { useAuth } from "./auth.jsx";
 import Navbar from "./components/Navbar.jsx";
+import CollectionDetail from "./pages/CollectionDetail.jsx";
 import EditProfile from "./pages/EditProfile.jsx";
 import Home from "./pages/Home.jsx";
+import Library from "./pages/Library.jsx";
 import Login from "./pages/Login.jsx";
 import NewPost from "./pages/NewPost.jsx";
+import PaperDetail from "./pages/PaperDetail.jsx";
 import People from "./pages/People.jsx";
 import PostDetail from "./pages/PostDetail.jsx";
 import Profile from "./pages/Profile.jsx";
@@ -35,6 +38,9 @@ export default function App() {
           <Route path="/posts/new" element={<Protected><NewPost /></Protected>} />
           <Route path="/posts/:id" element={<Protected><PostDetail /></Protected>} />
           <Route path="/tags/:tag" element={<Protected><TagPage /></Protected>} />
+          <Route path="/library" element={<Protected><Library /></Protected>} />
+          <Route path="/papers/:id" element={<Protected><PaperDetail /></Protected>} />
+          <Route path="/collections/:id" element={<Protected><CollectionDetail /></Protected>} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>

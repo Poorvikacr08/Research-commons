@@ -1,12 +1,14 @@
-// Write a post: title, text and tags. (Attaching library papers comes with F3.)
+// Write a post: title, text, tags and (optionally) papers from the library.
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../api.js";
+import PaperPicker from "../components/PaperPicker.jsx";
 import { splitTags } from "../utils.js";
 
 export default function NewPost() {
   const navigate = useNavigate();
   const [form, setForm] = useState({ title: "", body: "", tags: "" });
+  const [papers, setPapers] = useState([]); // [{ id, title }]
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
 
@@ -19,7 +21,7 @@ export default function NewPost() {
     setError("");
     setBusy(true);
     try {
-      const post = await api("/posts", { method: "POST", body: { ...form, tags: splitTags(form.tags) } });
+      const post = await api("/posts", { method: "POST", body: { ...form, tags: splitTags(form.tags), paper_ids: papers.map((p) => p.id) } });
       navigate(`/posts/${post.id}`);
     } catch (err) {
       setError(err.message);
@@ -37,6 +39,7 @@ export default function NewPost() {
         Tags <span className="muted">(separate with commas)</span>
         <input name="tags" value={form.tags} onChange={update} placeholder="machine learning, healthcare" />
       </label>
+      <PaperPicker selected={papers} onChange={setPapers} />
       <div className="row-start">
         <button type="submit" disabled={busy}>{busy ? "Posting…" : "Post"}</button>
         <button type="button" className="secondary" onClick={() => navigate(-1)}>Cancel</button>

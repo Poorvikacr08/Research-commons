@@ -72,3 +72,32 @@ button.secondary, .button.secondary { background: #fff; color: #1d4ed8; border: 
 .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0; }
 .tag { background: #eef2ff; color: #3730a3; border-radius: 999px; padding: 3px 10px; font-size: 13px; display: inline-flex; align-items: center; gap: 4px; }
 .tag-x { background: none; color: #6366f1; padding: 0 2px; font-size: 15px; line-height: 1; }
+
+/* Feed */
+.tabs { display: flex; gap: 4px; border-bottom: 1px solid #e5e7eb; margin: 16px 0 4px; }
+.tab { background: none; color: #6b7280; border-radius: 0; padding: 8px 14px; border-bottom: 2px solid transparent; }
+.tab.on { color: #111827; border-bottom-color: #1d4ed8; }
+.notice { background: #eff6ff; border: 1px solid #bfdbfe; padding: 10px 14px; border-radius: 8px; font-size: 14px; }
+.section-title { margin-top: 28px; }
+
+/* Post cards */
+.post-card { display: flex; gap: 16px; align-items: flex-start; }
+.post-main { flex: 1; min-width: 0; }
+.post-title { font-size: 18px; font-weight: 600; color: #111827; }
+.reason { font-size: 12px; color: #6366f1; margin: 0 0 4px; font-weight: 500; }
+.snippet { margin: 6px 0; color: #374151; }
+.post-foot { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+a.tag:hover { text-decoration: none; background: #e0e7ff; }
+.upvote { background: #f3f4f6; color: #374151; padding: 6px 10px; font-size: 14px; min-width: 52px; }
+.upvote.on { background: #dbeafe; color: #1d4ed8; }
+.body { white-space: pre-wrap; line-height: 1.55; }
+.papers ul { padding-left: 18px; }
+.danger { color: #b91c1c; margin-top: 12px; }
+
+/* Comments */
+.comments { list-style: none; padding: 0; margin: 12px 0 0; }
+.comments.replies { margin-left: 22px; padding-left: 14px; border-left: 2px solid #e5e7eb; }
+.comment { padding: 10px 0; border-top: 1px solid #f3f4f6; }
+.comment p { margin: 2px 0; }
+.comment-form { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; margin: 10px 0; }
+.comment-form textarea { width: 100%; }

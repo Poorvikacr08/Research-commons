@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { api } from "../api.js";
 import FollowButton from "../components/FollowButton.jsx";
+import PostCard from "../components/PostCard.jsx";
 import Tags from "../components/Tags.jsx";
 
 export default function Profile() {
@@ -54,7 +55,24 @@ export default function Profile() {
       </div>
 
       {profile.is_me && <MyTopics />}
+      <UserPosts userId={profile.id} />
     </section>
+  );
+}
+
+// Posts written by this member
+function UserPosts({ userId }) {
+  const [posts, setPosts] = useState(null);
+  useEffect(() => {
+    api(`/posts?author_id=${userId}`).then(setPosts).catch(() => setPosts([]));
+  }, [userId]);
+  if (!posts) return null;
+  return (
+    <>
+      <h2 className="section-title">Posts ({posts.length})</h2>
+      {posts.length === 0 && <p className="muted">No posts yet.</p>}
+      {posts.map((p) => <PostCard key={p.id} post={p} />)}
+    </>
   );
 }
 

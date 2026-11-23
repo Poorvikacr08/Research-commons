@@ -1,9 +1,10 @@
 // Admin only: spam / abnormal activity flags and topic spike alerts (F7, Member 3).
-// The F9 analytics dashboard (Member 2) will be added here.
+// Plus the F9 analytics dashboard (Member 2).
 import { useEffect, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { apiOptional } from "../api.js";
 import { useAuth } from "../auth.jsx";
+import Dashboard from "../components/Dashboard.jsx";
 import Panel from "../components/Panel.jsx";
 import { timeAgo } from "../utils.js";
 
@@ -25,6 +26,7 @@ export default function Admin() {
   return (
     <section>
       <h1>Admin</h1>
+      <Dashboard />
 
       <Panel title="🚩 Flagged accounts (spam / abnormal activity)" state={flags} isEmpty={flags?.data?.items.length === 0} empty="No accounts flagged.">
         <table className="table">
@@ -53,10 +55,7 @@ export default function Admin() {
         </ul>
       </Panel>
 
-      <div className="card">
-        <h3>📊 Analytics dashboard</h3>
-        <p className="muted">Topics by department over time, cross-department activity and most-saved papers — coming from the analytics service.</p>
-      </div>
+
     </section>
   );
 }

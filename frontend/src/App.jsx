@@ -1,34 +1,37 @@
-import { useEffect, useState } from "react";
+// Which page shows for which URL.
+import { Navigate, Route, Routes } from "react-router-dom";
+import { useAuth } from "./auth.jsx";
+import Navbar from "./components/Navbar.jsx";
+import EditProfile from "./pages/EditProfile.jsx";
+import Home from "./pages/Home.jsx";
+import Login from "./pages/Login.jsx";
+import People from "./pages/People.jsx";
+import Profile from "./pages/Profile.jsx";
+import Register from "./pages/Register.jsx";
 
-// Temporary start page: shows whether the front end can reach the API and database.
+// Wrap a page with this to make it "logged-in only".
+function Protected({ children }) {
+  const { user, loading } = useAuth();
+  if (loading) return <p className="muted center">Loading…</p>;
+  if (!user) return <Navigate to="/login" replace />;
+  return children;
+}
+
 export default function App() {
-  const [health, setHealth] = useState(null);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    fetch("/api/health")
-      .then((res) => (res.ok ? res.json() : Promise.reject(res.statusText)))
-      .then(setHealth)
-      .catch((err) => setError(String(err)));
-  }, []);
-
   return (
-    <main style={{ fontFamily: "system-ui", maxWidth: 640, margin: "40px auto" }}>
-      <h1>Chanakya Research Commons</h1>
-      {error && <p style={{ color: "crimson" }}>API not reachable: {error}</p>}
-      {!health && !error && <p>Connecting to API…</p>}
-      {health && (
-        <>
-          <p>API status: <strong>{health.status}</strong></p>
-          <h3>Row counts</h3>
-          <ul>
-            {Object.entries(health.row_counts).map(([table, n]) => (
-              <li key={table}>{table}: {n}</li>
-            ))}
-          </ul>
-          <p>{health.tables.length} tables in the database.</p>
-        </>
-      )}
-    </main>
+    <>
+      <Navbar />
+      <main className="container">
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/" element={<Protected><Home /></Protected>} />
+          <Route path="/people" element={<Protected><People /></Protected>} />
+          <Route path="/users/:id" element={<Protected><Profile /></Protected>} />
+          <Route path="/profile/edit" element={<Protected><EditProfile /></Protected>} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </main>
+    </>
   );
 }

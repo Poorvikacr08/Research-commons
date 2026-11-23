@@ -7,6 +7,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 5173,
+    watch: { usePolling: true }, // needed for Docker on Windows to see file changes
     proxy: {
       "/api": process.env.VITE_API_PROXY || "http://localhost:8000",
     },

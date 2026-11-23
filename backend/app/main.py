@@ -54,8 +54,15 @@ def health(session: Session = Depends(get_session)):
 
 
 # ---- Routers (each member registers theirs here) ----
-from app.routers import auth  # noqa: E402  Member 1
+from app.routers import auth, library, posts, users  # noqa: E402  Member 1
 
 app.include_router(auth.router, prefix="/api")
+app.include_router(users.router, prefix="/api")
+app.include_router(posts.router, prefix="/api")
+app.include_router(library.router, prefix="/api")
+
+from app.routers import analytics  # noqa: E402  Member 2 (F9)
+
+app.include_router(analytics.router, prefix="/api")
 # from app.routers import intel        # Member 3
 # app.include_router(intel.router, prefix="/api")

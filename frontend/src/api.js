@@ -13,6 +13,17 @@ export function setToken(token) {
   else localStorage.removeItem(TOKEN_KEY);
 }
 
+// For teammates' features that may not be built yet.
+// Returns { data } on success, { notReady: true } if the route doesn't exist (404), or { error }.
+export async function apiOptional(path, options) {
+  try {
+    return { data: await api(path, options) };
+  } catch (err) {
+    if (err.status === 404 && (!err.code || err.code === "http_404")) return { notReady: true };
+    return { error: err.message };
+  }
+}
+
 export async function api(path, { method = "GET", body, form } = {}) {
   const headers = {};
   const token = getToken();

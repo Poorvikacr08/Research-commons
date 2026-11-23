@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { api } from "../api.js";
 import { useAuth } from "../auth.jsx";
 import PostCard from "../components/PostCard.jsx";
+import Sidebar from "../components/Sidebar.jsx";
 
 export default function Home() {
   const { user } = useAuth();
@@ -18,6 +19,7 @@ export default function Home() {
   }, [tab]);
 
   return (
+    <div className="with-sidebar">
     <section>
       <div className="row">
         <h1>Hi, {user.name}</h1>
@@ -44,5 +46,7 @@ export default function Home() {
 
       {feed?.items.map((p) => <PostCard key={p.id} post={p} />)}
     </section>
+    <Sidebar />
+    </div>
   );
 }

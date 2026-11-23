@@ -2,6 +2,8 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { useAuth } from "./auth.jsx";
 import Navbar from "./components/Navbar.jsx";
+import Admin from "./pages/Admin.jsx";
+import Ask from "./pages/Ask.jsx";
 import CollectionDetail from "./pages/CollectionDetail.jsx";
 import EditProfile from "./pages/EditProfile.jsx";
 import Home from "./pages/Home.jsx";
@@ -13,6 +15,7 @@ import People from "./pages/People.jsx";
 import PostDetail from "./pages/PostDetail.jsx";
 import Profile from "./pages/Profile.jsx";
 import Register from "./pages/Register.jsx";
+import Search from "./pages/Search.jsx";
 import TagPage from "./pages/TagPage.jsx";
 
 // Wrap a page with this to make it "logged-in only".
@@ -41,6 +44,9 @@ export default function App() {
           <Route path="/library" element={<Protected><Library /></Protected>} />
           <Route path="/papers/:id" element={<Protected><PaperDetail /></Protected>} />
           <Route path="/collections/:id" element={<Protected><CollectionDetail /></Protected>} />
+          <Route path="/search" element={<Protected><Search /></Protected>} />
+          <Route path="/ask" element={<Protected><Ask /></Protected>} />
+          <Route path="/admin" element={<Protected><Admin /></Protected>} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>

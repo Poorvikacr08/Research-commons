@@ -1,7 +1,9 @@
 // One paper: details, abstract, save, add to a collection with a private note.
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { api } from "../api.js";
+import { api, apiOptional } from "../api.js";
+import Panel from "../components/Panel.jsx";
+import ResultItem from "../components/ResultItem.jsx";
 import SaveButton from "../components/SaveButton.jsx";
 
 export default function PaperDetail() {
@@ -42,6 +44,7 @@ export default function PaperDetail() {
       </article>
 
       <AddToCollection paper={paper} onDone={load} />
+      <AlsoSaved paperId={paper.id} />
 
       {paper.my_collections.length > 0 && (
         <div className="card">
@@ -100,5 +103,19 @@ function AddToCollection({ paper, onDone }) {
         {message && <span className="muted">{message}</span>}
       </div>
     </form>
+  );
+}
+
+// F6 (Member 3): papers that members who saved this one also saved
+function AlsoSaved({ paperId }) {
+  const [state, setState] = useState(null);
+  useEffect(() => {
+    setState(null);
+    apiOptional(`/papers/${paperId}/also-saved?limit=5`).then(setState);
+  }, [paperId]);
+  return (
+    <Panel title="Members who saved this also saved" state={state} isEmpty={state?.data?.items.length === 0} empty="Not enough saves yet.">
+      <ul className="results">{state?.data?.items.map((i) => <ResultItem key={i.id} item={i} showSave />)}</ul>
+    </Panel>
   );
 }

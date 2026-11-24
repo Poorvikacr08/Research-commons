@@ -64,5 +64,7 @@ app.include_router(library.router, prefix="/api")
 from app.routers import analytics  # noqa: E402  Member 2 (F9)
 
 app.include_router(analytics.router, prefix="/api")
-# from app.routers import intel        # Member 3
-# app.include_router(intel.router, prefix="/api")
+
+from app.routers import intel  # noqa: E402  Member 3 (F5-F8)
+
+app.include_router(intel.router, prefix="/api")

@@ -434,6 +434,39 @@ details summary { color: var(--teal-deep); }
 .matrix td { border: 1px solid rgba(20,33,61,.06); }
 .crumbs { color: var(--muted-ink); }
 
+/* Quiet motion adds life without competing with reading. */
+@keyframes page-arrive {
+  from { opacity: 0; transform: translateY(11px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes nav-arrive {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes seal-float {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-2px) rotate(-1deg); }
+}
+.navbar { animation: nav-arrive .42s cubic-bezier(.2,.7,.25,1) both; }
+.brand-mark { animation: seal-float 5s ease-in-out infinite; }
+.container > section { animation: page-arrive .48s cubic-bezier(.2,.7,.25,1) both; }
+.page-heading .eyebrow { animation: page-arrive .42s ease-out both; }
+.page-heading h1 { animation: page-arrive .5s .06s ease-out both; }
+.page-heading p { animation: page-arrive .5s .12s ease-out both; }
+.card, .panel, .kpi, .collection-tile {
+  animation: page-arrive .42s cubic-bezier(.2,.7,.25,1) both;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.search-grid > .panel:nth-child(2), .sidebar > .panel:nth-child(2) { animation-delay: .06s; }
+.search-grid > .panel:nth-child(3), .sidebar > .panel:nth-child(3) { animation-delay: .12s; }
+.search-grid > .panel:nth-child(4) { animation-delay: .18s; }
+.result { animation: page-arrive .28s ease-out both; transition: transform .16s ease, border-color .16s ease; }
+.result:hover { transform: translateX(3px); border-top-color: #b8d6cc; }
+.tag { transition: transform .16s ease, background .16s ease, border-color .16s ease; }
+.tag:hover { transform: translateY(-1px); }
+.tab, .navbar nav a { transition: color .18s ease, background .18s ease, transform .18s ease; }
+.navbar nav a:hover { transform: translateY(-1px); }
+
 @media (max-width: 980px) {
   .navbar { gap: 12px; padding-inline: 18px; }
   .navbar nav { flex-wrap: wrap; justify-content: flex-end; }
@@ -460,5 +493,5 @@ details summary { color: var(--teal-deep); }
   .table { display: block; overflow-x: auto; white-space: nowrap; }
 }
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
 }

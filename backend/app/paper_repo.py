@@ -2,11 +2,11 @@
 ALL reads/writes of Member 2's papers table go through this file.
 
 The rest of the app only uses the functions below and the PaperOut shape.
->>> MEMBER 2: if your papers / paper_authors / paper_sources columns differ,
->>> change ONLY the SQL in this file (PAPER_SELECT, find_by_identifier, insert_paper).
+If Member 2's papers / paper_authors columns change, change ONLY the SQL in this file.
 
-Current SQL matches the placeholder in db/init/02_papers.sql:
-  papers(id, title, abstract, doi, arxiv_id, url, year, authors, source)
+Matches Member 2's schema in db/init/02_papers.sql:
+  papers(id, title, abstract, doi, arxiv_id, url, publication_year, source, ...)
+  paper_authors(paper_id, author_name, normalized_name, author_position, ...)
 """
 import re
 import uuid
@@ -30,8 +30,12 @@ class PaperOut(BaseModel):
     source: Optional[str] = None
 
 
+# authors are stored one per row in paper_authors; join them into "A, B, C" in author order
 PAPER_SELECT = """
-    SELECT p.id, p.title, p.abstract, p.authors, p.year, p.doi, p.arxiv_id, p.url, p.source
+    SELECT p.id, p.title, p.abstract,
+           (SELECT string_agg(a.author_name, ', ' ORDER BY a.author_position NULLS LAST, a.author_name)
+              FROM paper_authors a WHERE a.paper_id = p.id) AS authors,
+           p.publication_year AS year, p.doi, p.arxiv_id, p.url, p.source
     FROM papers p
 """
 
@@ -59,7 +63,7 @@ def get_paper(session: Session, paper_id: uuid.UUID) -> Optional[PaperOut]:
 
 def search_papers(session: Session, q: str, limit: int = 20) -> List[PaperOut]:
     """Simple title search, used by the 'attach a paper' picker (Member 3 owns real search)."""
-    stmt = text(PAPER_SELECT + " WHERE p.title ILIKE :q ORDER BY p.year DESC NULLS LAST LIMIT :limit")
+    stmt = text(PAPER_SELECT + " WHERE p.title ILIKE :q ORDER BY p.publication_year DESC NULLS LAST LIMIT :limit")
     return [_row_to_paper(r) for r in session.exec(stmt, params={"q": f"%{q}%", "limit": limit})]
 
 
@@ -128,10 +132,16 @@ def fetch_from_openalex(ident: dict) -> Optional[dict]:
 
 
 def insert_paper(session: Session, meta: dict) -> PaperOut:
-    """Add a paper saved by a member. >>> MEMBER 2: adjust to your columns if needed."""
+    """Add a paper saved by a member (row in papers + one row per author in paper_authors)."""
     row = session.exec(text("""
-        INSERT INTO papers (title, abstract, authors, year, doi, arxiv_id, url, source)
-        VALUES (:title, :abstract, :authors, :year, :doi, :arxiv_id, :url, :source)
+        INSERT INTO papers (title, abstract, publication_year, doi, arxiv_id, url, source)
+        VALUES (:title, :abstract, :year, :doi, :arxiv_id, :url, :source)
         RETURNING id
-    """), params=meta).one()
+    """), params={k: meta.get(k) for k in ("title", "abstract", "year", "doi", "arxiv_id", "url", "source")}).one()
+    names = [n.strip() for n in (meta.get("authors") or "").split(",") if n.strip()]
+    for position, name in enumerate(names, start=1):
+        session.exec(text("""
+            INSERT INTO paper_authors (paper_id, author_name, normalized_name, author_position)
+            VALUES (:paper_id, :name, :normalized, :position)
+        """), params={"paper_id": row.id, "name": name, "normalized": name.lower(), "position": position})
     return get_paper(session, row.id)

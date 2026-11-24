@@ -1,47 +1,198 @@
 {
     "description": "Synthetic test data for Chanakya Research Commons",
-    "generated_at": "2026-11-24T17:14:29.206224+00:00",
+    "generated_at": "2026-11-24T19:33:50.156523+00:00",
     "synthetic_email_prefix": "synthetic_",
     "test_password": "Demo@123",
     "spam_accounts": [
         {
             "email": "synthetic_46@researchcommons.demo",
-            "reason": "Synthetic spam test account"
+            "reason": "Synthetic spam test account",
+            "expected_burst_posts": 30,
+            "burst_window_minutes": 60,
+            "expected_burst_upvotes": 30,
+            "expected_burst_user_follows": 10,
+            "expected_burst_topic_follows": 5
         },
         {
             "email": "synthetic_47@researchcommons.demo",
-            "reason": "Synthetic spam test account"
+            "reason": "Synthetic spam test account",
+            "expected_burst_posts": 30,
+            "burst_window_minutes": 60,
+            "expected_burst_upvotes": 30,
+            "expected_burst_user_follows": 10,
+            "expected_burst_topic_follows": 5
         },
         {
             "email": "synthetic_48@researchcommons.demo",
-            "reason": "Synthetic spam test account"
+            "reason": "Synthetic spam test account",
+            "expected_burst_posts": 30,
+            "burst_window_minutes": 60,
+            "expected_burst_upvotes": 30,
+            "expected_burst_user_follows": 10,
+            "expected_burst_topic_follows": 5
         },
         {
             "email": "synthetic_49@researchcommons.demo",
-            "reason": "Synthetic spam test account"
+            "reason": "Synthetic spam test account",
+            "expected_burst_posts": 30,
+            "burst_window_minutes": 60,
+            "expected_burst_upvotes": 30,
+            "expected_burst_user_follows": 10,
+            "expected_burst_topic_follows": 5
         },
         {
             "email": "synthetic_50@researchcommons.demo",
-            "reason": "Synthetic spam test account"
+            "reason": "Synthetic spam test account",
+            "expected_burst_posts": 30,
+            "burst_window_minutes": 60,
+            "expected_burst_upvotes": 30,
+            "expected_burst_user_follows": 10,
+            "expected_burst_topic_follows": 5
         }
     ],
     "topic_spikes": [
         {
             "topic": "artificial intelligence",
-            "period": "last 14 days",
-            "description": "Concentrated synthetic activity for trend detection testing"
+            "comparison": "latest 7 days vs previous 7 days",
+            "latest_7_days_injected_events": 700,
+            "previous_7_days_injected_events": 50,
+            "expected_increase_ratio": 14,
+            "description": "Synthetic AI search activity concentrated in the latest 7 days"
         }
     ],
     "record_counts": {
         "users": 50,
         "posts": 600,
         "comments": 1600,
-        "events": 13850,
+        "events": 14125,
         "user_interests": 150,
         "post_tags": 600,
         "saves": 300,
-        "upvotes": 600,
-        "follow_users": 100,
-        "follow_topics": 150
-    }
+        "upvotes": 750,
+        "follow_users": 150,
+        "follow_topics": 175
+    },
+    "duplicate_paper_pairs": [
+        {
+            "label": "dedup-001",
+            "original_paper_id": "f94fed40-4ff4-42db-8a12-cc12dae4b8c3",
+            "duplicate_paper_id": "24cfd7ff-0681-4e92-ab6f-fec03d466ea7"
+        },
+        {
+            "label": "dedup-002",
+            "original_paper_id": "d204891d-5351-4efa-902d-834eed99024b",
+            "duplicate_paper_id": "57de5c69-3e0c-4ded-a16d-1caa49080840"
+        },
+        {
+            "label": "dedup-003",
+            "original_paper_id": "22eea3d4-03f5-4ff6-9c48-9c40c8927506",
+            "duplicate_paper_id": "f490c6c4-aab5-4e8b-9440-dc210f436b75"
+        }
+    ],
+    "author_name_variants": [
+        {
+            "original_paper_id": "f94fed40-4ff4-42db-8a12-cc12dae4b8c3",
+            "duplicate_paper_id": "24cfd7ff-0681-4e92-ab6f-fec03d466ea7",
+            "variant": "Mirolo, Claudio"
+        },
+        {
+            "original_paper_id": "d204891d-5351-4efa-902d-834eed99024b",
+            "duplicate_paper_id": "57de5c69-3e0c-4ded-a16d-1caa49080840",
+            "variant": "Melot, Hadrien"
+        },
+        {
+            "original_paper_id": "22eea3d4-03f5-4ff6-9c48-9c40c8927506",
+            "duplicate_paper_id": "f490c6c4-aab5-4e8b-9440-dc210f436b75",
+            "variant": "Bell, Tim"
+        }
+    ],
+    "search_relevance_labels": [
+        {
+            "query": "Abstraction in Computer Science Education",
+            "relevant_documents": [
+                {
+                    "paper_id": "f94fed40-4ff4-42db-8a12-cc12dae4b8c3",
+                    "relevance": 2
+                },
+                {
+                    "paper_id": "24cfd7ff-0681-4e92-ab6f-fec03d466ea7",
+                    "relevance": 2
+                },
+                {
+                    "paper_id": "d204891d-5351-4efa-902d-834eed99024b",
+                    "relevance": 0
+                },
+                {
+                    "paper_id": "57de5c69-3e0c-4ded-a16d-1caa49080840",
+                    "relevance": 0
+                },
+                {
+                    "paper_id": "22eea3d4-03f5-4ff6-9c48-9c40c8927506",
+                    "relevance": 0
+                },
+                {
+                    "paper_id": "f490c6c4-aab5-4e8b-9440-dc210f436b75",
+                    "relevance": 0
+                }
+            ]
+        },
+        {
+            "query": "Academic Writing in Computer Science",
+            "relevant_documents": [
+                {
+                    "paper_id": "f94fed40-4ff4-42db-8a12-cc12dae4b8c3",
+                    "relevance": 0
+                },
+                {
+                    "paper_id": "24cfd7ff-0681-4e92-ab6f-fec03d466ea7",
+                    "relevance": 0
+                },
+                {
+                    "paper_id": "d204891d-5351-4efa-902d-834eed99024b",
+                    "relevance": 2
+                },
+                {
+                    "paper_id": "57de5c69-3e0c-4ded-a16d-1caa49080840",
+                    "relevance": 2
+                },
+                {
+                    "paper_id": "22eea3d4-03f5-4ff6-9c48-9c40c8927506",
+                    "relevance": 0
+                },
+                {
+                    "paper_id": "f490c6c4-aab5-4e8b-9440-dc210f436b75",
+                    "relevance": 0
+                }
+            ]
+        },
+        {
+            "query": "A Case Study of the Introduction of Computer Science in NZ Schools",
+            "relevant_documents": [
+                {
+                    "paper_id": "f94fed40-4ff4-42db-8a12-cc12dae4b8c3",
+                    "relevance": 0
+                },
+                {
+                    "paper_id": "24cfd7ff-0681-4e92-ab6f-fec03d466ea7",
+                    "relevance": 0
+                },
+                {
+                    "paper_id": "d204891d-5351-4efa-902d-834eed99024b",
+                    "relevance": 0
+                },
+                {
+                    "paper_id": "57de5c69-3e0c-4ded-a16d-1caa49080840",
+                    "relevance": 0
+                },
+                {
+                    "paper_id": "22eea3d4-03f5-4ff6-9c48-9c40c8927506",
+                    "relevance": 2
+                },
+                {
+                    "paper_id": "f490c6c4-aab5-4e8b-9440-dc210f436b75",
+                    "relevance": 2
+                }
+            ]
+        }
+    ]
 }

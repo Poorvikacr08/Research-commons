@@ -27,7 +27,7 @@ export default function ResultItem({ item, showSave = false }) {
   if (item.type === "person") meta.push(item.department);
   if (item.type === "post") meta.push(item.author?.name ?? item.author);
   if (item.sources?.length) meta.push(item.sources.join(" + "));
-  if (item.save_count != null) meta.push(`saved by ${item.save_count}`);
+  if (item.save_count > 0) meta.push(`saved by ${item.save_count}`);
 
   return (
     <li className="result">

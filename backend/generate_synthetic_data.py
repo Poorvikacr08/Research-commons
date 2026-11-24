@@ -309,10 +309,12 @@ def main():
         print("1600 comments created.")
 
         # --------------------------------------------------
-        # 5. CREATE 12000 ACTIVITY EVENTS
+
+        # --------------------------------------------------
+        # 5. CREATE REAL INTERACTIONS AND MATCHING EVENTS
         # --------------------------------------------------
 
-        print("Creating 12000 activity events...")
+        print("Creating real interactions and activity events...")
 
         paper_rows = conn.execute(
             "SELECT id FROM papers"
@@ -325,16 +327,125 @@ def main():
 
         event_records = []
 
-        event_types = [
-            "view",
-            "search",
-            "save"
-        ]
+        # Create 300 unique saves
+        save_records = []
+        save_pairs = set()
+
+        while len(save_records) < 300:
+            user_id = random.choice(user_ids)
+            paper_id = random.choice(paper_ids)
+            pair = (user_id, paper_id)
+
+            if pair not in save_pairs:
+                save_pairs.add(pair)
+                created_at = random_date(six_months_ago, now)
+                save_records.append((user_id, paper_id, created_at))
+
+                event_records.append((
+                    user_id, "save", "paper", paper_id,
+                    None, None, created_at
+                ))
+
+        # Create 600 unique upvotes
+        upvote_records = []
+        upvote_pairs = set()
+
+        while len(upvote_records) < 600:
+            user_id = random.choice(user_ids)
+            post_id = random.choice(post_ids)
+            pair = (user_id, post_id)
+
+            if pair not in upvote_pairs:
+                upvote_pairs.add(pair)
+                created_at = random_date(six_months_ago, now)
+                upvote_records.append((user_id, post_id, created_at))
+
+                event_records.append((
+                    user_id, "upvote", "post", post_id,
+                    None, None, created_at
+                ))
+
+        # Create 100 unique user follows
+        follow_user_records = []
+        follow_user_pairs = set()
+
+        while len(follow_user_records) < 100:
+            follower_id = random.choice(user_ids)
+            followee_id = random.choice(user_ids)
+            pair = (follower_id, followee_id)
+
+            if follower_id != followee_id and pair not in follow_user_pairs:
+                follow_user_pairs.add(pair)
+                created_at = random_date(six_months_ago, now)
+                follow_user_records.append((
+                    follower_id, followee_id, created_at
+                ))
+
+                event_records.append((
+                    follower_id, "follow", "user", followee_id,
+                    None, None, created_at
+                ))
+
+        # Create 150 unique topic follows
+        follow_topic_records = []
+        follow_topic_pairs = set()
+
+        while len(follow_topic_records) < 150:
+            user_id = random.choice(user_ids)
+            tag = random.choice(TOPICS)
+            pair = (user_id, tag)
+
+            if pair not in follow_topic_pairs:
+                follow_topic_pairs.add(pair)
+                created_at = random_date(six_months_ago, now)
+                follow_topic_records.append((user_id, tag, created_at))
+
+                event_records.append((
+                    user_id, "follow", "topic", None,
+                    tag, None, created_at
+                ))
+
+        # Insert actual interaction records
+        conn.cursor().executemany(
+            """
+            INSERT INTO saves (user_id, paper_id, saved_at)
+            VALUES (%s, %s, %s)
+            """,
+            save_records
+        )
+
+        conn.cursor().executemany(
+            """
+            INSERT INTO upvotes (user_id, post_id, created_at)
+            VALUES (%s, %s, %s)
+            """,
+            upvote_records
+        )
+
+        conn.cursor().executemany(
+            """
+            INSERT INTO follow_users (follower_id, followee_id, created_at)
+            VALUES (%s, %s, %s)
+            """,
+            follow_user_records
+        )
+
+        conn.cursor().executemany(
+            """
+            INSERT INTO follow_topics (user_id, tag, created_at)
+            VALUES (%s, %s, %s)
+            """,
+            follow_topic_records
+        )
+
+        print("300 saves, 600 upvotes, 100 user follows and 150 topic follows created.")
+
+        # Create 12000 normal view/search events
+        print("Creating 12000 activity events...")
 
         for i in range(12000):
-
             user_id = random.choice(user_ids)
-            event_type = random.choice(event_types)
+            event_type = random.choice(["view", "search"])
 
             target_type = None
             target_id = None
@@ -349,26 +460,10 @@ def main():
                 else:
                     target_id = random.choice(post_ids)
 
-            elif event_type == "search":
+            else:
                 target_type = "topic"
                 target_tag = random.choice(TOPICS)
                 query_text = random.choice(SEARCH_QUERIES)
-
-            elif event_type == "save":
-                target_type = "paper"
-                target_id = random.choice(paper_ids)
-
-            elif event_type == "follow":
-                target_type = random.choice(["topic", "user"])
-
-                if target_type == "topic":
-                    target_tag = random.choice(TOPICS)
-                else:
-                    target_id = random.choice(user_ids)
-
-            elif event_type in ["post", "comment", "upvote"]:
-                target_type = "post"
-                target_id = random.choice(post_ids)
 
             created_at = random_date(six_months_ago, now)
 
@@ -382,10 +477,8 @@ def main():
                 created_at
             ))
 
-        # Add 700 concentrated AI topic events in the last 14 days.
-        # This creates a deliberate topic spike for trend detection.
+        # Add 700 concentrated AI topic events
         for i in range(700):
-
             event_records.append((
                 random.choice(user_ids),
                 "search",
@@ -396,6 +489,7 @@ def main():
                 random_date(now - timedelta(days=14), now)
             ))
 
+        # Insert all events, including matching interaction events
         conn.cursor().executemany(
             """
             INSERT INTO events
@@ -406,7 +500,8 @@ def main():
             event_records
         )
 
-        print("12700 activity events created.")
+        print(f"{len(event_records)} activity events created.")
+
 
         # --------------------------------------------------
         # 6. SAVE GROUND TRUTH
@@ -416,9 +511,13 @@ def main():
             "users": 50,
             "posts": 600,
             "comments": 1600,
-            "events": 12700,
+            "events": len(event_records),
             "user_interests": len(interests),
-            "post_tags": len(post_tag_records)
+            "post_tags": len(post_tag_records),
+            "saves": len(save_records),
+            "upvotes": len(upvote_records),
+            "follow_users": len(follow_user_records),
+            "follow_topics": len(follow_topic_records)
         }
 
         os.makedirs("data", exist_ok=True)

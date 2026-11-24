@@ -1,6 +1,6 @@
 {
     "description": "Synthetic test data for Chanakya Research Commons",
-    "generated_at": "2026-11-23T13:47:28.607855+00:00",
+    "generated_at": "2026-11-24T17:14:29.206224+00:00",
     "synthetic_email_prefix": "synthetic_",
     "test_password": "Demo@123",
     "spam_accounts": [
@@ -36,8 +36,12 @@
         "users": 50,
         "posts": 600,
         "comments": 1600,
-        "events": 12700,
+        "events": 13850,
         "user_interests": 150,
-        "post_tags": 600
+        "post_tags": 600,
+        "saves": 300,
+        "upvotes": 600,
+        "follow_users": 100,
+        "follow_topics": 150
     }
 }

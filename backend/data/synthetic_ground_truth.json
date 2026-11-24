@@ -1,0 +1,43 @@
+{
+    "description": "Synthetic test data for Chanakya Research Commons",
+    "generated_at": "2026-11-23T13:47:28.607855+00:00",
+    "synthetic_email_prefix": "synthetic_",
+    "test_password": "Demo@123",
+    "spam_accounts": [
+        {
+            "email": "synthetic_46@researchcommons.demo",
+            "reason": "Synthetic spam test account"
+        },
+        {
+            "email": "synthetic_47@researchcommons.demo",
+            "reason": "Synthetic spam test account"
+        },
+        {
+            "email": "synthetic_48@researchcommons.demo",
+            "reason": "Synthetic spam test account"
+        },
+        {
+            "email": "synthetic_49@researchcommons.demo",
+            "reason": "Synthetic spam test account"
+        },
+        {
+            "email": "synthetic_50@researchcommons.demo",
+            "reason": "Synthetic spam test account"
+        }
+    ],
+    "topic_spikes": [
+        {
+            "topic": "artificial intelligence",
+            "period": "last 14 days",
+            "description": "Concentrated synthetic activity for trend detection testing"
+        }
+    ],
+    "record_counts": {
+        "users": 50,
+        "posts": 600,
+        "comments": 1600,
+        "events": 12700,
+        "user_interests": 150,
+        "post_tags": 600
+    }
+}

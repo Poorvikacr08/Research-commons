@@ -122,3 +122,20 @@ Fake users from the data generator log in with their email and `Demo@123`.
 - Never commit `.env` or any password / API key.
 - Use the agreed IDs (UUID) and response formats.
 - Work on a branch and open a pull request into `main`.
+
+## Member 3 routes
+
+The Member 3 intelligence router is registered from `backend/app/main.py` and uses the shared PostgreSQL session and JWT dependencies.
+
+| Route | Purpose |
+| --- | --- |
+| `GET /api/search?q=...` | Ranked papers, saved library papers, people, and posts; a panel can report an error independently. |
+| `GET /api/recommend/papers` | Content similarity plus co-save recommendations; new users get department-popular or globally popular papers. |
+| `GET /api/recommend/people` | Shared-interest, department, and recent-activity ranking. |
+| `GET /api/papers/{id}/also-saved` | Papers saved by members who saved the requested paper. |
+| `GET /api/trends?days=7` | Current vs. previous window for topic events and post tags; marks simple spikes. |
+| `GET /api/admin/flags` | Admin-only rule flags for high event bursts and repeated post titles. |
+| `GET /api/admin/duplicates` | Admin-only MinHash/LSH candidates, verified with exact Jaccard. |
+| `POST /api/ask` | Extractive answers from stored abstracts with numbered citations and passages. |
+
+Search uses local TF-IDF with curated aliases for common research terms (for example, `AI` and `artificial intelligence`). This is a free, explainable baseline rather than a dense embedding model. Duplicate pair metrics are in `backend/app/mining/duplicates.py`; ranking Precision@K, Recall@K, and MRR helpers are in `backend/app/mining/evaluation.py`. Compute and report metric values once Member 2 supplies generated data and duplicate ground-truth labels.

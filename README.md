@@ -1,4 +1,4 @@
-# Chanakya Research Commons
+# Chanakya ScholarSphere
 
 Research platform for Chanakya University — Data Mining and Warehousing course project.
 

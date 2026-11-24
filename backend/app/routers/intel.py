@@ -71,9 +71,9 @@ def _expanded_query(query: str) -> List[str]:
     return expanded
 
 
-def _tfidf_scores(query: str, documents: Sequence[str]) -> List[float]:
+def _tfidf_scores(query: str, documents: Sequence[str], expand: bool = True) -> List[float]:
     """Cosine similarity using in-process TF-IDF; returns scores from 0 to 1."""
-    q_counts = Counter(_expanded_query(query))
+    q_counts = Counter(_expanded_query(query) if expand else _tokens(query))
     if not q_counts or not documents:
         return [0.0] * len(documents)
     vectors = [Counter(_tokens(doc)) for doc in documents]
@@ -97,7 +97,7 @@ def _table_exists(session: Session, name: str) -> bool:
     return session.exec(text("SELECT to_regclass(:name)"), params={"name": f"public.{name}"}).one()[0] is not None
 
 
-def _paper_rows(session: Session) -> List[Dict[str, Any]]:
+def _paper_rows(session: Session, deduplicate: bool = True) -> List[Dict[str, Any]]:
     """Read either the starter paper table or the normalized Member 2 schema."""
     paper_columns = {r[0] for r in session.exec(text("""
         SELECT column_name FROM information_schema.columns
@@ -145,7 +145,87 @@ def _paper_rows(session: Session) -> List[Dict[str, Any]]:
             authors=r.authors, year=r.year, doi=r.doi, arxiv_id=r.arxiv_id,
             url=r.url, source=r.source, sources=source_list, keywords=r.keywords,
         ))
-    return papers
+    return _deduplicate_papers(papers) if deduplicate else papers
+
+
+def _normalize_identifier(value: Optional[str], kind: str) -> str:
+    value = (value or "").strip().lower()
+    if kind == "doi":
+        value = re.sub(r"^https?://(dx\.)?doi\.org/", "", value)
+        value = re.sub(r"^doi:\s*", "", value)
+    else:
+        value = re.sub(r"^https?://arxiv\.org/(abs|pdf)/", "", value)
+        value = re.sub(r"^arxiv:\s*", "", value)
+        value = re.sub(r"\.pdf$", "", value)
+        value = re.sub(r"v\d+$", "", value)
+    return value.rstrip(" .")
+
+
+def _deduplicate_papers(papers: Sequence[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """Collapse DOI/arXiv matches and very close titles into one searchable record."""
+    if len(papers) < 2:
+        return list(papers)
+    parent = list(range(len(papers)))
+
+    def find(index: int) -> int:
+        while parent[index] != index:
+            parent[index] = parent[parent[index]]
+            index = parent[index]
+        return index
+
+    def union(left: int, right: int) -> None:
+        left_root, right_root = find(left), find(right)
+        if left_root != right_root:
+            parent[right_root] = left_root
+
+    seen: Dict[Tuple[str, str], int] = {}
+    for index, paper in enumerate(papers):
+        for key, value in (("doi", _normalize_identifier(paper.get("doi"), "doi")),
+                           ("arxiv", _normalize_identifier(paper.get("arxiv_id"), "arxiv"))):
+            if value:
+                previous = seen.setdefault((key, value), index)
+                union(index, previous)
+
+    title_pairs = find_near_duplicates(papers, threshold=0.92)
+    index_by_id = {str(paper.get("id")): index for index, paper in enumerate(papers)}
+    for pair in title_pairs:
+        left = index_by_id.get(str(pair["paper_id_1"]))
+        right = index_by_id.get(str(pair["paper_id_2"]))
+        if left is not None and right is not None:
+            union(left, right)
+
+    groups: Dict[int, List[Dict[str, Any]]] = {}
+    for index, paper in enumerate(papers):
+        groups.setdefault(find(index), []).append(paper)
+
+    merged = []
+    for group in groups.values():
+        # Keep the most complete record, with a stable UUID tie-breaker.
+        canonical = max(group, key=lambda p: (sum(bool(p.get(k)) for k in
+                            ("abstract", "doi", "arxiv_id", "url", "authors", "year")),
+                            str(p.get("id", ""))))
+        item = dict(canonical)
+        item["_member_ids"] = [str(p["id"]) for p in group]
+        source_names = []
+        for paper in group:
+            for source in paper.get("sources") or ([paper.get("source")] if paper.get("source") else []):
+                source = str(source).strip()
+                if source and source.lower() not in {s.lower() for s in source_names}:
+                    source_names.append(source)
+        item["sources"] = source_names
+        for key in ("abstract", "doi", "arxiv_id", "url", "authors", "year", "keywords"):
+            if not item.get(key):
+                item[key] = next((p.get(key) for p in group if p.get(key)), None)
+        merged.append(item)
+    return merged
+
+
+def _paper_member_ids(paper: Dict[str, Any]) -> List[str]:
+    return paper.get("_member_ids") or [str(paper["id"])]
+
+
+def _paper_save_count(paper: Dict[str, Any], counts: Dict[str, int]) -> int:
+    return sum(counts.get(paper_id, 0) for paper_id in _paper_member_ids(paper))
 
 
 def _paper_url(p: Dict[str, Any]) -> Optional[str]:
@@ -260,8 +340,8 @@ def unified_search(
             SELECT paper_id, save_count FROM library_save_counts
         """)).all()
         counts = {str(r.paper_id): int(r.save_count) for r in saved}
-        matches = [(p, score) for p, score in ranked_papers if str(p["id"]) in counts]
-        return [_paper_item(p, score, "library", counts[str(p["id"])]) for p, score in matches[:limit]]
+        matches = [(p, score) for p, score in ranked_papers if any(pid in counts for pid in _paper_member_ids(p))]
+        return [_paper_item(p, score, "library", _paper_save_count(p, counts)) for p, score in matches[:limit]]
     library = _safe_panel(session, errors, "library", library_panel)
 
     def people_panel():
@@ -301,7 +381,7 @@ def recommend_papers(
     saved_set = set(saved_ids)
     count_rows = session.exec(text("SELECT paper_id, count(*) AS n FROM saves GROUP BY paper_id")).all()
     counts = {str(r.paper_id): int(r.n) for r in count_rows}
-    candidates = [p for p in papers if str(p["id"]) not in saved_set]
+    candidates = [p for p in papers if not saved_set.intersection(_paper_member_ids(p))]
 
     if not saved_ids and not interests:
         department_counts: Dict[str, int] = {}
@@ -315,8 +395,8 @@ def recommend_papers(
             department_counts = {str(r.paper_id): int(r.n) for r in dept_rows}
         popularity = department_counts or counts
         max_popularity = max(popularity.values(), default=1)
-        ranked = sorted(candidates, key=lambda p: (popularity.get(str(p["id"]), 0), counts.get(str(p["id"]), 0), p.get("year") or 0), reverse=True)
-        return {"strategy": "popular", "items": [_paper_item(p, popularity.get(str(p["id"]), 0) / max_popularity, "paper", counts.get(str(p["id"]), 0)) for p in ranked[:limit]]}
+        ranked = sorted(candidates, key=lambda p: (sum(popularity.get(pid, 0) for pid in _paper_member_ids(p)), _paper_save_count(p, counts), p.get("year") or 0), reverse=True)
+        return {"strategy": "popular", "items": [_paper_item(p, sum(popularity.get(pid, 0) for pid in _paper_member_ids(p)) / max_popularity, "paper", _paper_save_count(p, counts)) for p in ranked[:limit]]}
 
     query_parts = list(interests)
     if saved_ids:
@@ -346,9 +426,9 @@ def recommend_papers(
             ranked_items.append((p, score))
     ranked_items.sort(key=lambda pair: pair[1], reverse=True)
     if not ranked_items:
-        ranked_items = sorted(candidates, key=lambda p: counts.get(str(p["id"]), 0), reverse=True)[:limit]
-        return {"strategy": "popular", "items": [_paper_item(p, 0.0, "paper", counts.get(str(p["id"]), 0)) for p in ranked_items]}
-    return {"strategy": "personalized", "items": [_paper_item(p, score, "paper", counts.get(str(p["id"]), 0)) for p, score in ranked_items[:limit]]}
+        ranked_items = sorted(candidates, key=lambda p: _paper_save_count(p, counts), reverse=True)[:limit]
+        return {"strategy": "popular", "items": [_paper_item(p, 0.0, "paper", _paper_save_count(p, counts)) for p in ranked_items]}
+    return {"strategy": "personalized", "items": [_paper_item(p, score, "paper", _paper_save_count(p, counts)) for p, score in ranked_items[:limit]]}
 
 
 @router.get("/recommend/people")
@@ -403,13 +483,23 @@ def also_saved(
         WHERE s1.paper_id = :pid AND s2.paper_id <> :pid
         GROUP BY s2.paper_id ORDER BY support DESC LIMIT :limit
     """), params={"pid": paper_id, "limit": _limit(limit, 20)}).all()
-    docs_by_id = {str(p["id"]): p for p in _paper_rows(session)}
-    max_support = max((int(r.support) for r in rows), default=1)
-    items = []
+    docs_by_id: Dict[str, Dict[str, Any]] = {}
+    for paper in _paper_rows(session):
+        for member_id in _paper_member_ids(paper):
+            docs_by_id[member_id] = paper
+    support_by_paper: Dict[str, int] = {}
+    counts_by_id: Dict[str, int] = {}
     for row in rows:
         paper = docs_by_id.get(str(row.paper_id))
         if paper:
-            items.append(_paper_item(paper, int(row.support) / max_support, "paper", int(row.support)))
+            paper_id = str(paper["id"])
+            support_by_paper[paper_id] = support_by_paper.get(paper_id, 0) + int(row.support)
+            counts_by_id[str(row.paper_id)] = int(row.support)
+    max_support = max(support_by_paper.values(), default=1)
+    items = []
+    for paper_id, support in sorted(support_by_paper.items(), key=lambda item: item[1], reverse=True):
+        paper = docs_by_id[paper_id]
+        items.append(_paper_item(paper, support / max_support, "paper", _paper_save_count(paper, counts_by_id)))
     return {"items": items}
 
 
@@ -456,7 +546,7 @@ def admin_flags(
     session: Session = Depends(get_session),
     admin: User = Depends(require_admin),
 ):
-    """Rule-based moderation flags for weekly bursts and repeated post titles in the last month."""
+    """Flag high-rate posting, link spam, mass upvotes/follows, and repeated titles."""
     rows = session.exec(text("""
         WITH activity AS (
             SELECT user_id, count(*) AS total_events,
@@ -473,17 +563,68 @@ def admin_flags(
                 FROM posts WHERE created_at >= now() - interval '30 days'
                 GROUP BY author_id, lower(regexp_replace(trim(title), '\\s+', ' ', 'g'))
             ) t WHERE n >= 3 GROUP BY author_id
+        ), link_bursts AS (
+            SELECT p.author_id AS user_id, max(burst.n) AS link_burst_count,
+                   max(p.created_at) AS last_post
+            FROM posts p
+            CROSS JOIN LATERAL (
+                SELECT count(*) AS n
+                FROM posts p2
+                WHERE p2.author_id = p.author_id
+                  AND lower(substring(p2.body FROM '(https?://[^[:space:]]+)')) =
+                      lower(substring(p.body FROM '(https?://[^[:space:]]+)'))
+                  AND substring(p.body FROM '(https?://[^[:space:]]+)') IS NOT NULL
+                  AND p2.created_at BETWEEN p.created_at AND p.created_at + interval '1 hour'
+            ) burst
+            WHERE p.created_at >= now() - interval '7 days'
+            GROUP BY p.author_id
+        ), upvote_bursts AS (
+            SELECT u1.user_id, max(burst.n) AS upvote_burst_count
+            FROM upvotes u1
+            CROSS JOIN LATERAL (
+                SELECT count(*) AS n FROM upvotes u2
+                WHERE u2.user_id = u1.user_id
+                  AND u2.created_at BETWEEN u1.created_at AND u1.created_at + interval '1 hour'
+            ) burst
+            WHERE u1.created_at >= now() - interval '7 days'
+            GROUP BY u1.user_id
+        ), follow_activity AS (
+            SELECT follower_id AS user_id, created_at FROM follow_users
+            UNION ALL SELECT user_id, created_at FROM follow_topics
+        ), follow_bursts AS (
+            SELECT f1.user_id, max(burst.n) AS follow_burst_count
+            FROM follow_activity f1
+            CROSS JOIN LATERAL (
+                SELECT count(*) AS n FROM follow_activity f2
+                WHERE f2.user_id = f1.user_id
+                  AND f2.created_at BETWEEN f1.created_at AND f1.created_at + interval '10 minutes'
+            ) burst
+            WHERE f1.created_at >= now() - interval '7 days'
+            GROUP BY f1.user_id
         )
         SELECT u.id AS user_id, u.name, coalesce(a.total_events, 0) AS total_events,
                coalesce(a.content_events, 0) AS content_events,
                coalesce(r.repeat_count, 0) AS repeat_count,
-               greatest(a.last_event, r.last_post) AS flagged_at
+               coalesce(l.link_burst_count, 0) AS link_burst_count,
+               coalesce(v.upvote_burst_count, 0) AS upvote_burst_count,
+               coalesce(f.follow_burst_count, 0) AS follow_burst_count,
+               greatest(a.last_event, r.last_post, l.last_post) AS flagged_at
         FROM users u LEFT JOIN activity a ON a.user_id = u.id
         LEFT JOIN repeated r ON r.user_id = u.id
+        LEFT JOIN link_bursts l ON l.user_id = u.id
+        LEFT JOIN upvote_bursts v ON v.user_id = u.id
+        LEFT JOIN follow_bursts f ON f.user_id = u.id
         WHERE coalesce(a.total_events, 0) >= 40
            OR coalesce(a.content_events, 0) >= 12
            OR coalesce(r.repeat_count, 0) >= 3
-        ORDER BY coalesce(r.repeat_count, 0) DESC, coalesce(a.total_events, 0) DESC
+           OR coalesce(l.link_burst_count, 0) >= 10
+           OR coalesce(v.upvote_burst_count, 0) >= 20
+           OR coalesce(f.follow_burst_count, 0) >= 20
+        ORDER BY coalesce(l.link_burst_count, 0) DESC,
+                 coalesce(v.upvote_burst_count, 0) DESC,
+                 coalesce(f.follow_burst_count, 0) DESC,
+                 coalesce(r.repeat_count, 0) DESC,
+                 coalesce(a.total_events, 0) DESC
         LIMIT :limit
     """), params={"limit": _limit(limit, 100)}).all()
     items = []
@@ -495,7 +636,15 @@ def admin_flags(
             reasons.append(f"High posting/comment activity ({int(r.content_events)} events in 7 days)")
         if r.total_events >= 40:
             reasons.append(f"Unusually high activity ({int(r.total_events)} events in 7 days)")
-        score = min(1.0, max(float(r.repeat_count) / 5.0, float(r.content_events) / 24.0, float(r.total_events) / 80.0))
+        if r.link_burst_count >= 10:
+            reasons.append(f"Repeated the same link in {int(r.link_burst_count)} posts within an hour")
+        if r.upvote_burst_count >= 20:
+            reasons.append(f"Unusually many upvotes ({int(r.upvote_burst_count)} within an hour)")
+        if r.follow_burst_count >= 20:
+            reasons.append(f"Unusually many follows ({int(r.follow_burst_count)} within 10 minutes)")
+        score = min(1.0, max(float(r.repeat_count) / 5.0, float(r.content_events) / 24.0,
+                             float(r.total_events) / 80.0, float(r.link_burst_count) / 30.0,
+                             float(r.upvote_burst_count) / 50.0, float(r.follow_burst_count) / 50.0))
         flagged_at = r.flagged_at.isoformat() if r.flagged_at else datetime.now(timezone.utc).isoformat()
         items.append({"user_id": str(r.user_id), "name": r.name, "reason": "; ".join(reasons), "score": round(score, 3), "flagged_at": flagged_at})
     return {"items": items}
@@ -509,7 +658,7 @@ def admin_duplicate_candidates(
     admin: User = Depends(require_admin),
 ):
     """Show MinHash/LSH candidates after exact Jaccard verification."""
-    pairs = find_near_duplicates(_paper_rows(session), threshold=threshold)
+    pairs = find_near_duplicates(_paper_rows(session, deduplicate=False), threshold=threshold)
     return {"threshold": threshold, "algorithm": "MinHash + LSH + exact Jaccard", "items": pairs[:_limit(limit, 500)]}
 
 def _sentences(text_value: str) -> List[str]:

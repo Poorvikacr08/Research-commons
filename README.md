@@ -109,6 +109,21 @@ and the API returns `{"error": {"code": ..., "message": ...}}`.
 
 Fake users from the data generator log in with their email and `Demo@123`.
 
+## Shared paper catalog
+
+The 500-paper PostgreSQL export is stored in `db/papers_data.sql`. On a brand-new
+PostgreSQL volume, Docker Compose loads it automatically after the schema and
+admin initialization scripts. If you already have a database volume without
+papers, run this once from the repository folder in Windows PowerShell:
+
+```powershell
+.\db\import_papers.ps1
+```
+
+The script starts the database if needed, skips the import when papers already
+exist, and otherwise loads the shared catalog. Run the synthetic data generator
+only after the paper rows are present.
+
 ## Auth routes (Member 1)
 
 | Route | Body | Returns |

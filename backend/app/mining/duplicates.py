@@ -10,6 +10,17 @@ def _normalize(text: str) -> str:
     return " ".join(re.findall(r"[a-z0-9]+", (text or "").lower()))
 
 
+def _normalize_identifier(value: str | None, kind: str) -> str:
+    value = (value or "").strip().lower()
+    if kind == "doi":
+        value = re.sub(r"^https?://(dx\.)?doi\.org/", "", value)
+        value = re.sub(r"^doi:\s*", "", value)
+    else:
+        value = re.sub(r"^https?://arxiv\.org/(abs|pdf)/", "", value)
+        value = re.sub(r"\.pdf$", "", value)
+    return value.rstrip(" .")
+
+
 def shingles(text: str, width: int = 5) -> Set[str]:
     """Character shingles tolerate small edits, punctuation, and title variants."""
     normalized = _normalize(text)
@@ -58,33 +69,45 @@ def find_near_duplicates(
     for paper in papers:
         title = str(paper.get("title") or "")
         text = f"{title} {title}"  # title weight reduces matches on generic short phrases
-        prepared.append((str(paper.get("id", "")), title, shingles(text)))
+        prepared.append((str(paper.get("id", "")), title, shingles(text), paper))
     signatures = [_signature(item[2], num_perm) for item in prepared]
     rows_per_band = num_perm // bands
     buckets: Dict[Tuple[int, Tuple[int, ...]], List[int]] = {}
-    candidates: Set[Tuple[int, int]] = set()
+    candidates: Dict[Tuple[int, int], Set[str]] = {}
+    seen_identifiers: Dict[Tuple[str, str], int] = {}
+    for index, (_, _, _, paper) in enumerate(prepared):
+        for kind, field in (("doi", "doi"), ("arxiv_id", "arxiv_id")):
+            value = _normalize_identifier(paper.get(field), "doi" if kind == "doi" else "arxiv")
+            if not value:
+                continue
+            key = (kind, value)
+            other = seen_identifiers.setdefault(key, index)
+            if other != index:
+                candidates.setdefault((min(other, index), max(other, index)), set()).add(kind)
     for index, signature in enumerate(signatures):
         for band in range(bands):
             start = band * rows_per_band
             key = (band, signature[start:start + rows_per_band])
             for other in buckets.get(key, []):
-                candidates.add((other, index))
+                candidates.setdefault((other, index), set()).add("title")
             buckets.setdefault(key, []).append(index)
 
     results = []
-    for left_index, right_index in sorted(candidates):
-        left_id, left_title, left_shingles = prepared[left_index]
-        right_id, right_title, right_shingles = prepared[right_index]
+    for (left_index, right_index), reasons in sorted(candidates.items()):
+        left_id, left_title, left_shingles, _ = prepared[left_index]
+        right_id, right_title, right_shingles, _ = prepared[right_index]
         if not left_id or not right_id or left_id == right_id:
             continue
         similarity = jaccard(left_shingles, right_shingles)
-        if similarity >= threshold:
+        reason = "doi" if "doi" in reasons else "arxiv_id" if "arxiv_id" in reasons else "title"
+        if reason != "title" or similarity >= threshold:
             results.append({
                 "paper_id_1": left_id,
                 "title_1": left_title,
                 "paper_id_2": right_id,
                 "title_2": right_title,
                 "jaccard": round(similarity, 4),
+                "match_reason": reason,
             })
     return sorted(results, key=lambda item: float(item["jaccard"]), reverse=True)
 

@@ -523,9 +523,9 @@ details summary { color: var(--teal-deep); }
 .welcome-campus img.image-unavailable { opacity: 0; }
 .campus-image-fallback { display: grid; place-items: center; color: rgba(255,255,255,.22); background: linear-gradient(135deg, #cbbd9b, #6d7f76 48%, #314a57); }
 .campus-image-fallback span { font-family: Georgia, serif; font-size: clamp(120px, 23vw, 280px); font-weight: 700; letter-spacing: -.1em; }
-.welcome-campus figcaption { position: absolute; z-index: 3; right: 22px; bottom: 20px; left: 22px; display: flex; justify-content: space-between; align-items: end; gap: 14px; color: white; font-size: 10px; letter-spacing: .11em; text-transform: uppercase; }
+.welcome-campus figcaption { position: absolute; z-index: 4; right: 22px; bottom: 20px; left: 22px; display: flex; justify-content: space-between; align-items: end; gap: 14px; color: white; font-size: 10px; letter-spacing: .11em; text-transform: uppercase; }
 .welcome-campus figcaption a { color: #fff; font-size: 10px; letter-spacing: .03em; text-align: right; text-decoration: none; text-transform: none; }
-.campus-seal { position: absolute; z-index: 3; top: 18px; right: 18px; display: grid; width: 58px; height: 58px; align-content: center; border: 1px solid rgba(255,255,255,.76); border-radius: 50%; color: white; background: rgba(18,33,61,.23); font-family: Georgia, serif; font-size: 10px; line-height: 1.22; text-align: center; backdrop-filter: blur(5px); }
+.campus-seal { position: absolute; z-index: 4; top: 18px; right: 18px; display: grid; width: 58px; height: 58px; align-content: center; border: 1px solid rgba(255,255,255,.76); border-radius: 50%; color: white; background: rgba(18,33,61,.23); font-family: Georgia, serif; font-size: 10px; line-height: 1.22; text-align: center; backdrop-filter: blur(5px); }
 .welcome-footnote { display: flex; justify-content: space-between; gap: 18px; padding-top: 16px; border-top: 1px solid #e3dfd5; color: #7c827f; font-size: 9px; letter-spacing: .16em; }
 .welcome-footnote span:first-child { color: #39485a; font-weight: 800; }
 
@@ -539,8 +539,8 @@ details summary { color: var(--teal-deep); }
 .research-masthead-copy .button { display: inline-flex; gap: 18px; align-items: center; min-height: 42px; border: 1px solid rgba(255,255,255,.24); color: var(--navy); background: var(--gold-light); box-shadow: none; }
 .research-masthead-copy .button:hover { color: var(--navy); background: #f5dfb5; }
 .research-masthead-image { position: relative; min-height: 300px; background: #858a7d url("https://chanakyauniversity.edu.in/wp-content/uploads/2024/06/Aerial-View1.jpg") center 48% / cover no-repeat; }
-.research-masthead-image::after { position: absolute; inset: 40% 0 0; content: ""; background: linear-gradient(180deg, transparent, rgba(14,27,43,.65)); }
-.research-masthead-image > span { position: absolute; z-index: 1; right: 18px; bottom: 17px; color: white; font-size: 9px; font-weight: 700; letter-spacing: .17em; }
+.research-masthead-image::after { position: absolute; z-index: 1; inset: 40% 0 0; content: ""; background: linear-gradient(180deg, transparent, rgba(14,27,43,.65)); }
+.research-masthead-image > span { position: absolute; z-index: 3; right: 18px; bottom: 17px; color: white; font-size: 9px; font-weight: 700; letter-spacing: .17em; }
 .research-masthead-image i { color: var(--gold-light); font-style: normal; }
 .home-layout > .with-sidebar { width: 100%; }
 

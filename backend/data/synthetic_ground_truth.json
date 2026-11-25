@@ -1,6 +1,6 @@
 {
     "description": "Synthetic test data for Chanakya Research Commons",
-    "generated_at": "2026-11-24T19:33:50.156523+00:00",
+    "generated_at": "2026-11-25T09:54:59.430263+00:00",
     "synthetic_email_prefix": "synthetic_",
     "test_password": "Demo@123",
     "spam_accounts": [
@@ -76,33 +76,33 @@
         {
             "label": "dedup-001",
             "original_paper_id": "f94fed40-4ff4-42db-8a12-cc12dae4b8c3",
-            "duplicate_paper_id": "24cfd7ff-0681-4e92-ab6f-fec03d466ea7"
+            "duplicate_paper_id": "84c46901-dacd-4ec7-a611-fad6e617bbb0"
         },
         {
             "label": "dedup-002",
             "original_paper_id": "d204891d-5351-4efa-902d-834eed99024b",
-            "duplicate_paper_id": "57de5c69-3e0c-4ded-a16d-1caa49080840"
+            "duplicate_paper_id": "dfa7c723-1f79-450b-9f1b-7ceed484abdd"
         },
         {
             "label": "dedup-003",
             "original_paper_id": "22eea3d4-03f5-4ff6-9c48-9c40c8927506",
-            "duplicate_paper_id": "f490c6c4-aab5-4e8b-9440-dc210f436b75"
+            "duplicate_paper_id": "58fb7d93-37c0-4f84-bee6-2ac0c843cee4"
         }
     ],
     "author_name_variants": [
         {
             "original_paper_id": "f94fed40-4ff4-42db-8a12-cc12dae4b8c3",
-            "duplicate_paper_id": "24cfd7ff-0681-4e92-ab6f-fec03d466ea7",
+            "duplicate_paper_id": "84c46901-dacd-4ec7-a611-fad6e617bbb0",
             "variant": "Mirolo, Claudio"
         },
         {
             "original_paper_id": "d204891d-5351-4efa-902d-834eed99024b",
-            "duplicate_paper_id": "57de5c69-3e0c-4ded-a16d-1caa49080840",
+            "duplicate_paper_id": "dfa7c723-1f79-450b-9f1b-7ceed484abdd",
             "variant": "Melot, Hadrien"
         },
         {
             "original_paper_id": "22eea3d4-03f5-4ff6-9c48-9c40c8927506",
-            "duplicate_paper_id": "f490c6c4-aab5-4e8b-9440-dc210f436b75",
+            "duplicate_paper_id": "58fb7d93-37c0-4f84-bee6-2ac0c843cee4",
             "variant": "Bell, Tim"
         }
     ],
@@ -115,7 +115,7 @@
                     "relevance": 2
                 },
                 {
-                    "paper_id": "24cfd7ff-0681-4e92-ab6f-fec03d466ea7",
+                    "paper_id": "84c46901-dacd-4ec7-a611-fad6e617bbb0",
                     "relevance": 2
                 },
                 {
@@ -123,7 +123,7 @@
                     "relevance": 0
                 },
                 {
-                    "paper_id": "57de5c69-3e0c-4ded-a16d-1caa49080840",
+                    "paper_id": "dfa7c723-1f79-450b-9f1b-7ceed484abdd",
                     "relevance": 0
                 },
                 {
@@ -131,7 +131,7 @@
                     "relevance": 0
                 },
                 {
-                    "paper_id": "f490c6c4-aab5-4e8b-9440-dc210f436b75",
+                    "paper_id": "58fb7d93-37c0-4f84-bee6-2ac0c843cee4",
                     "relevance": 0
                 }
             ]
@@ -144,7 +144,7 @@
                     "relevance": 0
                 },
                 {
-                    "paper_id": "24cfd7ff-0681-4e92-ab6f-fec03d466ea7",
+                    "paper_id": "84c46901-dacd-4ec7-a611-fad6e617bbb0",
                     "relevance": 0
                 },
                 {
@@ -152,7 +152,7 @@
                     "relevance": 2
                 },
                 {
-                    "paper_id": "57de5c69-3e0c-4ded-a16d-1caa49080840",
+                    "paper_id": "dfa7c723-1f79-450b-9f1b-7ceed484abdd",
                     "relevance": 2
                 },
                 {
@@ -160,7 +160,7 @@
                     "relevance": 0
                 },
                 {
-                    "paper_id": "f490c6c4-aab5-4e8b-9440-dc210f436b75",
+                    "paper_id": "58fb7d93-37c0-4f84-bee6-2ac0c843cee4",
                     "relevance": 0
                 }
             ]
@@ -173,7 +173,7 @@
                     "relevance": 0
                 },
                 {
-                    "paper_id": "24cfd7ff-0681-4e92-ab6f-fec03d466ea7",
+                    "paper_id": "84c46901-dacd-4ec7-a611-fad6e617bbb0",
                     "relevance": 0
                 },
                 {
@@ -181,7 +181,7 @@
                     "relevance": 0
                 },
                 {
-                    "paper_id": "57de5c69-3e0c-4ded-a16d-1caa49080840",
+                    "paper_id": "dfa7c723-1f79-450b-9f1b-7ceed484abdd",
                     "relevance": 0
                 },
                 {
@@ -189,7 +189,7 @@
                     "relevance": 2
                 },
                 {
-                    "paper_id": "f490c6c4-aab5-4e8b-9440-dc210f436b75",
+                    "paper_id": "58fb7d93-37c0-4f84-bee6-2ac0c843cee4",
                     "relevance": 2
                 }
             ]

@@ -117,7 +117,7 @@ function TopicExplorer() {
             </table>
           ) : (
             <ResponsiveContainer width="100%" height={260}>
-              <LineChart data={rows} margin={{ top: 10, right: 110, bottom: 0, left: -10 }}>
+              <LineChart data={rows} margin={{ top: 10, right: 160, bottom: 0, left: -10 }}>
                 <CartesianGrid stroke={GRID} vertical={false} />
                 <XAxis dataKey="period" tick={{ fill: MUTED, fontSize: 12 }} axisLine={{ stroke: GRID }} tickLine={false} />
                 <YAxis tick={{ fill: MUTED, fontSize: 12 }} axisLine={false} tickLine={false} allowDecimals={false} tickFormatter={fmt} />

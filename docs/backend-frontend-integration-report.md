@@ -9,7 +9,7 @@
 
 The React production bundle builds successfully. An automated static contract check confirms that the frontend API calls map to registered FastAPI routes and that the `/api` proxy targets the expected local and Compose backend addresses. The confirmed Member 2/Member 3 evaluation-label mismatch is fixed with an adapter that accepts both schemas; the evaluator now defaults to the shared synthetic ground-truth file. Five focused regression tests, Python source compilation, ground-truth JSON parsing, and isolated duplicate/ranking metric checks pass.
 
-The user subsequently ran the stack locally. The paper catalog import and synthetic generator completed, and the evaluator successfully queried the Docker PostgreSQL database. This confirms database connectivity for those jobs. The measured ranking and deduplication results are mixed: search aliases tied the lexical baseline, co-save recommendations trailed popularity, and duplicate precision was very low against the three planted pairs. Browser-to-API flows (sign-in, save, search page, recommendations, and admin UI) still need a manual check in the user's browser. There is no frontend `npm test` script. A local FastAPI import attempt in the coding environment failed under Python 3.14.7 while building SQLModel models; the project's Dockerfile targets Python 3.12, so that host result does not establish a failure in the intended container runtime.
+The user subsequently ran the stack locally. The paper catalog import and synthetic generator completed, and the evaluator successfully queried the Docker PostgreSQL database. This confirms database connectivity for those jobs. In the latest evaluation, the detector found all three planted duplicate pairs, while 189 additional pairs remain unreviewed; the incomplete labels do not support precision/F1. Search aliases tied the lexical baseline, and co-save recommendations trailed popularity on synthetic interactions. Browser-to-API flows (sign-in, save, search page, recommendations, and admin UI) still need a manual check in the user's browser. There is no frontend `npm test` script. A local FastAPI import attempt in the coding environment failed under Python 3.14.7 while building SQLModel models; the project's Dockerfile targets Python 3.12, so that host result does not establish a failure in the intended container runtime.
 
 ## Checks performed
 
@@ -37,22 +37,23 @@ The user subsequently ran the stack locally. The paper catalog import and synthe
 
 | Metric | Result |
 | --- | ---: |
-| TF-IDF + aliases Precision@10 | 0.1333 |
+| TF-IDF + aliases Precision@10 | 0.1000 |
 | TF-IDF + aliases MRR | 1.0000 |
-| Lexical TF-IDF baseline Precision@10 | 0.1333 |
+| Lexical TF-IDF baseline Precision@10 | 0.1000 |
 | Lexical TF-IDF baseline MRR | 1.0000 |
-| Initial detector planted-pair matches / unreviewed candidates / planted pairs missed | 2 / 186 / 1 |
-| Initial detector recall against the three planted pairs | 0.6667 |
-| Co-save recommendation hit@10 | 0.0638 |
-| Popular recommendation hit@10 | 0.1064 |
+| Detector planted-pair matches / unreviewed candidates / planted pairs missed | 3 / 189 / 0 |
+| Recall against the three planted pairs | 1.0000 |
+| Duplicate precision / F1 | Not reported (ground truth is incomplete) |
+| Co-save recommendation hit@10 | 0.1064 |
+| Popular recommendation hit@10 | 0.1702 |
 | Recommendation users evaluated | 47 |
 
-Search placed a relevant result first for every labeled query (MRR 1.0), but only about 1.33 relevant items appeared per top ten on average; aliases did not improve these labels over plain lexical TF-IDF. Co-save recommendations performed below the popularity baseline. Member 2 confirmed the synthetic saves only test feature population, not realistic preferences, so these recommendation values should not be interpreted as evidence about real users. Member 2 also confirmed the 186 pairs outside the three planted pairs are unreviewed candidates, not validated false positives; precision/F1 therefore cannot be claimed from this incomplete ground truth. The missed planted pair has identical 777-character abstracts but no DOI/arXiv identifier. The detector now checks exact normalized abstracts as well as identifiers and title similarity, and the evaluator suppresses precision/F1 unless the duplicate labels are explicitly complete. Rerun evaluation to record results from the updated detector.
+Search placed a relevant result first for every labeled query (MRR 1.0), with one relevant item per top ten on average; aliases did not improve these labels over plain lexical TF-IDF. The updated detector finds all three planted pairs, including the title variant with an identical 777-character abstract and no DOI/arXiv identifier. The other 189 candidates are unreviewed, not confirmed false positives, so precision/F1 are withheld. Co-save recommendations remain below the popularity baseline. Member 2 confirmed the synthetic saves only test feature population, not realistic preferences, so these recommendation values should not be interpreted as evidence about real users.
 
 ## Findings and follow-up
 
-1. **Re-evaluate deduplication.** The detector now uses exact normalized abstract matches, which should catch the title-variant pair with identical abstracts. Rerun against the live database. Ask Member 2 to review more candidates before reporting precision/F1.
-2. **Recommendation evaluation.** Synthetic saves populate the feature and are not validated behavior. Do not interpret co-save hit@10 (0.0638) versus popularity (0.1064) as real preference performance; describe it as a synthetic-data smoke comparison or collect reviewed interaction labels.
+1. **Review more duplicate candidates.** The latest run recalled all three planted pairs. Ask Member 2 to label additional candidates before reporting duplicate precision/F1.
+2. **Recommendation evaluation.** Synthetic saves populate the feature and are not validated behavior. Do not interpret co-save hit@10 (0.1064) versus popularity (0.1702) as real preference performance; describe it as a synthetic-data smoke comparison or collect reviewed interaction labels.
 3. **Manual browser integration.** In the local browser, sign in, search for a seeded paper, save/unsave it, check recommendations and the library, then exercise trends, Ask, and admin-only pages. The evaluator and generator validate backend/database access, not these UI flows.
 4. **Frontend bundle-size warning.** Vite reports the generated JavaScript bundle at 614 kB minified, above its 500 kB advisory threshold. Build succeeds; code splitting could reduce initial download size.
 
@@ -73,4 +74,4 @@ Then open `http://localhost:5173/`.
 
 ## Overall status
 
-**Route wiring: contract-tested. Production build and focused backend tests: pass. Paper catalog and synthetic data: loaded locally. Evaluation: executed; search matches baseline, duplicate precision and co-save recommendations need improvement. Manual browser integration remains to be checked.**
+**Route wiring: contract-tested. Production build and focused backend tests: pass. Paper catalog and synthetic data: loaded locally. The detector recalls all planted pairs; duplicate precision remains unknown until candidates are reviewed. Search matches baseline; synthetic co-save recommendations trail popularity. Manual browser integration remains to be checked.**

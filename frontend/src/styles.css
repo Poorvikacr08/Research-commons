@@ -244,27 +244,11 @@ h2 { font-size: clamp(1.45rem, 2.5vw, 2rem); }
   display: inline-flex;
   align-items: center;
   flex: 0 0 auto;
-  gap: 12px;
   color: #fffdf8;
   text-decoration: none;
 }
 .brand-lockup:hover { color: white; text-decoration: none; }
-.brand-mark {
-  display: grid;
-  width: 46px;
-  height: 46px;
-  place-items: center;
-  border: 1px solid rgba(240, 211, 158, .72);
-  border-radius: 15px 15px 15px 5px;
-  color: var(--navy);
-  background: linear-gradient(145deg, #f1d69f, #d6a75c);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.45), 0 4px 12px rgba(4, 13, 26, .18);
-  transform: rotate(-3deg);
-}
-.brand-mark span { font-family: Georgia, serif; font-size: 15px; font-weight: 800; letter-spacing: -.08em; transform: rotate(3deg); }
-.brand-copy { display: flex; flex-direction: column; gap: 1px; line-height: 1; }
-.brand-copy strong { font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif; font-size: 18px; font-weight: 600; letter-spacing: .005em; }
-.brand-copy > span { color: var(--gold-light); font-size: 11px; font-weight: 700; letter-spacing: .19em; text-transform: uppercase; }
+.brand-logo { display: block; width: 242px; height: auto; }
 .navbar nav { gap: 5px; }
 .navbar nav a {
   position: relative;
@@ -448,7 +432,7 @@ details summary { color: var(--teal-deep); }
   50% { transform: translateY(-2px) rotate(-1deg); }
 }
 .navbar { animation: nav-arrive .42s cubic-bezier(.2,.7,.25,1) both; }
-.brand-mark { animation: seal-float 5s ease-in-out infinite; }
+  .brand-logo { animation: seal-float 5s ease-in-out infinite; }
 .container > section { animation: page-arrive .48s cubic-bezier(.2,.7,.25,1) both; }
 .page-heading .eyebrow { animation: page-arrive .42s ease-out both; }
 .page-heading h1 { animation: page-arrive .5s .06s ease-out both; }
@@ -478,7 +462,7 @@ details summary { color: var(--teal-deep); }
 }
 @media (max-width: 620px) {
   .navbar { position: static; align-items: flex-start; flex-wrap: wrap; }
-  .brand-mark { width: 40px; height: 40px; }
+  .brand-logo { width: 218px; }
   .navbar nav { width: 100%; justify-content: flex-start; gap: 3px; }
   .navbar nav a { padding: 8px 10px; }
   .container { width: min(100% - 24px, 1160px); margin: 28px auto 48px; }

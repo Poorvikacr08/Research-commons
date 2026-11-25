@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 92" role="img" aria-labelledby="logo-title logo-desc">
+  <title id="logo-title">Chanakya ScholarSphere</title>
+  <desc id="logo-desc">An open book inside a golden orbital seal, paired with the Chanakya ScholarSphere wordmark.</desc>
+  <defs>
+    <linearGradient id="orbit-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f4dfaF"/>
+      <stop offset="1" stop-color="#cf9b4c"/>
+    </linearGradient>
+    <linearGradient id="page-light" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fffefa"/>
+      <stop offset="1" stop-color="#e9e0ce"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(6 8)">
+    <circle cx="38" cy="38" r="33" fill="#14213d" stroke="url(#orbit-gold)" stroke-width="1.7"/>
+    <ellipse cx="38" cy="38" rx="38" ry="16" transform="rotate(-38 38 38)" fill="none" stroke="url(#orbit-gold)" stroke-width="1.8"/>
+    <circle cx="65" cy="13" r="3.2" fill="#f4dfaf"/>
+    <path d="M15 34c8-4 15-2 23 3v22c-8-5-15-7-23-3z" fill="url(#page-light)"/>
+    <path d="M61 34c-8-4-15-2-23 3v22c8-5 15-7 23-3z" fill="url(#page-light)"/>
+    <path d="M38 37v23" fill="none" stroke="#d6a75c" stroke-width="2" stroke-linecap="round"/>
+    <path d="M20 40c5-1 9 0 13 2M20 46c5-1 9 0 13 2M56 40c-5-1-9 0-13 2M56 46c-5-1-9 0-13 2" fill="none" stroke="#52627a" stroke-width="1.2" stroke-linecap="round" opacity=".78"/>
+    <path d="M38 12l2.4 5.2 5.6.6-4.2 3.8 1.2 5.5-5-2.8-5 2.8 1.2-5.5-4.2-3.8 5.6-.6z" fill="#f4dfaf"/>
+  </g>
+  <path d="M91 21v50" stroke="#d6a75c" stroke-width="1" opacity=".58"/>
+  <text x="108" y="44" fill="#fffefa" font-family="Georgia, 'Times New Roman', serif" font-size="29" font-weight="600" letter-spacing=".3">Chanakya</text>
+  <text x="110" y="66" fill="#f0d39e" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" letter-spacing="4.1">SCHOLARSPHERE</text>
+</svg>

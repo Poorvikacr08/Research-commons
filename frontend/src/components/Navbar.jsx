@@ -15,8 +15,7 @@ export default function Navbar() {
   return (
     <header className="navbar">
       <Link to="/" className="brand-lockup" aria-label="Chanakya ScholarSphere home">
-        <span className="brand-mark" aria-hidden="true"><span>CS</span></span>
-        <span className="brand-copy"><strong>Chanakya</strong><span>ScholarSphere</span></span>
+        <img className="brand-logo" src="/chanakya-scholarsphere-logo.svg" alt="" />
       </Link>
       {user && (
         <form className="nav-search" onSubmit={(e) => { e.preventDefault(); if (q.trim()) navigate(`/search?q=${encodeURIComponent(q.trim())}`); }}>

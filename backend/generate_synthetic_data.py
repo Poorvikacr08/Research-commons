@@ -104,6 +104,7 @@ def main():
         "generated_at": now.isoformat(),
         "synthetic_email_prefix": EMAIL_PREFIX,
         "test_password": PASSWORD,
+        "duplicate_ground_truth_complete": False,
         "spam_accounts": [],
         "topic_spikes": [
             {

@@ -135,7 +135,17 @@ def main() -> None:
         if duplicate_pairs:
             detected = find_near_duplicates(raw_papers, threshold=args.duplicate_threshold)
             predicted = [(str(pair["paper_id_1"]), str(pair["paper_id_2"])) for pair in detected]
-            output.append(("Near-duplicate detector", pair_metrics(predicted, duplicate_pairs)))
+            metrics = pair_metrics(predicted, duplicate_pairs)
+            if ground_truth.get("duplicate_ground_truth_complete") is True:
+                output.append(("Near-duplicate detector", metrics))
+            else:
+                output.append(("Planted-pair evaluation", {
+                    "planted pairs detected": metrics["true_positive"],
+                    "planted pairs total": len(duplicate_pairs),
+                    "recall against planted pairs": metrics["recall"],
+                    "unreviewed detector candidates": len(predicted) - metrics["true_positive"],
+                    "precision/F1": "Not reported: duplicate labels are incomplete",
+                }))
         else:
             print("Duplicate metrics skipped: duplicate_pairs is empty.")
 

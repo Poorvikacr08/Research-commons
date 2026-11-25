@@ -41,18 +41,18 @@ The user subsequently ran the stack locally. The paper catalog import and synthe
 | TF-IDF + aliases MRR | 1.0000 |
 | Lexical TF-IDF baseline Precision@10 | 0.1333 |
 | Lexical TF-IDF baseline MRR | 1.0000 |
-| Duplicate detector true positives / false positives / false negatives | 2 / 186 / 1 |
-| Duplicate detector precision / recall / F1 | 0.0106 / 0.6667 / 0.0209 |
+| Initial detector planted-pair matches / unreviewed candidates / planted pairs missed | 2 / 186 / 1 |
+| Initial detector recall against the three planted pairs | 0.6667 |
 | Co-save recommendation hit@10 | 0.0638 |
 | Popular recommendation hit@10 | 0.1064 |
 | Recommendation users evaluated | 47 |
 
-Search placed a relevant result first for every labeled query (MRR 1.0), but only about 1.33 relevant items appeared per top ten on average; aliases did not improve these labels over plain lexical TF-IDF. Co-save recommendations performed below the popularity baseline, so the current results do not support claiming a recommendation improvement. Duplicate results are measured against only three planted pairs; 186 predictions were not in that ground truth and may include unjudged pairs. The missed planted pair is title-only: its source paper has no DOI/arXiv identifier, and the generator appends ` (duplicate evaluation copy)` to the title. That fixture design likely makes it harder for the title-similarity detector to match than the two identifier-backed pairs.
+Search placed a relevant result first for every labeled query (MRR 1.0), but only about 1.33 relevant items appeared per top ten on average; aliases did not improve these labels over plain lexical TF-IDF. Co-save recommendations performed below the popularity baseline. Member 2 confirmed the synthetic saves only test feature population, not realistic preferences, so these recommendation values should not be interpreted as evidence about real users. Member 2 also confirmed the 186 pairs outside the three planted pairs are unreviewed candidates, not validated false positives; precision/F1 therefore cannot be claimed from this incomplete ground truth. The missed planted pair has identical 777-character abstracts but no DOI/arXiv identifier. The detector now checks exact normalized abstracts as well as identifiers and title similarity, and the evaluator suppresses precision/F1 unless the duplicate labels are explicitly complete. Rerun evaluation to record results from the updated detector.
 
 ## Findings and follow-up
 
-1. **Improve and re-evaluate deduplication.** Review the three planted pairs and expand the judged duplicate labels beyond those three before interpreting the 186 unmatched predictions as genuine false positives. Change the title-only fixture to a realistic small title variation, then rerun the evaluator.
-2. **Recommendation baseline.** Co-save hit@10 (0.0638) is below popularity (0.1064). Keep the popularity baseline as the reported winner unless the recommendation method is improved and re-evaluated.
+1. **Re-evaluate deduplication.** The detector now uses exact normalized abstract matches, which should catch the title-variant pair with identical abstracts. Rerun against the live database. Ask Member 2 to review more candidates before reporting precision/F1.
+2. **Recommendation evaluation.** Synthetic saves populate the feature and are not validated behavior. Do not interpret co-save hit@10 (0.0638) versus popularity (0.1064) as real preference performance; describe it as a synthetic-data smoke comparison or collect reviewed interaction labels.
 3. **Manual browser integration.** In the local browser, sign in, search for a seeded paper, save/unsave it, check recommendations and the library, then exercise trends, Ask, and admin-only pages. The evaluator and generator validate backend/database access, not these UI flows.
 4. **Frontend bundle-size warning.** Vite reports the generated JavaScript bundle at 614 kB minified, above its 500 kB advisory threshold. Build succeeds; code splitting could reduce initial download size.
 

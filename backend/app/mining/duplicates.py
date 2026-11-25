@@ -1,4 +1,4 @@
-"""Near-duplicate paper detection with MinHash, LSH, and exact Jaccard checks."""
+"""Near-duplicate detection using identifiers, exact text, and title Jaccard."""
 from __future__ import annotations
 
 import hashlib
@@ -56,10 +56,11 @@ def find_near_duplicates(
     num_perm: int = 64,
     bands: int = 16,
 ) -> List[Dict[str, object]]:
-    """Return candidate pairs whose exact title-shingle Jaccard meets threshold.
+    """Return candidates supported by identifiers, matching text, or similar titles.
 
-    LSH narrows the comparisons; exact Jaccard is always used for the final flag.
-    The deterministic hash makes results reproducible across runs and machines.
+    LSH narrows title comparisons; exact Jaccard is used for their final check.
+    Exact normalized abstracts provide evidence when titles differ. The
+    deterministic hash makes results reproducible across runs and machines.
     """
     if not 0.0 <= threshold <= 1.0:
         raise ValueError("threshold must be between 0 and 1")
@@ -69,13 +70,26 @@ def find_near_duplicates(
     for paper in papers:
         title = str(paper.get("title") or "")
         text = f"{title} {title}"  # title weight reduces matches on generic short phrases
-        prepared.append((str(paper.get("id", "")), title, shingles(text), paper))
+        normalized_title = _normalize(title)
+        normalized_abstract = _normalize(str(paper.get("abstract") or ""))
+        prepared.append((str(paper.get("id", "")), title, shingles(text), normalized_title, normalized_abstract, paper))
     signatures = [_signature(item[2], num_perm) for item in prepared]
     rows_per_band = num_perm // bands
     buckets: Dict[Tuple[int, Tuple[int, ...]], List[int]] = {}
     candidates: Dict[Tuple[int, int], Set[str]] = {}
     seen_identifiers: Dict[Tuple[str, str], int] = {}
-    for index, (_, _, _, paper) in enumerate(prepared):
+    seen_titles: Dict[str, int] = {}
+    seen_abstracts: Dict[str, int] = {}
+    for index, (_, _, _, normalized_title, normalized_abstract, paper) in enumerate(prepared):
+        if normalized_title:
+            other = seen_titles.setdefault(normalized_title, index)
+            if other != index:
+                candidates.setdefault((min(other, index), max(other, index)), set()).add("exact_title")
+        # Ignore short boilerplate fragments; long exact abstract matches are strong evidence.
+        if len(normalized_abstract) >= 100:
+            other = seen_abstracts.setdefault(normalized_abstract, index)
+            if other != index:
+                candidates.setdefault((min(other, index), max(other, index)), set()).add("exact_abstract")
         for kind, field in (("doi", "doi"), ("arxiv_id", "arxiv_id")):
             value = _normalize_identifier(paper.get(field), "doi" if kind == "doi" else "arxiv")
             if not value:
@@ -94,12 +108,18 @@ def find_near_duplicates(
 
     results = []
     for (left_index, right_index), reasons in sorted(candidates.items()):
-        left_id, left_title, left_shingles, _ = prepared[left_index]
-        right_id, right_title, right_shingles, _ = prepared[right_index]
+        left_id, left_title, left_shingles, _, _, _ = prepared[left_index]
+        right_id, right_title, right_shingles, _, _, _ = prepared[right_index]
         if not left_id or not right_id or left_id == right_id:
             continue
         similarity = jaccard(left_shingles, right_shingles)
-        reason = "doi" if "doi" in reasons else "arxiv_id" if "arxiv_id" in reasons else "title"
+        reason = (
+            "doi" if "doi" in reasons else
+            "arxiv_id" if "arxiv_id" in reasons else
+            "exact_abstract" if "exact_abstract" in reasons else
+            "exact_title" if "exact_title" in reasons else
+            "title"
+        )
         if reason != "title" or similarity >= threshold:
             results.append({
                 "paper_id_1": left_id,

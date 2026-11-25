@@ -9,8 +9,8 @@ services:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
-      - ./db/init:/docker-entrypoint-initdb.d:ro   # schema and account initialization scripts
-      - ./db/papers_data.sql:/docker-entrypoint-initdb.d/05_papers_data.sql:ro # seed the shared paper catalog on a fresh volume
+      - ./db/init:/docker-entrypoint-initdb.d   # schema and account initialization scripts
+      - ./db/papers_data.sql:/docker-entrypoint-initdb.d/05_papers_data.sql:ro
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
       interval: 5s

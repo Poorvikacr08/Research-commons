@@ -495,3 +495,75 @@ details summary { color: var(--teal-deep); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
 }
+
+/* Editorial welcome and campus masthead, inspired by Chanakya's visual identity. */
+.welcome-page { width: min(100%, 1280px); margin: 0 auto; padding: 22px 0 8px; }
+.welcome-kicker { display: flex; align-items: center; gap: 10px; color: #68705f; font-size: 10px; font-weight: 800; letter-spacing: .2em; }
+.welcome-kicker > span { width: 24px; height: 2px; background: var(--gold); }
+.welcome-grid { display: grid; grid-template-columns: minmax(330px, .86fr) minmax(0, 1.14fr); gap: clamp(30px, 6vw, 82px); align-items: center; margin: 30px 0 28px; }
+.welcome-copy { padding: 24px 0 20px; }
+.welcome-copy .eyebrow { margin: 0 0 17px; font-size: 10px; letter-spacing: .16em; }
+.welcome-copy h1 { max-width: 590px; margin: 0; font-size: clamp(42px, 6.2vw, 76px); line-height: .99; letter-spacing: -.05em; }
+.welcome-lede { max-width: 440px; margin: 21px 0 25px; color: #657184; font-size: 16px; line-height: 1.75; }
+.welcome-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 21px; }
+.welcome-actions .button { display: inline-flex; align-items: center; gap: 19px; min-height: 48px; padding: 0 19px; border-radius: 4px; background: var(--navy); box-shadow: none; }
+.welcome-actions .button:hover { background: #263d5c; }
+.welcome-login { color: var(--navy); font-size: 13px; font-weight: 700; text-decoration: none; }
+.welcome-login span { padding-left: 5px; color: #9c762f; }
+.welcome-index { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; padding-top: 24px; margin-top: 35px; border-top: 1px solid #e4e1d8; }
+.welcome-index > div { display: flex; flex-direction: column; gap: 5px; }
+.welcome-index > div > span { color: #9b7635; font-family: Georgia, serif; font-size: 12px; }
+.welcome-index strong { color: var(--navy); font-family: Georgia, serif; font-size: 17px; font-weight: 600; }
+.welcome-index small { color: #79818a; font-size: 10px; line-height: 1.4; }
+.welcome-campus { position: relative; min-height: 495px; overflow: hidden; margin: 0; background: #b7b6a6; box-shadow: 0 28px 60px rgba(29, 39, 54, .18); }
+.welcome-campus::after { position: absolute; z-index: 2; inset: 48% 0 0; content: ""; background: linear-gradient(180deg, transparent, rgba(17, 29, 46, .78)); pointer-events: none; }
+.welcome-campus img, .campus-image-fallback { position: absolute; inset: 0; width: 100%; height: 100%; }
+.welcome-campus img { z-index: 1; object-fit: cover; object-position: center; transition: transform .8s cubic-bezier(.2,.7,.25,1); }
+.welcome-campus:hover img { transform: scale(1.025); }
+.welcome-campus img.image-unavailable { opacity: 0; }
+.campus-image-fallback { display: grid; place-items: center; color: rgba(255,255,255,.22); background: linear-gradient(135deg, #cbbd9b, #6d7f76 48%, #314a57); }
+.campus-image-fallback span { font-family: Georgia, serif; font-size: clamp(120px, 23vw, 280px); font-weight: 700; letter-spacing: -.1em; }
+.welcome-campus figcaption { position: absolute; z-index: 3; right: 22px; bottom: 20px; left: 22px; display: flex; justify-content: space-between; align-items: end; gap: 14px; color: white; font-size: 10px; letter-spacing: .11em; text-transform: uppercase; }
+.welcome-campus figcaption a { color: #fff; font-size: 10px; letter-spacing: .03em; text-align: right; text-decoration: none; text-transform: none; }
+.campus-seal { position: absolute; z-index: 3; top: 18px; right: 18px; display: grid; width: 58px; height: 58px; align-content: center; border: 1px solid rgba(255,255,255,.76); border-radius: 50%; color: white; background: rgba(18,33,61,.23); font-family: Georgia, serif; font-size: 10px; line-height: 1.22; text-align: center; backdrop-filter: blur(5px); }
+.welcome-footnote { display: flex; justify-content: space-between; gap: 18px; padding-top: 16px; border-top: 1px solid #e3dfd5; color: #7c827f; font-size: 9px; letter-spacing: .16em; }
+.welcome-footnote span:first-child { color: #39485a; font-weight: 800; }
+
+.home-layout { display: flex; flex-direction: column; gap: 31px; }
+.research-masthead { display: grid; min-height: 300px; grid-template-columns: 1.05fr .95fr; overflow: hidden; color: #fffefa; background: var(--navy); box-shadow: 0 22px 48px rgba(20,33,61,.15); }
+.research-masthead-copy { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: clamp(25px, 5vw, 56px); }
+.research-masthead-copy .eyebrow { color: var(--gold-light); font-size: 9px; }
+.research-masthead-copy h1 { margin: 17px 0 11px; color: #fffefa; font-size: clamp(29px, 4vw, 47px); line-height: 1.09; }
+.research-masthead-copy h1 em { color: #e7c98f; font-weight: 500; }
+.research-masthead-copy p { max-width: 510px; margin: 0 0 22px; color: rgba(255,255,255,.72); font-size: 14px; line-height: 1.65; }
+.research-masthead-copy .button { display: inline-flex; gap: 18px; align-items: center; min-height: 42px; border: 1px solid rgba(255,255,255,.24); color: var(--navy); background: var(--gold-light); box-shadow: none; }
+.research-masthead-copy .button:hover { color: var(--navy); background: #f5dfb5; }
+.research-masthead-image { position: relative; min-height: 300px; background: #858a7d url("https://chanakyauniversity.edu.in/wp-content/uploads/2024/06/Aerial-View1.jpg") center 48% / cover no-repeat; }
+.research-masthead-image::after { position: absolute; inset: 40% 0 0; content: ""; background: linear-gradient(180deg, transparent, rgba(14,27,43,.65)); }
+.research-masthead-image > span { position: absolute; z-index: 1; right: 18px; bottom: 17px; color: white; font-size: 9px; font-weight: 700; letter-spacing: .17em; }
+.research-masthead-image i { color: var(--gold-light); font-style: normal; }
+.home-layout > .with-sidebar { width: 100%; }
+
+@media (max-width: 820px) {
+  .welcome-grid { grid-template-columns: 1fr; gap: 22px; }
+  .welcome-copy { padding: 16px 0 0; }
+  .welcome-campus { min-height: clamp(300px, 58vw, 460px); }
+  .research-masthead { grid-template-columns: 1fr; }
+  .research-masthead-copy { min-height: 270px; }
+  .research-masthead-image { min-height: 260px; }
+}
+@media (max-width: 620px) {
+  .welcome-page { padding-top: 6px; }
+  .welcome-grid { margin-top: 20px; }
+  .welcome-copy h1 { font-size: clamp(43px, 13vw, 64px); }
+  .welcome-index { gap: 8px; }
+  .welcome-index strong { font-size: 15px; }
+  .welcome-index small { font-size: 9px; }
+  .welcome-campus { min-height: 320px; }
+  .welcome-campus figcaption { right: 13px; bottom: 13px; left: 13px; flex-direction: column; align-items: flex-start; }
+  .welcome-campus figcaption a { text-align: left; }
+  .welcome-footnote { flex-direction: column; }
+  .research-masthead-copy { min-height: auto; padding: 26px 22px; }
+  .research-masthead-copy h1 { font-size: 34px; }
+  .research-masthead-image { min-height: 220px; }
+}

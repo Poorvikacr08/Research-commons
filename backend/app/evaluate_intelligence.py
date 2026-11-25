@@ -1,7 +1,7 @@
 """Print reproducible search, duplicate, and recommendation evaluation metrics.
 
 Run from the backend container after importing papers and synthetic activity:
-    python -m app.evaluate_intelligence --labels data/evaluation_ground_truth.json
+    python -m app.evaluate_intelligence --labels data/synthetic_ground_truth.json
 
 Search qrels and duplicate pairs must be supplied by the project ground truth;
 the script deliberately does not invent relevance labels.
@@ -18,6 +18,7 @@ from sqlmodel import Session
 from sqlalchemy import text
 
 from app.db import engine
+from app.evaluation_labels import normalize_ground_truth
 from app.mining.duplicates import find_near_duplicates, pair_metrics
 from app.mining.evaluation import mean_reciprocal_rank, precision_at_k
 from app.routers.intel import _deduplicate_papers, _paper_rows, _tfidf_scores
@@ -110,11 +111,11 @@ def _print_table(rows: Iterable[tuple[str, Dict[str, Any]]]) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--labels", type=Path, default=Path("data/evaluation_ground_truth.json"))
+    parser.add_argument("--labels", type=Path, default=Path("data/synthetic_ground_truth.json"))
     parser.add_argument("--duplicate-threshold", type=float, default=0.78)
     args = parser.parse_args()
     if not args.labels.exists():
-        raise SystemExit(f"Missing labels file: {args.labels}. Copy data/evaluation_ground_truth.example.json and fill labels.")
+        raise SystemExit(f"Missing labels file: {args.labels}. Expected data/synthetic_ground_truth.json or another compatible label file.")
     ground_truth = json.loads(args.labels.read_text(encoding="utf-8"))
     with Session(engine) as session:
         raw_papers = _paper_rows(session, deduplicate=False)
@@ -125,13 +126,12 @@ def main() -> None:
             for member_id in paper.get("_member_ids", [str(paper["id"])])
         }
         output = []
-        qrels = ground_truth.get("search_qrels", [])
+        qrels, duplicate_pairs = normalize_ground_truth(ground_truth)
         if qrels:
             output.extend(_search_metrics(merged_papers, qrels, canonical_for_id).items())
         else:
             print("Search metrics skipped: search_qrels is empty.")
 
-        duplicate_pairs = [tuple(map(str, pair)) for pair in ground_truth.get("duplicate_pairs", [])]
         if duplicate_pairs:
             detected = find_near_duplicates(raw_papers, threshold=args.duplicate_threshold)
             predicted = [(str(pair["paper_id_1"]), str(pair["paper_id_2"])) for pair in detected]

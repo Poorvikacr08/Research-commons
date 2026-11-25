@@ -17,6 +17,7 @@ import Profile from "./pages/Profile.jsx";
 import Register from "./pages/Register.jsx";
 import Search from "./pages/Search.jsx";
 import TagPage from "./pages/TagPage.jsx";
+import Welcome from "./pages/Welcome.jsx";
 
 // Wrap a page with this to make it "logged-in only".
 function Protected({ children }) {
@@ -27,6 +28,7 @@ function Protected({ children }) {
 }
 
 export default function App() {
+  const { user, loading } = useAuth();
   return (
     <>
       <Navbar />
@@ -34,7 +36,7 @@ export default function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/" element={<Protected><Home /></Protected>} />
+          <Route path="/" element={loading ? <p className="muted center">Loading…</p> : user ? <Home /> : <Welcome />} />
           <Route path="/people" element={<Protected><People /></Protected>} />
           <Route path="/users/:id" element={<Protected><Profile /></Protected>} />
           <Route path="/profile/edit" element={<Protected><EditProfile /></Protected>} />

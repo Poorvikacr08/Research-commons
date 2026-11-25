@@ -19,6 +19,18 @@ export default function Home() {
   }, [tab]);
 
   return (
+    <div className="home-layout">
+    <section className="research-masthead" aria-label="Research community">
+      <div className="research-masthead-copy">
+        <span className="eyebrow">CHANAKYA SCHOLARSPHERE · RESEARCH COMMUNITY</span>
+        <h1>Ideas rooted in wisdom.<br /><em>Research moving forward.</em></h1>
+        <p>Discover scholarship, exchange perspectives, and find the people who make research richer.</p>
+        <Link to="/search" className="button">Explore research <span aria-hidden="true">↗</span></Link>
+      </div>
+      <div className="research-masthead-image" role="img" aria-label="Chanakya University campus">
+        <span>CHANAKYA UNIVERSITY <i>·</i> GLOBAL CAMPUS</span>
+      </div>
+    </section>
     <div className="with-sidebar">
     <section>
       <div className="row">
@@ -47,6 +59,7 @@ export default function Home() {
       {feed?.items.map((p) => <PostCard key={p.id} post={p} />)}
     </section>
     <Sidebar />
+    </div>
     </div>
   );
 }

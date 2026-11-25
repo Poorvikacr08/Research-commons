@@ -15,7 +15,7 @@ from sqlmodel import Session
 
 from app.db import get_session
 
-app = FastAPI(title="Chanakya Research Commons API")
+app = FastAPI(title="Chanakya ScholarSphere API")
 
 
 # ---- Agreed error format: { "error": { "code": ..., "message": ... } } ----

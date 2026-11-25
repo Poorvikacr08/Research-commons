@@ -35,6 +35,11 @@ export default function Search() {
 
   return (
     <section>
+      <div className="page-heading">
+        <span className="eyebrow">DISCOVER · CONNECT · RESEARCH</span>
+        <h1>Ideas take shape here.</h1>
+        <p>Explore papers, scholars, and conversations across your research community.</p>
+      </div>
       <form className="search-row big" onSubmit={(e) => { e.preventDefault(); setParams(input.trim() ? { q: input.trim() } : {}); }}>
         <input value={input} onChange={(e) => setInput(e.target.value)} placeholder="Search a research topic, e.g. graph neural networks" autoFocus />
         <button type="submit">Search</button>

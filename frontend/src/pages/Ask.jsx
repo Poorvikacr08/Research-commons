@@ -24,7 +24,7 @@ export default function Ask() {
   return (
     <section>
       <h1>Ask the research assistant</h1>
-      <p className="muted">Answers come only from papers stored in Research Commons, with citations.</p>
+      <p className="muted">Answers draw on papers in ScholarSphere and include citations you can verify.</p>
       <form className="search-row big" onSubmit={submit}>
         <input value={question} onChange={(e) => setQuestion(e.target.value)} placeholder="e.g. What methods are used to detect emerging research topics?" />
         <button type="submit" disabled={busy}>{busy ? "Thinking…" : "Ask"}</button>

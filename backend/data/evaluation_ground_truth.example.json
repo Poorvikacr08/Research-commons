@@ -1,0 +1,11 @@
+{
+  "search_qrels": [
+    {
+      "query": "machine learning",
+      "relevant_paper_ids": ["<paper UUIDs judged relevant for this query>"]
+    }
+  ],
+  "duplicate_pairs": [
+    ["<first paper UUID>", "<duplicate paper UUID>"]
+  ]
+}

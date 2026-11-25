@@ -567,3 +567,52 @@ details summary { color: var(--teal-deep); }
   .research-masthead-copy h1 { font-size: 34px; }
   .research-masthead-image { min-height: 220px; }
 }
+
+/* Floating research chat. Uses the existing paper-grounded /ask endpoint. */
+.research-chat-root { position: fixed; z-index: 80; right: 24px; bottom: 22px; font-family: inherit; }
+.research-chat-launcher { display: inline-flex; min-height: 54px; align-items: center; justify-content: center; gap: 10px; padding: 0 19px; border: 1px solid rgba(240,211,158,.65); border-radius: 999px; color: #fffefa; background: var(--navy); box-shadow: 0 10px 30px rgba(20,33,61,.28); font-size: 13px; font-weight: 700; transition: transform .18s ease, box-shadow .18s ease; }
+.research-chat-launcher:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(20,33,61,.32); }
+.research-chat-launcher-icon { display: grid; width: 25px; height: 25px; place-items: center; border-radius: 50%; color: var(--navy); background: var(--gold-light); font-size: 16px; }
+.research-chat-launcher.open { width: 48px; min-height: 48px; padding: 0; border-color: var(--line); color: var(--ink-soft); background: var(--paper); font-size: 25px; box-shadow: 0 8px 26px rgba(20,33,61,.18); }
+.research-chat-panel { position: absolute; right: 0; bottom: 68px; display: flex; width: min(390px, calc(100vw - 28px)); max-height: min(690px, calc(100vh - 120px)); flex-direction: column; overflow: hidden; border: 1px solid rgba(20,33,61,.13); border-radius: 18px; color: var(--ink); background: var(--paper); box-shadow: 0 22px 70px rgba(20,33,61,.24); animation: chat-rise .2s ease-out; }
+@keyframes chat-rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.research-chat-header { display: flex; min-height: 72px; align-items: center; gap: 11px; padding: 13px 16px; color: white; background: linear-gradient(120deg, #14213d, #203858); }
+.research-chat-mark { display: grid; width: 38px; height: 38px; flex: 0 0 auto; place-items: center; border: 1px solid rgba(240,211,158,.65); border-radius: 50%; color: var(--gold-light); font-size: 20px; }
+.research-chat-header > div { display: flex; min-width: 0; flex: 1; flex-direction: column; gap: 3px; }
+.research-chat-header strong { font-family: Georgia, "Times New Roman", serif; font-size: 16px; font-weight: 600; }
+.research-chat-header small { color: rgba(255,255,255,.68); font-size: 11px; }
+.research-chat-close { display: grid; width: 34px; height: 34px; flex: 0 0 auto; place-items: center; padding: 0; border: 1px solid rgba(255,255,255,.18); border-radius: 50%; color: white; background: rgba(255,255,255,.08); font-size: 22px; line-height: 1; }
+.research-chat-notice { padding: 9px 15px; border-bottom: 1px solid var(--line); color: var(--muted-ink); background: #fbf8f0; font-size: 10px; line-height: 1.45; }
+.research-chat-messages { display: flex; min-height: 160px; flex: 1; flex-direction: column; gap: 13px; overflow-y: auto; padding: 16px 13px; overscroll-behavior: contain; }
+.research-chat-message { max-width: 91%; padding: 11px 13px; border: 1px solid var(--line); border-radius: 15px 15px 15px 4px; background: #fff; font-size: 13px; line-height: 1.6; }
+.research-chat-message p { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+.research-chat-message.user { align-self: flex-end; border-color: var(--navy); border-radius: 15px 15px 4px 15px; color: white; background: var(--navy); }
+.research-chat-message.failed { color: #9f302b; background: #fff8f7; }
+.research-chat-sources { display: flex; flex-direction: column; gap: 6px; margin-top: 11px; padding-top: 9px; border-top: 1px solid var(--line); }
+.research-chat-source-label { color: var(--muted-ink); font-size: 10px; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
+.research-chat-source { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 6px; align-items: start; font-size: 11px; line-height: 1.4; }
+.research-chat-source > span { color: #a47a38; font-weight: 800; }
+.research-chat-source a { color: var(--navy-light); overflow-wrap: anywhere; }
+.research-chat-source > a[target="_blank"] { color: #a47a38; font-weight: 800; }
+.research-chat-passages { margin-top: 8px; color: var(--muted-ink); font-size: 11px; }
+.research-chat-passages summary { cursor: pointer; }
+.research-chat-passages blockquote { margin: 8px 0 0; padding-left: 9px; border-left: 2px solid var(--gold); color: var(--ink-soft); font-size: 11px; }
+.research-chat-thinking { display: flex; align-items: center; gap: 8px; align-self: flex-start; color: var(--muted-ink); font-size: 12px; }
+.research-chat-thinking span { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); animation: chat-pulse .8s ease-in-out infinite alternate; }
+@keyframes chat-pulse { to { opacity: .25; transform: scale(.72); } }
+.research-chat-suggestions { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 13px 12px; }
+.research-chat-suggestions button { padding: 7px 9px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink-soft); background: #fff; font-size: 10px; font-weight: 600; }
+.research-chat-suggestions button:hover:not(:disabled) { border-color: var(--gold); background: #fbf8f0; }
+.research-chat-form { display: flex; align-items: end; gap: 8px; padding: 10px; border: 1px solid var(--line); border-radius: 14px; margin: 0 11px 8px; background: white; box-shadow: 0 2px 8px rgba(20,33,61,.05); }
+.research-chat-form:focus-within { border-color: #b99a66; box-shadow: 0 0 0 2px rgba(214,167,92,.16); }
+.research-chat-form textarea { width: 100%; min-height: 24px; max-height: 100px; flex: 1; resize: none; padding: 2px 3px; border: 0; outline: 0; color: var(--ink); background: transparent; font-size: 13px; line-height: 1.5; }
+.research-chat-form textarea:focus { outline: 0; border-color: transparent; }
+.research-chat-form button { display: grid; width: 34px; height: 34px; flex: 0 0 auto; place-items: center; padding: 0; border-radius: 50%; color: var(--navy); background: var(--gold-light); }
+.research-chat-form button:disabled { color: #8c9299; background: #ece9e2; }
+.research-chat-form svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
+.research-chat-footnote { padding: 0 12px 10px; color: #89909a; font-size: 9px; text-align: center; }
+@media (max-width: 620px) {
+  .research-chat-root { right: 12px; bottom: 12px; }
+  .research-chat-panel { bottom: 62px; max-height: calc(100dvh - 94px); }
+  .research-chat-launcher { min-height: 50px; padding: 0 15px; }
+}

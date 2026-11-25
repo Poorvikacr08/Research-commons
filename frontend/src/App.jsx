@@ -4,6 +4,7 @@ import { useAuth } from "./auth.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Admin from "./pages/Admin.jsx";
 import Ask from "./pages/Ask.jsx";
+import ResearchChat from "./components/ResearchChat.jsx";
 import CollectionDetail from "./pages/CollectionDetail.jsx";
 import EditProfile from "./pages/EditProfile.jsx";
 import Home from "./pages/Home.jsx";
@@ -52,6 +53,7 @@ export default function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
+      {!loading && user && <ResearchChat />}
     </>
   );
 }

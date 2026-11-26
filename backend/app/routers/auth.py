@@ -38,6 +38,11 @@ class TokenOut(BaseModel):
     user: UserOut
 
 
+class ChangePasswordIn(BaseModel):
+    current_password: str = Field(min_length=1)
+    new_password: str = Field(min_length=8, max_length=128)
+
+
 def to_out(user: User) -> UserOut:
     return UserOut(
         id=str(user.id), name=user.name, email=user.email, role=user.role,
@@ -78,3 +83,25 @@ def login(form: OAuth2PasswordRequestForm = Depends(), session: Session = Depend
 @router.get("/me", response_model=UserOut)
 def me(user: User = Depends(get_current_user)):
     return to_out(user)
+
+
+@router.put("/password", status_code=status.HTTP_204_NO_CONTENT)
+def change_password(
+    data: ChangePasswordIn,
+    session: Session = Depends(get_session),
+    user: User = Depends(get_current_user),
+):
+    """Change the authenticated member's password after verifying the current one."""
+    if not verify_password(data.current_password, user.password_hash):
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail={"code": "invalid_current_password", "message": "Current password is incorrect."},
+        )
+    if data.current_password == data.new_password:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail={"code": "same_password", "message": "Choose a new password different from the current one."},
+        )
+    user.password_hash = hash_password(data.new_password)
+    session.add(user)
+    session.commit()

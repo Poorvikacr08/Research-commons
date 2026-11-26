@@ -1,5 +1,6 @@
 // Which page shows for which URL.
 import { Navigate, Route, Routes } from "react-router-dom";
+import { useEffect } from "react";
 import { useAuth } from "./auth.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Admin from "./pages/Admin.jsx";
@@ -17,6 +18,7 @@ import PostDetail from "./pages/PostDetail.jsx";
 import Profile from "./pages/Profile.jsx";
 import Register from "./pages/Register.jsx";
 import Search from "./pages/Search.jsx";
+import Settings from "./pages/Settings.jsx";
 import TagPage from "./pages/TagPage.jsx";
 import Welcome from "./pages/Welcome.jsx";
 
@@ -30,6 +32,14 @@ function Protected({ children }) {
 
 export default function App() {
   const { user, loading } = useAuth();
+  useEffect(() => {
+    const theme = localStorage.getItem("rc_theme") || "light";
+    const textSize = localStorage.getItem("rc_text_size") || "normal";
+    const reduceMotion = localStorage.getItem("rc_reduce_motion") === "true";
+    document.documentElement.dataset.theme = theme;
+    document.documentElement.dataset.textSize = textSize;
+    document.documentElement.dataset.reduceMotion = String(reduceMotion);
+  }, []);
   return (
     <>
       <Navbar />
@@ -41,6 +51,7 @@ export default function App() {
           <Route path="/people" element={<Protected><People /></Protected>} />
           <Route path="/users/:id" element={<Protected><Profile /></Protected>} />
           <Route path="/profile/edit" element={<Protected><EditProfile /></Protected>} />
+          <Route path="/settings" element={<Protected><Settings /></Protected>} />
           <Route path="/posts/new" element={<Protected><NewPost /></Protected>} />
           <Route path="/posts/:id" element={<Protected><PostDetail /></Protected>} />
           <Route path="/tags/:tag" element={<Protected><TagPage /></Protected>} />

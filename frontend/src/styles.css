@@ -187,6 +187,78 @@ details summary { cursor: pointer; font-weight: 600; }
 .top-saved li { padding: 6px 0; display: flex; justify-content: space-between; gap: 12px; }
 .top-saved .muted { white-space: nowrap; }
 
+/* Settings */
+.settings-page { max-width: 900px; margin: 0 auto; }
+.settings-heading { padding: 4px 2px 12px; }
+.settings-heading h1 { margin: 8px 0; }
+.settings-heading > p { color: var(--muted-ink); margin-top: 0; }
+.eyebrow { color: var(--teal-deep); font-size: 11px; font-weight: 750; letter-spacing: .13em; }
+.settings-card { padding: clamp(18px, 3vw, 28px); }
+.settings-section-heading { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+.settings-section-heading h2 { margin: 0 0 3px; font-size: 1.35rem; }
+.settings-section-heading p, .settings-row p, .settings-signout p, .settings-privacy-item p { color: var(--muted-ink); margin: 0; line-height: 1.5; }
+.settings-icon { display: grid; flex: 0 0 42px; width: 42px; height: 42px; place-items: center; border-radius: 13px; color: var(--teal-deep); background: var(--soft-teal); font-size: 21px; }
+.settings-row, .settings-signout { display: flex; justify-content: space-between; align-items: center; gap: 18px; padding-top: 16px; border-top: 1px solid var(--line); }
+.settings-actions { display: flex; flex-wrap: wrap; gap: 9px; }
+.settings-control-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-bottom: 12px; }
+.settings-toggle-row { display: flex; flex-direction: row; justify-content: space-between; align-items: center; gap: 18px; min-height: 62px; padding: 12px 0; border-top: 1px solid var(--line); }
+.settings-toggle-row span { display: grid; gap: 4px; }
+.settings-toggle-row small, .settings-password-form small { color: var(--muted-ink); font-size: 12px; font-weight: 400; }
+.settings-toggle-row input { flex: 0 0 auto; width: 18px; min-height: 18px; height: 18px; accent-color: var(--teal); }
+.settings-note { color: var(--muted-ink); font-size: 12px; margin: 8px 0 0; }
+.settings-saved { color: var(--teal-deep); font-size: 13px; margin-bottom: 0; }
+.settings-privacy-item { padding: 12px 0; border-top: 1px solid var(--line); }
+.settings-privacy-item p { margin-top: 4px; }
+.settings-password-form { display: grid; gap: 14px; max-width: 560px; }
+.settings-password-form > button { justify-self: start; }
+.settings-signout { margin-top: 22px; }
+
+/* Preferences saved by the Settings page apply across the whole interface. */
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --ink: #edf1f7;
+  --ink-soft: #c5cfdd;
+  --muted-ink: #9aa8ba;
+  --navy: #0d1728;
+  --navy-light: #15243a;
+  --teal: #78c5bc;
+  --teal-deep: #93d1c8;
+  --gold: #e3bb76;
+  --gold-light: #f0d39e;
+  --paper: #172235;
+  --canvas: #101827;
+  --line: #334155;
+  --soft-teal: #203c42;
+  --soft-gold: #3a3328;
+  --shadow: 0 14px 34px rgba(0, 0, 0, .2);
+}
+html[data-theme="dark"] body {
+  color: var(--ink);
+  background: radial-gradient(ellipse at 6% 8%, rgba(214,167,92,.08), transparent 34rem), linear-gradient(145deg,#101827,#121d2b 55%,#15202a);
+  color-scheme: dark;
+}
+html[data-theme="dark"] .card, html[data-theme="dark"] .panel, html[data-theme="dark"] .picker,
+html[data-theme="dark"] .collection-tile, html[data-theme="dark"] .paper-card {
+  color: var(--ink); background: #182438; border-color: var(--line);
+}
+html[data-theme="dark"] input, html[data-theme="dark"] select, html[data-theme="dark"] textarea {
+  color: var(--ink); background: #101a2a; border-color: #46566c;
+}
+html[data-theme="dark"] .notice { color: var(--ink-soft); background: #1d3037; border-color: #35545a; }
+html[data-theme="dark"] .success { color: #b8e4d4; background: #1c3834; border-color: #38655a; }
+html[data-theme="dark"] .error { color: #ffc5b9; background: #3a282b; border-color: #68434a; }
+html[data-theme="dark"] .tag { color: #d2d9ff; background: #2a3151; }
+html[data-theme="dark"] .button.secondary, html[data-theme="dark"] button.secondary { color: var(--ink); background: #203344; border-color: #425e70; }
+html[data-text-size="large"] body { font-size: 18px; }
+html[data-text-size="large"] .navbar nav a, html[data-text-size="large"] .muted, html[data-text-size="large"] label { font-size: 1rem; }
+html[data-reduce-motion="true"] *, html[data-reduce-motion="true"] *::before, html[data-reduce-motion="true"] *::after {
+  scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important;
+}
+@media (max-width: 600px) {
+  .settings-row, .settings-signout { align-items: flex-start; flex-direction: column; }
+  .settings-control-grid { grid-template-columns: 1fr; }
+}
+
 /* Chanakya ScholarSphere — warm paper, ink blue, and antique gold. */
 :root {
   color-scheme: light;

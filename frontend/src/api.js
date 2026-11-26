@@ -42,7 +42,7 @@ export async function api(path, { method = "GET", body, form } = {}) {
   const data = await res.json().catch(() => null);
 
   if (!res.ok) {
-    const message = data?.error?.message || `Request failed (${res.status})`;
+    const message = data?.error?.message || data?.detail?.message || `Request failed (${res.status})`;
     const err = new Error(message);
     err.status = res.status;
     err.code = data?.error?.code;

@@ -31,6 +31,7 @@ export default function Navbar() {
             <NavLink to="/ask">Ask</NavLink>
             {user.role === "admin" && <NavLink to="/admin">Admin</NavLink>}
             <NavLink to={`/users/${user.id}`}>{user.name}</NavLink>
+            <NavLink to="/settings">Settings</NavLink>
             <button className="link-button" onClick={handleLogout}>Log out</button>
           </>
         ) : (

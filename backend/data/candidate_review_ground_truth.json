@@ -30,7 +30,7 @@
       "paper_id_2": "45e48e26-7850-4d34-ba6d-9738adfcfa3c",
       "title_1": "Computer Science & Information Technology ( CS & IT )",
       "title_2": "Computer Science & Information Technology (CS & IT)",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -51,7 +51,7 @@
       "paper_id_2": "3111f4aa-94fe-4e1d-8b74-d20f427f6bda",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -72,7 +72,7 @@
       "paper_id_2": "6116ecba-112a-4f10-92b2-cb3f2b29ce6f",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -93,7 +93,7 @@
       "paper_id_2": "25b4a893-c77a-42e7-a1aa-7b272d747fd0",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -114,7 +114,7 @@
       "paper_id_2": "ed37ade2-d622-4d57-b685-f3b2ffe75139",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -135,7 +135,7 @@
       "paper_id_2": "c88de35e-d49e-493b-9762-84d366555b6a",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -156,7 +156,7 @@
       "paper_id_2": "1fdb9ad4-a44b-4eb1-86a9-3bbf2974f498",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -177,7 +177,7 @@
       "paper_id_2": "ce73a0da-3c98-4161-86c0-0924e11e0b86",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -198,7 +198,7 @@
       "paper_id_2": "cd610c06-20ff-48cf-aba3-ff01f415e991",
       "title_1": "Computer Science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -219,7 +219,7 @@
       "paper_id_2": "7cc732e6-f3f4-4714-a175-8b569d2bae27",
       "title_1": "Computer Science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -240,7 +240,7 @@
       "paper_id_2": "92881613-694f-4f12-80e3-4017fb587b90",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -261,7 +261,7 @@
       "paper_id_2": "32d65838-a9e3-4521-b960-40c5cecd1c4e",
       "title_1": "Computer Science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -282,7 +282,7 @@
       "paper_id_2": "c8ffa83d-4808-4b94-85d6-67e53c89fc80",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -303,7 +303,7 @@
       "paper_id_2": "cccdb1e2-bd10-4753-b753-a62b5aca9954",
       "title_1": "Computer Science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -324,7 +324,7 @@
       "paper_id_2": "6116ecba-112a-4f10-92b2-cb3f2b29ce6f",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -345,7 +345,7 @@
       "paper_id_2": "25b4a893-c77a-42e7-a1aa-7b272d747fd0",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -366,7 +366,7 @@
       "paper_id_2": "ed37ade2-d622-4d57-b685-f3b2ffe75139",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -387,7 +387,7 @@
       "paper_id_2": "c88de35e-d49e-493b-9762-84d366555b6a",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -408,7 +408,7 @@
       "paper_id_2": "1fdb9ad4-a44b-4eb1-86a9-3bbf2974f498",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -429,7 +429,7 @@
       "paper_id_2": "ce73a0da-3c98-4161-86c0-0924e11e0b86",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -450,7 +450,7 @@
       "paper_id_2": "cd610c06-20ff-48cf-aba3-ff01f415e991",
       "title_1": "Computer Science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -471,7 +471,7 @@
       "paper_id_2": "7cc732e6-f3f4-4714-a175-8b569d2bae27",
       "title_1": "Computer Science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -492,7 +492,7 @@
       "paper_id_2": "92881613-694f-4f12-80e3-4017fb587b90",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -513,7 +513,7 @@
       "paper_id_2": "32d65838-a9e3-4521-b960-40c5cecd1c4e",
       "title_1": "Computer Science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -534,7 +534,7 @@
       "paper_id_2": "c8ffa83d-4808-4b94-85d6-67e53c89fc80",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -555,7 +555,7 @@
       "paper_id_2": "cccdb1e2-bd10-4753-b753-a62b5aca9954",
       "title_1": "Computer Science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -576,7 +576,7 @@
       "paper_id_2": "bb978383-1e0e-4311-ad4a-b46a20a685ec",
       "title_1": "Computer Science & Technology Trends",
       "title_2": "Computer Science & Technology Trends",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -597,7 +597,7 @@
       "paper_id_2": "3ebb637a-8d31-48b3-ba36-13b54cfe9dfa",
       "title_1": "Computer science as empirical inquiry: symbols and search",
       "title_2": "Computer science as empirical inquiry: symbols and search",
-      "status": "unreviewed",
+      "status": "likely_duplicate_pending_verification",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -618,7 +618,7 @@
       "paper_id_2": "38d8e82e-9c50-49bd-9d41-ef43d31b3d92",
       "title_1": "Mathematical structures for computer science",
       "title_2": "Mathematical Structures for Computer Science.",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -660,7 +660,7 @@
       "paper_id_2": "924c57bc-f8f3-40d9-9bd4-ef71dd87fe6c",
       "title_1": "Handbook of Logic in Computer Science",
       "title_2": "Handbook of Logic in Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -673,7 +673,7 @@
         "abstract_length_1": 895,
         "abstract_length_2": 332
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Same title, but substantially different abstracts and distinct DOI identifiers."
     },
     {
       "candidate_id": "cand-032",
@@ -681,7 +681,7 @@
       "paper_id_2": "13168ec0-54fc-4652-a1bd-6c2fc88bbe6e",
       "title_1": "Handbook of Logic in Computer Science",
       "title_2": "Handbook of Logic in Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -694,7 +694,7 @@
         "abstract_length_1": 895,
         "abstract_length_2": 323
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Same title, but substantially different abstracts and distinct DOI identifiers."
     },
     {
       "candidate_id": "cand-033",
@@ -702,7 +702,7 @@
       "paper_id_2": "eb48547b-226d-4b06-a9c2-3592a934f654",
       "title_1": "International Journal of Computer Sciences and Engineering",
       "title_2": "INTERNATIONAL JOURNAL OF COMPUTER SCIENCES AND ENGINEERING",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -715,7 +715,7 @@
         "abstract_length_1": 960,
         "abstract_length_2": 359
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Journal title match, but abstracts differ substantially and DOI identifiers differ."
     },
     {
       "candidate_id": "cand-034",
@@ -736,7 +736,7 @@
         "abstract_length_1": 776,
         "abstract_length_2": 776
       },
-      "reviewer_notes": "Previously reviewed: title/abstract metadata was considered consistent with a likely ACM publication-version relationship; a prior database comparison also found matching author names and order. This remains provisional and requires authoritative metadata verification."
+      "reviewer_notes": "Exact same title and normalized abstract, but DOI identifiers differ; verify publication metadata before confirmation."
     },
     {
       "candidate_id": "cand-035",
@@ -744,7 +744,7 @@
       "paper_id_2": "cfc29084-a946-4fea-abca-9831395a2ff6",
       "title_1": "Computer Science unplugged",
       "title_2": "Computer Science Unplugged",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -757,7 +757,7 @@
         "abstract_length_1": 712,
         "abstract_length_2": 77
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Same title, but abstracts differ substantially and DOI identifiers point to different publications."
     },
     {
       "candidate_id": "cand-036",
@@ -765,7 +765,7 @@
       "paper_id_2": "b662c474-f270-4aa6-bf9f-819e4031fbcd",
       "title_1": "Computer Science unplugged",
       "title_2": "Computer science unplugged",
-      "status": "unreviewed",
+      "status": "ambiguous",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -778,7 +778,7 @@
         "abstract_length_1": 712,
         "abstract_length_2": 197
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Same title with different DOI identifiers and non-identical abstracts; publication-level verification is needed."
     },
     {
       "candidate_id": "cand-037",
@@ -786,7 +786,7 @@
       "paper_id_2": "25b4a893-c77a-42e7-a1aa-7b272d747fd0",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -799,7 +799,7 @@
         "abstract_length_1": 2406,
         "abstract_length_2": 357
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Generic Computer Science title match, but abstracts describe substantially different content."
     },
     {
       "candidate_id": "cand-038",
@@ -807,7 +807,7 @@
       "paper_id_2": "ed37ade2-d622-4d57-b685-f3b2ffe75139",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -820,7 +820,7 @@
         "abstract_length_1": 2406,
         "abstract_length_2": 622
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Generic Computer Science title match, but abstracts describe substantially different content."
     },
     {
       "candidate_id": "cand-039",
@@ -828,7 +828,7 @@
       "paper_id_2": "c88de35e-d49e-493b-9762-84d366555b6a",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -841,7 +841,7 @@
         "abstract_length_1": 2406,
         "abstract_length_2": 622
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Generic Computer Science title match, but abstracts describe substantially different content."
     },
     {
       "candidate_id": "cand-040",
@@ -849,7 +849,7 @@
       "paper_id_2": "1fdb9ad4-a44b-4eb1-86a9-3bbf2974f498",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -862,7 +862,7 @@
         "abstract_length_1": 2406,
         "abstract_length_2": 1062
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Generic Computer Science title match, but abstracts describe substantially different content."
     },
     {
       "candidate_id": "cand-041",
@@ -870,7 +870,7 @@
       "paper_id_2": "ce73a0da-3c98-4161-86c0-0924e11e0b86",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -883,7 +883,7 @@
         "abstract_length_1": 2406,
         "abstract_length_2": 58
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Generic title match, but abstracts are substantially different."
     },
     {
       "candidate_id": "cand-042",
@@ -891,7 +891,7 @@
       "paper_id_2": "cd610c06-20ff-48cf-aba3-ff01f415e991",
       "title_1": "Computer Science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -904,7 +904,7 @@
         "abstract_length_1": 2406,
         "abstract_length_2": 679
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Generic title match, but abstracts are substantially different."
     },
     {
       "candidate_id": "cand-043",
@@ -912,7 +912,7 @@
       "paper_id_2": "7cc732e6-f3f4-4714-a175-8b569d2bae27",
       "title_1": "Computer Science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -925,7 +925,7 @@
         "abstract_length_1": 2406,
         "abstract_length_2": 694
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Generic title match, but abstracts are substantially different."
     },
     {
       "candidate_id": "cand-044",
@@ -933,7 +933,7 @@
       "paper_id_2": "92881613-694f-4f12-80e3-4017fb587b90",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -946,7 +946,7 @@
         "abstract_length_1": 2406,
         "abstract_length_2": 567
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Generic title match, but abstracts are substantially different."
     },
     {
       "candidate_id": "cand-045",
@@ -954,7 +954,7 @@
       "paper_id_2": "32d65838-a9e3-4521-b960-40c5cecd1c4e",
       "title_1": "Computer Science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -967,7 +967,7 @@
         "abstract_length_1": 2406,
         "abstract_length_2": 924
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Generic title match, but abstracts are substantially different."
     },
     {
       "candidate_id": "cand-046",
@@ -975,7 +975,7 @@
       "paper_id_2": "c8ffa83d-4808-4b94-85d6-67e53c89fc80",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -988,7 +988,7 @@
         "abstract_length_1": 2406,
         "abstract_length_2": 1371
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Generic title match, but abstracts are substantially different."
     },
     {
       "candidate_id": "cand-047",
@@ -996,7 +996,7 @@
       "paper_id_2": "cccdb1e2-bd10-4753-b753-a62b5aca9954",
       "title_1": "Computer Science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -1009,7 +1009,7 @@
         "abstract_length_1": 2406,
         "abstract_length_2": 1083
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Generic title match, but abstracts are substantially different."
     },
     {
       "candidate_id": "cand-048",
@@ -1017,7 +1017,7 @@
       "paper_id_2": "9fca56b7-e384-4f74-8432-114dc3bf3f66",
       "title_1": "Some computer science issues in ubiquitous computing",
       "title_2": "Some computer science issues in ubiquitous computing",
-      "status": "unreviewed",
+      "status": "likely_duplicate_pending_verification",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -1030,7 +1030,7 @@
         "abstract_length_1": 841,
         "abstract_length_2": 723
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different textbook parts and publication years; not the same work."
     },
     {
       "candidate_id": "cand-049",
@@ -1038,7 +1038,7 @@
       "paper_id_2": "25d4fcd4-65b2-4751-b3cf-56cef15904a9",
       "title_1": "Learning computer science concepts with Scratch",
       "title_2": "Learning computer science concepts with scratch",
-      "status": "unreviewed",
+      "status": "likely_duplicate_pending_verification",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -1051,7 +1051,7 @@
         "abstract_length_1": 882,
         "abstract_length_2": 933
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Nepali school textbook versus a university-level computer science textbook; different works."
     },
     {
       "candidate_id": "cand-050",
@@ -1059,7 +1059,7 @@
       "paper_id_2": "b2219e11-f0b8-466a-a394-9cc3983102e9",
       "title_1": "Computer science and game theory",
       "title_2": "Computer science and game theory",
-      "status": "unreviewed",
+      "status": "likely_duplicate_pending_verification",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -1072,7 +1072,7 @@
         "abstract_length_1": 83,
         "abstract_length_2": 415
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Nepali school textbook versus a different computer science book; different works."
     },
     {
       "candidate_id": "cand-051",
@@ -1093,7 +1093,7 @@
         "abstract_length_1": 949,
         "abstract_length_2": 949
       },
-      "reviewer_notes": "Previously reviewed: title/abstract metadata was considered consistent with a likely ACM publication-version relationship; a prior database comparison also found matching author names and order. This remains provisional and requires authoritative metadata verification."
+      "reviewer_notes": "Exact same title and normalized abstract, but DOI identifiers differ; verify publication metadata before confirmation."
     },
     {
       "candidate_id": "cand-052",
@@ -1101,7 +1101,7 @@
       "paper_id_2": "ed37ade2-d622-4d57-b685-f3b2ffe75139",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -1114,7 +1114,7 @@
         "abstract_length_1": 357,
         "abstract_length_2": 622
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Generic title match, but abstracts are substantially different."
     },
     {
       "candidate_id": "cand-053",
@@ -1122,7 +1122,7 @@
       "paper_id_2": "c88de35e-d49e-493b-9762-84d366555b6a",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -1135,7 +1135,7 @@
         "abstract_length_1": 357,
         "abstract_length_2": 622
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Generic title match, but abstracts are substantially different."
     },
     {
       "candidate_id": "cand-054",
@@ -1143,7 +1143,7 @@
       "paper_id_2": "1fdb9ad4-a44b-4eb1-86a9-3bbf2974f498",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -1156,7 +1156,7 @@
         "abstract_length_1": 357,
         "abstract_length_2": 1062
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Generic title match, but abstracts are substantially different."
     },
     {
       "candidate_id": "cand-055",
@@ -1164,7 +1164,7 @@
       "paper_id_2": "ce73a0da-3c98-4161-86c0-0924e11e0b86",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -1177,7 +1177,7 @@
         "abstract_length_1": 357,
         "abstract_length_2": 58
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Generic title match, but abstracts are substantially different."
     },
     {
       "candidate_id": "cand-056",
@@ -1185,7 +1185,7 @@
       "paper_id_2": "cd610c06-20ff-48cf-aba3-ff01f415e991",
       "title_1": "Computer Science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -1198,7 +1198,7 @@
         "abstract_length_1": 357,
         "abstract_length_2": 679
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Generic title match, but abstracts are substantially different."
     },
     {
       "candidate_id": "cand-057",
@@ -1206,7 +1206,7 @@
       "paper_id_2": "7cc732e6-f3f4-4714-a175-8b569d2bae27",
       "title_1": "Computer Science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -1219,7 +1219,7 @@
         "abstract_length_1": 357,
         "abstract_length_2": 694
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Generic title match, but abstracts are substantially different."
     },
     {
       "candidate_id": "cand-058",
@@ -1227,7 +1227,7 @@
       "paper_id_2": "92881613-694f-4f12-80e3-4017fb587b90",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -1240,7 +1240,7 @@
         "abstract_length_1": 357,
         "abstract_length_2": 567
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Generic title match, but abstracts are substantially different."
     },
     {
       "candidate_id": "cand-059",
@@ -1248,7 +1248,7 @@
       "paper_id_2": "32d65838-a9e3-4521-b960-40c5cecd1c4e",
       "title_1": "Computer Science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -1261,7 +1261,7 @@
         "abstract_length_1": 357,
         "abstract_length_2": 924
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Generic title match, but abstracts are substantially different."
     },
     {
       "candidate_id": "cand-060",
@@ -1269,7 +1269,7 @@
       "paper_id_2": "c8ffa83d-4808-4b94-85d6-67e53c89fc80",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -1282,7 +1282,7 @@
         "abstract_length_1": 357,
         "abstract_length_2": 1371
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Generic title match, but abstracts are substantially different."
     },
     {
       "candidate_id": "cand-061",
@@ -1290,7 +1290,7 @@
       "paper_id_2": "cccdb1e2-bd10-4753-b753-a62b5aca9954",
       "title_1": "Computer Science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -1303,7 +1303,7 @@
         "abstract_length_1": 357,
         "abstract_length_2": 1083
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works; matching generic title but substantially different abstracts."
     },
     {
       "candidate_id": "cand-062",
@@ -1311,7 +1311,7 @@
       "paper_id_2": "18ef8412-9688-4eb9-8faa-bc7a97c1e9de",
       "title_1": "Philosophy of Computer Science",
       "title_2": "Philosophy of Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -1324,7 +1324,7 @@
         "abstract_length_1": 499,
         "abstract_length_2": 857
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Same title, but abstracts differ substantially and DOI metadata does not establish the same work."
     },
     {
       "candidate_id": "cand-063",
@@ -1332,7 +1332,7 @@
       "paper_id_2": "a084655c-556a-4f86-ac61-9357e7536328",
       "title_1": "Science, computational science, and computer science: at a crossroads",
       "title_2": "Science, computational science, and computer science: at a crossroads",
-      "status": "unreviewed",
+      "status": "likely_duplicate_pending_verification",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -1345,7 +1345,7 @@
         "abstract_length_1": 999,
         "abstract_length_2": 196
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Same title, but abstracts differ and DOI identifiers point to different records."
     },
     {
       "candidate_id": "cand-064",
@@ -1353,7 +1353,7 @@
       "paper_id_2": "8cfd2ecb-a446-43b8-84a6-de766dc31983",
       "title_1": "Algorithms on Strings, Trees and Sequences: Computer Science and Computational Biology",
       "title_2": "Algorithms on strings, trees, and sequences computer science and computational biology",
-      "status": "unreviewed",
+      "status": "likely_duplicate_pending_verification",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -1366,7 +1366,7 @@
         "abstract_length_1": 1036,
         "abstract_length_2": 1067
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Title variation only; abstracts differ substantially and DOI metadata does not establish the same work."
     },
     {
       "candidate_id": "cand-065",
@@ -1387,7 +1387,7 @@
         "abstract_length_1": 616,
         "abstract_length_2": 616
       },
-      "reviewer_notes": "Previously reviewed: title/abstract metadata was considered consistent with a likely ACM publication-version relationship; a prior database comparison also found matching author names and order. This remains provisional and requires authoritative metadata verification.",
+      "reviewer_notes": "The matching abstract belongs to the second record; the first record has an unrelated Nepali textbook abstract. Not the same work.",
       "work_group_id": "teaching-objects-first",
       "work_group_note": "Three pair relationships belong to one three-record work group; count this connected group as one work, not three independent duplicate groups."
     },
@@ -1410,7 +1410,7 @@
         "abstract_length_1": 616,
         "abstract_length_2": 616
       },
-      "reviewer_notes": "Previously reviewed: title/abstract metadata was considered consistent with a likely ACM publication-version relationship; a prior database comparison also found matching author names and order. This remains provisional and requires authoritative metadata verification.",
+      "reviewer_notes": "The matching abstract belongs to the second record; the first record has an unrelated Nepali textbook abstract. Not the same work.",
       "work_group_id": "teaching-objects-first",
       "work_group_note": "Three pair relationships belong to one three-record work group; count this connected group as one work, not three independent duplicate groups."
     },
@@ -1420,7 +1420,7 @@
       "paper_id_2": "13168ec0-54fc-4652-a1bd-6c2fc88bbe6e",
       "title_1": "Handbook of Logic in Computer Science",
       "title_2": "Handbook of Logic in Computer Science",
-      "status": "unreviewed",
+      "status": "ambiguous",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -1433,7 +1433,7 @@
         "abstract_length_1": 332,
         "abstract_length_2": 323
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "The first record has an unrelated Nepali textbook abstract; the second describes a different work."
     },
     {
       "candidate_id": "cand-068",
@@ -1454,7 +1454,7 @@
         "abstract_length_1": 953,
         "abstract_length_2": 953
       },
-      "reviewer_notes": "Previously reviewed: title/abstract metadata was considered consistent with a likely ACM publication-version relationship; a prior database comparison also found matching author names and order. This remains provisional and requires authoritative metadata verification."
+      "reviewer_notes": "Different textbook parts and publication years; not the same work."
     },
     {
       "candidate_id": "cand-069",
@@ -1462,7 +1462,7 @@
       "paper_id_2": "46b2332e-c4b4-494a-984c-1b5d0ed70757",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -1475,7 +1475,7 @@
         "abstract_length_1": 2710,
         "abstract_length_2": 3127
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Nepali school textbook versus a university-level computer science textbook; different works."
     },
     {
       "candidate_id": "cand-070",
@@ -1483,7 +1483,7 @@
       "paper_id_2": "70c9614d-ed65-4133-8dba-7fe45975c6f9",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -1496,7 +1496,7 @@
         "abstract_length_1": 2710,
         "abstract_length_2": 3157
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Nepali school textbook versus a different computer science book; different works."
     },
     {
       "candidate_id": "cand-071",
@@ -1504,7 +1504,7 @@
       "paper_id_2": "b82dd0d7-7128-4d68-9591-14fe30964980",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -1517,7 +1517,7 @@
         "abstract_length_1": 2710,
         "abstract_length_2": 2866
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different conference proceedings and event lists; shared publisher boilerplate does not establish duplicate works."
     },
     {
       "candidate_id": "cand-072",
@@ -1525,7 +1525,7 @@
       "paper_id_2": "91b5e8fa-15ce-48dc-8b8c-4299d2586c14",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -1538,7 +1538,7 @@
         "abstract_length_1": 2710,
         "abstract_length_2": 2673
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different conference events and proceedings; abstracts share standard publisher boilerplate."
     },
     {
       "candidate_id": "cand-073",
@@ -1546,7 +1546,7 @@
       "paper_id_2": "a9584c5b-6314-4705-8150-2c5c30e9d0cd",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -1559,7 +1559,7 @@
         "abstract_length_1": 2710,
         "abstract_length_2": 3216
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different conference proceedings from 2020 and 2018."
     },
     {
       "candidate_id": "cand-074",
@@ -1567,7 +1567,7 @@
       "paper_id_2": "ec7633e0-85ce-4890-8757-feb16458a188",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -1580,7 +1580,7 @@
         "abstract_length_1": 2710,
         "abstract_length_2": 3138
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different conference events and proceedings from 2018 and 2020."
     },
     {
       "candidate_id": "cand-075",
@@ -1588,7 +1588,7 @@
       "paper_id_2": "f07a3013-0c58-470c-9f7c-5f3ee2be3b2b",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -1601,7 +1601,7 @@
         "abstract_length_1": 2710,
         "abstract_length_2": 3168
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different conference events and proceedings; shared publisher boilerplate does not establish duplicate works."
     },
     {
       "candidate_id": "cand-076",
@@ -1609,7 +1609,7 @@
       "paper_id_2": "e4c7569e-1de7-40c7-83d7-ea1c3d7a9fff",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -1622,7 +1622,7 @@
         "abstract_length_1": 2710,
         "abstract_length_2": 2762
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different conference events and proceedings; shared publisher boilerplate does not establish duplicate works."
     },
     {
       "candidate_id": "cand-077",
@@ -1630,7 +1630,7 @@
       "paper_id_2": "1858f6eb-f58f-42c6-9b1f-69f2d8681d05",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -1643,7 +1643,7 @@
         "abstract_length_1": 2710,
         "abstract_length_2": 3228
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different conference events and proceedings from 2018 and 2020."
     },
     {
       "candidate_id": "cand-078",
@@ -1651,7 +1651,7 @@
       "paper_id_2": "b33846e2-babd-4699-8a26-551d10d3e1bc",
       "title_1": "Encyclopedia of computer science and technology",
       "title_2": "Encyclopedia of Computer Science and Technology",
-      "status": "ambiguous",
+      "status": "likely_duplicate_pending_verification",
       "supporting_evidence": {
         "match_reason": "exact_abstract",
         "title_jaccard": 1.0,
@@ -1664,7 +1664,7 @@
         "abstract_length_1": 389,
         "abstract_length_2": 389
       },
-      "reviewer_notes": "Previously reviewed: book, encyclopedia, or handbook-related records with insufficient evidence to determine whether they represent the same work or distinct editions/records. Further verification is needed."
+      "reviewer_notes": "Exact same title and normalized abstract, but DOI identifiers differ; publication metadata needs verification."
     },
     {
       "candidate_id": "cand-079",
@@ -1672,7 +1672,7 @@
       "paper_id_2": "a0c1df06-44d9-461b-a33d-fcdd9b9de86a",
       "title_1": "Encyclopedia of computer science and technology",
       "title_2": "Encyclopedia of Computer Science and Technology",
-      "status": "unreviewed",
+      "status": "ambiguous",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -1685,7 +1685,7 @@
         "abstract_length_1": 389,
         "abstract_length_2": 481
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Same encyclopedia title but different abstracts and DOI identifiers; edition or volume relationship needs verification."
     },
     {
       "candidate_id": "cand-080",
@@ -1693,7 +1693,7 @@
       "paper_id_2": "c88de35e-d49e-493b-9762-84d366555b6a",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "ambiguous",
+      "status": "likely_duplicate_pending_verification",
       "supporting_evidence": {
         "match_reason": "exact_abstract",
         "title_jaccard": 1.0,
@@ -1706,7 +1706,7 @@
         "abstract_length_1": 622,
         "abstract_length_2": 622
       },
-      "reviewer_notes": "Previously reviewed: book, encyclopedia, or handbook-related records with insufficient evidence to determine whether they represent the same work or distinct editions/records. Further verification is needed."
+      "reviewer_notes": "Exact same title and normalized abstract, but book-series DOI identifiers differ; publication metadata needs verification."
     },
     {
       "candidate_id": "cand-081",
@@ -1714,7 +1714,7 @@
       "paper_id_2": "1fdb9ad4-a44b-4eb1-86a9-3bbf2974f498",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -1727,7 +1727,7 @@
         "abstract_length_1": 622,
         "abstract_length_2": 1062
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: an essay on the emergence of computer science versus a history of American computing."
     },
     {
       "candidate_id": "cand-082",
@@ -1735,7 +1735,7 @@
       "paper_id_2": "ce73a0da-3c98-4161-86c0-0924e11e0b86",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -1748,7 +1748,7 @@
         "abstract_length_1": 622,
         "abstract_length_2": 58
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: an essay on computer science versus a Nepali school textbook."
     },
     {
       "candidate_id": "cand-083",
@@ -1756,7 +1756,7 @@
       "paper_id_2": "cd610c06-20ff-48cf-aba3-ff01f415e991",
       "title_1": "Computer Science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -1769,7 +1769,7 @@
         "abstract_length_1": 622,
         "abstract_length_2": 679
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: an essay on computer science versus a university textbook."
     },
     {
       "candidate_id": "cand-084",
@@ -1777,7 +1777,7 @@
       "paper_id_2": "7cc732e6-f3f4-4714-a175-8b569d2bae27",
       "title_1": "Computer Science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -1790,7 +1790,7 @@
         "abstract_length_1": 622,
         "abstract_length_2": 694
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: an essay versus a textbook covering theoretical computer science, programming and algorithms."
     },
     {
       "candidate_id": "cand-085",
@@ -1798,7 +1798,7 @@
       "paper_id_2": "92881613-694f-4f12-80e3-4017fb587b90",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -1811,7 +1811,7 @@
         "abstract_length_1": 622,
         "abstract_length_2": 567
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: an essay versus educational content about sorting algorithms."
     },
     {
       "candidate_id": "cand-086",
@@ -1819,7 +1819,7 @@
       "paper_id_2": "32d65838-a9e3-4521-b960-40c5cecd1c4e",
       "title_1": "Computer Science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -1832,7 +1832,7 @@
         "abstract_length_1": 622,
         "abstract_length_2": 924
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: an essay versus a broad computer science textbook."
     },
     {
       "candidate_id": "cand-087",
@@ -1840,7 +1840,7 @@
       "paper_id_2": "c8ffa83d-4808-4b94-85d6-67e53c89fc80",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -1853,7 +1853,7 @@
         "abstract_length_1": 622,
         "abstract_length_2": 1371
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: an essay versus a chapter covering algorithms, CPU scheduling and related topics."
     },
     {
       "candidate_id": "cand-088",
@@ -1861,7 +1861,7 @@
       "paper_id_2": "cccdb1e2-bd10-4753-b753-a62b5aca9954",
       "title_1": "Computer Science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -1874,7 +1874,7 @@
         "abstract_length_1": 622,
         "abstract_length_2": 1083
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: an essay versus a chapter on computer science and STEM education for children."
     },
     {
       "candidate_id": "cand-089",
@@ -1882,7 +1882,7 @@
       "paper_id_2": "1fdb9ad4-a44b-4eb1-86a9-3bbf2974f498",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -1895,7 +1895,7 @@
         "abstract_length_1": 622,
         "abstract_length_2": 1062
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: an essay versus a history of American computing."
     },
     {
       "candidate_id": "cand-090",
@@ -1903,7 +1903,7 @@
       "paper_id_2": "ce73a0da-3c98-4161-86c0-0924e11e0b86",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -1916,7 +1916,7 @@
         "abstract_length_1": 622,
         "abstract_length_2": 58
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: an essay versus a Nepali school textbook."
     },
     {
       "candidate_id": "cand-091",
@@ -1924,7 +1924,7 @@
       "paper_id_2": "cd610c06-20ff-48cf-aba3-ff01f415e991",
       "title_1": "Computer Science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -1937,7 +1937,7 @@
         "abstract_length_1": 622,
         "abstract_length_2": 679
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: historical essay on the emergence of computer science versus a university computer science textbook."
     },
     {
       "candidate_id": "cand-092",
@@ -1945,7 +1945,7 @@
       "paper_id_2": "7cc732e6-f3f4-4714-a175-8b569d2bae27",
       "title_1": "Computer Science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -1958,7 +1958,7 @@
         "abstract_length_1": 622,
         "abstract_length_2": 694
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: historical essay versus a textbook covering modern computer science topics."
     },
     {
       "candidate_id": "cand-093",
@@ -1966,7 +1966,7 @@
       "paper_id_2": "92881613-694f-4f12-80e3-4017fb587b90",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -1979,7 +1979,7 @@
         "abstract_length_1": 622,
         "abstract_length_2": 567
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: historical essay versus an instructional chapter on sorting algorithms."
     },
     {
       "candidate_id": "cand-094",
@@ -1987,7 +1987,7 @@
       "paper_id_2": "32d65838-a9e3-4521-b960-40c5cecd1c4e",
       "title_1": "Computer Science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -2000,7 +2000,7 @@
         "abstract_length_1": 622,
         "abstract_length_2": 924
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: historical essay versus a broad computer science textbook."
     },
     {
       "candidate_id": "cand-095",
@@ -2008,7 +2008,7 @@
       "paper_id_2": "c8ffa83d-4808-4b94-85d6-67e53c89fc80",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -2021,7 +2021,7 @@
         "abstract_length_1": 622,
         "abstract_length_2": 1371
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: historical essay versus a chapter covering sorting, Dijkstra, CPU scheduling and simulations."
     },
     {
       "candidate_id": "cand-096",
@@ -2029,7 +2029,7 @@
       "paper_id_2": "cccdb1e2-bd10-4753-b753-a62b5aca9954",
       "title_1": "Computer Science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -2042,7 +2042,7 @@
         "abstract_length_1": 622,
         "abstract_length_2": 1083
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: historical essay versus a chapter on computer science and STEM education for children."
     },
     {
       "candidate_id": "cand-097",
@@ -2050,7 +2050,7 @@
       "paper_id_2": "6f3aec81-4afa-4ae7-956e-f4d2f771c43d",
       "title_1": "Logic in Computer Science: Modelling and Reasoning about Systems",
       "title_2": "Logic in computer science: modelling and reasoning about systems",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -2063,7 +2063,7 @@
         "abstract_length_1": 1051,
         "abstract_length_2": 195
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different publication types: the first record is the book; the second DOI identifies a book-review record, not the book itself."
     },
     {
       "candidate_id": "cand-098",
@@ -2071,7 +2071,7 @@
       "paper_id_2": "fc26e4d3-8b54-4cc7-a6cc-070dc5dc1fff",
       "title_1": "Pioneering women in computer science",
       "title_2": "Pioneering women in computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -2084,7 +2084,7 @@
         "abstract_length_1": 875,
         "abstract_length_2": 835
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Distinct publications with the same title and author: 1995 Communications of the ACM article and 2002 ACM SIGCSE Bulletin article have different publication details."
     },
     {
       "candidate_id": "cand-099",
@@ -2105,7 +2105,7 @@
         "abstract_length_1": 744,
         "abstract_length_2": 744
       },
-      "reviewer_notes": "Previously reviewed: title/abstract metadata was considered consistent with a likely ACM publication-version relationship; a prior database comparison also found matching author names and order. This remains provisional and requires authoritative metadata verification."
+      "reviewer_notes": "Exact same title and normalized abstract; DOI identifiers differ. Prior author comparison supports a possible ACM publication-version relationship, but authoritative metadata verification is still required."
     },
     {
       "candidate_id": "cand-100",
@@ -2113,7 +2113,7 @@
       "paper_id_2": "a0c1df06-44d9-461b-a33d-fcdd9b9de86a",
       "title_1": "Encyclopedia of Computer Science and Technology",
       "title_2": "Encyclopedia of Computer Science and Technology",
-      "status": "unreviewed",
+      "status": "ambiguous",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -2126,7 +2126,7 @@
         "abstract_length_1": 389,
         "abstract_length_2": 481
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Same encyclopedia title but different abstracts and DOI identifiers; may represent different volumes or editions and requires publication metadata verification."
     },
     {
       "candidate_id": "cand-101",
@@ -2134,7 +2134,7 @@
       "paper_id_2": "e71be3fc-53ff-4956-a76b-3d080d11276d",
       "title_1": "Computation and Reasoning: A Type Theory for Computer Science",
       "title_2": "Computation and reasoning: a type theory for computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -2147,7 +2147,7 @@
         "abstract_length_1": 840,
         "abstract_length_2": 356
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different record types: the first DOI identifies the book; the second DOI appears to identify a Choice book-review record, not a second copy of the book."
     },
     {
       "candidate_id": "cand-102",
@@ -2168,7 +2168,7 @@
         "abstract_length_1": 344,
         "abstract_length_2": 344
       },
-      "reviewer_notes": "Previously reviewed: title/abstract metadata was considered consistent with a likely ACM publication-version relationship; a prior database comparison also found matching author names and order. This remains provisional and requires authoritative metadata verification."
+      "reviewer_notes": "Exact same title and normalized abstract, with different DOI identifiers. Possible ACM publication-version relationship; requires authoritative verification."
     },
     {
       "candidate_id": "cand-103",
@@ -2189,7 +2189,7 @@
         "abstract_length_1": 382,
         "abstract_length_2": 382
       },
-      "reviewer_notes": "Previously reviewed: title/abstract metadata was considered consistent with a likely ACM publication-version relationship; a prior database comparison also found matching author names and order. This remains provisional and requires authoritative metadata verification."
+      "reviewer_notes": "Exact same title and normalized abstract, with different DOI identifiers. Possible ACM publication-version relationship; requires authoritative verification."
     },
     {
       "candidate_id": "cand-104",
@@ -2210,7 +2210,7 @@
         "abstract_length_1": 1136,
         "abstract_length_2": 1136
       },
-      "reviewer_notes": "Previously reviewed: title/abstract metadata was considered consistent with a likely ACM publication-version relationship; a prior database comparison also found matching author names and order. This remains provisional and requires authoritative metadata verification."
+      "reviewer_notes": "Exact same title and normalized abstract, with different DOI identifiers. Possible ACM publication-version relationship; requires authoritative verification."
     },
     {
       "candidate_id": "cand-105",
@@ -2231,7 +2231,7 @@
         "abstract_length_1": 616,
         "abstract_length_2": 616
       },
-      "reviewer_notes": "Previously reviewed: title/abstract metadata was considered consistent with a likely ACM publication-version relationship; a prior database comparison also found matching author names and order. This remains provisional and requires authoritative metadata verification.",
+      "reviewer_notes": "Exact title and abstract match, but DOI identifiers differ. Part of the teaching-objects-first three-record work group; preserve the group for reconciliation.",
       "work_group_id": "teaching-objects-first",
       "work_group_note": "Three pair relationships belong to one three-record work group; count this connected group as one work, not three independent duplicate groups."
     },
@@ -2241,7 +2241,7 @@
       "paper_id_2": "e5e67390-5242-4b7c-8f65-e96ec8f8cfb2",
       "title_1": "Creativity in Computer Science",
       "title_2": "CREATIVITY IN COMPUTER SCIENCE",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "exact_title",
         "title_jaccard": 1.0,
@@ -2254,7 +2254,7 @@
         "abstract_length_1": 330,
         "abstract_length_2": 2140
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Same title but different works: the records discuss different aspects of creativity and creative thinking in computer science."
     },
     {
       "candidate_id": "cand-107",
@@ -2275,7 +2275,7 @@
         "abstract_length_1": 522,
         "abstract_length_2": 522
       },
-      "reviewer_notes": "Previously reviewed: title/abstract metadata was considered consistent with a likely ACM publication-version relationship; a prior database comparison also found matching author names and order. This remains provisional and requires authoritative metadata verification."
+      "reviewer_notes": "Exact same title and normalized abstract, with different DOI identifiers. Possible ACM publication-version relationship; requires authoritative verification."
     },
     {
       "candidate_id": "cand-108",
@@ -2283,7 +2283,7 @@
       "paper_id_2": "b662c474-f270-4aa6-bf9f-819e4031fbcd",
       "title_1": "Computer Science Unplugged",
       "title_2": "Computer science unplugged",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -2296,7 +2296,7 @@
         "abstract_length_1": 77,
         "abstract_length_2": 197
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: the first record describes a second-grade computational-thinking puppy-playground activity; the second is a tutorial on Computer Science Unplugged enrichment activities."
     },
     {
       "candidate_id": "cand-109",
@@ -2304,7 +2304,7 @@
       "paper_id_2": "ce73a0da-3c98-4161-86c0-0924e11e0b86",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -2317,7 +2317,7 @@
         "abstract_length_1": 1062,
         "abstract_length_2": 58
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: a chapter on the history of American computing versus a Nepali Class 9 and 10 computer science textbook (Part 1)."
     },
     {
       "candidate_id": "cand-110",
@@ -2325,7 +2325,7 @@
       "paper_id_2": "cd610c06-20ff-48cf-aba3-ff01f415e991",
       "title_1": "Computer Science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -2338,7 +2338,7 @@
         "abstract_length_1": 1062,
         "abstract_length_2": 679
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: a chapter on the history of American computing versus a Russian computer science textbook."
     },
     {
       "candidate_id": "cand-111",
@@ -2346,7 +2346,7 @@
       "paper_id_2": "7cc732e6-f3f4-4714-a175-8b569d2bae27",
       "title_1": "Computer Science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -2359,7 +2359,7 @@
         "abstract_length_1": 1062,
         "abstract_length_2": 694
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: American computing history chapter versus Russian computer science textbook."
     },
     {
       "candidate_id": "cand-112",
@@ -2367,7 +2367,7 @@
       "paper_id_2": "92881613-694f-4f12-80e3-4017fb587b90",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -2380,7 +2380,7 @@
         "abstract_length_1": 1062,
         "abstract_length_2": 567
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: American computing history chapter versus a separate chapter about sorting algorithms."
     },
     {
       "candidate_id": "cand-113",
@@ -2388,7 +2388,7 @@
       "paper_id_2": "32d65838-a9e3-4521-b960-40c5cecd1c4e",
       "title_1": "Computer Science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -2401,7 +2401,7 @@
         "abstract_length_1": 1062,
         "abstract_length_2": 924
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: American computing history chapter versus Russian computer science textbook covering hardware, software and AI."
     },
     {
       "candidate_id": "cand-114",
@@ -2409,7 +2409,7 @@
       "paper_id_2": "c8ffa83d-4808-4b94-85d6-67e53c89fc80",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -2422,7 +2422,7 @@
         "abstract_length_1": 1062,
         "abstract_length_2": 1371
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: American computing history chapter versus a MATLAB-based computer science chapter."
     },
     {
       "candidate_id": "cand-115",
@@ -2430,7 +2430,7 @@
       "paper_id_2": "cccdb1e2-bd10-4753-b753-a62b5aca9954",
       "title_1": "Computer Science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -2443,7 +2443,7 @@
         "abstract_length_1": 1062,
         "abstract_length_2": 1083
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: American computing history chapter versus a chapter about computer science in STEM education."
     },
     {
       "candidate_id": "cand-116",
@@ -2451,7 +2451,7 @@
       "paper_id_2": "cd610c06-20ff-48cf-aba3-ff01f415e991",
       "title_1": "Computer Science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -2464,7 +2464,7 @@
         "abstract_length_1": 58,
         "abstract_length_2": 679
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: Nepali Class 9–10 textbook versus Russian higher-education computer science textbook."
     },
     {
       "candidate_id": "cand-117",
@@ -2472,7 +2472,7 @@
       "paper_id_2": "7cc732e6-f3f4-4714-a175-8b569d2bae27",
       "title_1": "Computer Science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -2485,7 +2485,7 @@
         "abstract_length_1": 58,
         "abstract_length_2": 694
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: Nepali Class 9–10 textbook versus Russian computer science textbook."
     },
     {
       "candidate_id": "cand-118",
@@ -2493,7 +2493,7 @@
       "paper_id_2": "92881613-694f-4f12-80e3-4017fb587b90",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -2506,7 +2506,7 @@
         "abstract_length_1": 58,
         "abstract_length_2": 567
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: Nepali textbook versus a chapter explaining sorting algorithms."
     },
     {
       "candidate_id": "cand-119",
@@ -2514,7 +2514,7 @@
       "paper_id_2": "32d65838-a9e3-4521-b960-40c5cecd1c4e",
       "title_1": "Computer Science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -2527,7 +2527,7 @@
         "abstract_length_1": 58,
         "abstract_length_2": 924
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: Nepali textbook versus Russian computer science textbook."
     },
     {
       "candidate_id": "cand-120",
@@ -2535,7 +2535,7 @@
       "paper_id_2": "c8ffa83d-4808-4b94-85d6-67e53c89fc80",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -2548,7 +2548,7 @@
         "abstract_length_1": 58,
         "abstract_length_2": 1371
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: Nepali textbook versus MATLAB-based computer science chapter."
     },
     {
       "candidate_id": "cand-121",
@@ -2556,7 +2556,7 @@
       "paper_id_2": "cccdb1e2-bd10-4753-b753-a62b5aca9954",
       "title_1": "Computer Science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -2569,7 +2569,7 @@
         "abstract_length_1": 58,
         "abstract_length_2": 1083
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: Nepali school textbook versus a chapter about STEM education."
     },
     {
       "candidate_id": "cand-122",
@@ -2577,7 +2577,7 @@
       "paper_id_2": "7cc732e6-f3f4-4714-a175-8b569d2bae27",
       "title_1": "Computer science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -2590,7 +2590,7 @@
         "abstract_length_1": 679,
         "abstract_length_2": 694
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different Russian textbooks with different descriptions and DOI identifiers; no evidence of duplicate records."
     },
     {
       "candidate_id": "cand-123",
@@ -2598,7 +2598,7 @@
       "paper_id_2": "92881613-694f-4f12-80e3-4017fb587b90",
       "title_1": "Computer science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -2611,7 +2611,7 @@
         "abstract_length_1": 679,
         "abstract_length_2": 567
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: Russian computer science textbook versus a chapter explaining Bubble Sort and Quicksort."
     },
     {
       "candidate_id": "cand-124",
@@ -2619,7 +2619,7 @@
       "paper_id_2": "32d65838-a9e3-4521-b960-40c5cecd1c4e",
       "title_1": "Computer science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -2632,7 +2632,7 @@
         "abstract_length_1": 679,
         "abstract_length_2": 924
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different Russian textbooks with different content coverage and DOI identifiers."
     },
     {
       "candidate_id": "cand-125",
@@ -2640,7 +2640,7 @@
       "paper_id_2": "c8ffa83d-4808-4b94-85d6-67e53c89fc80",
       "title_1": "Computer science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -2653,7 +2653,7 @@
         "abstract_length_1": 679,
         "abstract_length_2": 1371
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: Russian computer science textbook versus a MATLAB-based computer science chapter."
     },
     {
       "candidate_id": "cand-126",
@@ -2661,7 +2661,7 @@
       "paper_id_2": "cccdb1e2-bd10-4753-b753-a62b5aca9954",
       "title_1": "Computer science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -2674,7 +2674,7 @@
         "abstract_length_1": 679,
         "abstract_length_2": 1083
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: Russian computer science textbook versus a chapter about STEM education."
     },
     {
       "candidate_id": "cand-127",
@@ -2682,7 +2682,7 @@
       "paper_id_2": "92881613-694f-4f12-80e3-4017fb587b90",
       "title_1": "Computer science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -2695,7 +2695,7 @@
         "abstract_length_1": 694,
         "abstract_length_2": 567
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: Russian computer science textbook versus a chapter explaining sorting algorithms."
     },
     {
       "candidate_id": "cand-128",
@@ -2703,7 +2703,7 @@
       "paper_id_2": "32d65838-a9e3-4521-b960-40c5cecd1c4e",
       "title_1": "Computer science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -2716,7 +2716,7 @@
         "abstract_length_1": 694,
         "abstract_length_2": 924
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different Russian textbooks with different descriptions and DOI identifiers; no evidence of duplicate records."
     },
     {
       "candidate_id": "cand-129",
@@ -2724,7 +2724,7 @@
       "paper_id_2": "c8ffa83d-4808-4b94-85d6-67e53c89fc80",
       "title_1": "Computer science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -2737,7 +2737,7 @@
         "abstract_length_1": 694,
         "abstract_length_2": 1371
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: Russian computer science textbook versus a MATLAB-based computer science chapter."
     },
     {
       "candidate_id": "cand-130",
@@ -2745,7 +2745,7 @@
       "paper_id_2": "cccdb1e2-bd10-4753-b753-a62b5aca9954",
       "title_1": "Computer science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -2758,7 +2758,7 @@
         "abstract_length_1": 694,
         "abstract_length_2": 1083
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: Russian computer science textbook versus a chapter about STEM education."
     },
     {
       "candidate_id": "cand-131",
@@ -2766,7 +2766,7 @@
       "paper_id_2": "32d65838-a9e3-4521-b960-40c5cecd1c4e",
       "title_1": "Computer Science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -2779,7 +2779,7 @@
         "abstract_length_1": 567,
         "abstract_length_2": 924
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: a Bubble Sort explanation versus a Russian computer science textbook."
     },
     {
       "candidate_id": "cand-132",
@@ -2787,7 +2787,7 @@
       "paper_id_2": "c8ffa83d-4808-4b94-85d6-67e53c89fc80",
       "title_1": "Computer Science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -2800,7 +2800,7 @@
         "abstract_length_1": 567,
         "abstract_length_2": 1371
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: a Bubble Sort explanation versus a textbook chapter covering sorting, graph algorithms, CPU scheduling and simulation."
     },
     {
       "candidate_id": "cand-133",
@@ -2808,7 +2808,7 @@
       "paper_id_2": "cccdb1e2-bd10-4753-b753-a62b5aca9954",
       "title_1": "Computer Science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -2821,7 +2821,7 @@
         "abstract_length_1": 567,
         "abstract_length_2": 1083
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: a Bubble Sort explanation versus a chapter about computer science in STEM education."
     },
     {
       "candidate_id": "cand-134",
@@ -2850,7 +2850,7 @@
       "paper_id_2": "c8ffa83d-4808-4b94-85d6-67e53c89fc80",
       "title_1": "Computer science",
       "title_2": "Computer Science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -2863,7 +2863,7 @@
         "abstract_length_1": 924,
         "abstract_length_2": 1371
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different Russian computer science textbook chapters with different content and DOI identifiers."
     },
     {
       "candidate_id": "cand-136",
@@ -2871,7 +2871,7 @@
       "paper_id_2": "cccdb1e2-bd10-4753-b753-a62b5aca9954",
       "title_1": "Computer science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -2884,7 +2884,7 @@
         "abstract_length_1": 924,
         "abstract_length_2": 1083
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different works: a Russian computer science textbook versus a chapter about computer science in STEM education."
     },
     {
       "candidate_id": "cand-137",
@@ -2913,7 +2913,7 @@
       "paper_id_2": "cccdb1e2-bd10-4753-b753-a62b5aca9954",
       "title_1": "Computer Science",
       "title_2": "Computer science",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -2926,7 +2926,7 @@
         "abstract_length_1": 1371,
         "abstract_length_2": 1083
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different textbook chapters with distinct subject coverage and DOI identifiers."
     },
     {
       "candidate_id": "cand-139",
@@ -2955,7 +2955,7 @@
       "paper_id_2": "70c9614d-ed65-4133-8dba-7fe45975c6f9",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -2968,7 +2968,7 @@
         "abstract_length_1": 3127,
         "abstract_length_2": 3157
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Different conference proceedings: 2018 and 2017 events, with year-specific conference descriptions."
     },
     {
       "candidate_id": "cand-141",
@@ -2976,7 +2976,7 @@
       "paper_id_2": "b82dd0d7-7128-4d68-9591-14fe30964980",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -2997,7 +2997,7 @@
       "paper_id_2": "91b5e8fa-15ce-48dc-8b8c-4299d2586c14",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -3018,7 +3018,7 @@
       "paper_id_2": "a9584c5b-6314-4705-8150-2c5c30e9d0cd",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -3039,7 +3039,7 @@
       "paper_id_2": "ec7633e0-85ce-4890-8757-feb16458a188",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -3060,7 +3060,7 @@
       "paper_id_2": "f07a3013-0c58-470c-9f7c-5f3ee2be3b2b",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -3081,7 +3081,7 @@
       "paper_id_2": "e4c7569e-1de7-40c7-83d7-ea1c3d7a9fff",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -3102,7 +3102,7 @@
       "paper_id_2": "1858f6eb-f58f-42c6-9b1f-69f2d8681d05",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -3123,7 +3123,7 @@
       "paper_id_2": "b82dd0d7-7128-4d68-9591-14fe30964980",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -3144,7 +3144,7 @@
       "paper_id_2": "91b5e8fa-15ce-48dc-8b8c-4299d2586c14",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -3165,7 +3165,7 @@
       "paper_id_2": "a9584c5b-6314-4705-8150-2c5c30e9d0cd",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -3186,7 +3186,7 @@
       "paper_id_2": "ec7633e0-85ce-4890-8757-feb16458a188",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -3207,7 +3207,7 @@
       "paper_id_2": "f07a3013-0c58-470c-9f7c-5f3ee2be3b2b",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -3228,7 +3228,7 @@
       "paper_id_2": "e4c7569e-1de7-40c7-83d7-ea1c3d7a9fff",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -3249,7 +3249,7 @@
       "paper_id_2": "1858f6eb-f58f-42c6-9b1f-69f2d8681d05",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -3270,7 +3270,7 @@
       "paper_id_2": "91b5e8fa-15ce-48dc-8b8c-4299d2586c14",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -3291,7 +3291,7 @@
       "paper_id_2": "a9584c5b-6314-4705-8150-2c5c30e9d0cd",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -3312,7 +3312,7 @@
       "paper_id_2": "ec7633e0-85ce-4890-8757-feb16458a188",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -3333,7 +3333,7 @@
       "paper_id_2": "f07a3013-0c58-470c-9f7c-5f3ee2be3b2b",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -3354,7 +3354,7 @@
       "paper_id_2": "e4c7569e-1de7-40c7-83d7-ea1c3d7a9fff",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -3375,7 +3375,7 @@
       "paper_id_2": "1858f6eb-f58f-42c6-9b1f-69f2d8681d05",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -3396,7 +3396,7 @@
       "paper_id_2": "a9584c5b-6314-4705-8150-2c5c30e9d0cd",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -3417,7 +3417,7 @@
       "paper_id_2": "ec7633e0-85ce-4890-8757-feb16458a188",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -3438,7 +3438,7 @@
       "paper_id_2": "f07a3013-0c58-470c-9f7c-5f3ee2be3b2b",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -3459,7 +3459,7 @@
       "paper_id_2": "e4c7569e-1de7-40c7-83d7-ea1c3d7a9fff",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -3480,7 +3480,7 @@
       "paper_id_2": "1858f6eb-f58f-42c6-9b1f-69f2d8681d05",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -3501,7 +3501,7 @@
       "paper_id_2": "ec7633e0-85ce-4890-8757-feb16458a188",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -3522,7 +3522,7 @@
       "paper_id_2": "f07a3013-0c58-470c-9f7c-5f3ee2be3b2b",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -3543,7 +3543,7 @@
       "paper_id_2": "e4c7569e-1de7-40c7-83d7-ea1c3d7a9fff",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -3564,7 +3564,7 @@
       "paper_id_2": "1858f6eb-f58f-42c6-9b1f-69f2d8681d05",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -3585,7 +3585,7 @@
       "paper_id_2": "f07a3013-0c58-470c-9f7c-5f3ee2be3b2b",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -3606,7 +3606,7 @@
       "paper_id_2": "e4c7569e-1de7-40c7-83d7-ea1c3d7a9fff",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -3627,7 +3627,7 @@
       "paper_id_2": "1858f6eb-f58f-42c6-9b1f-69f2d8681d05",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -3648,7 +3648,7 @@
       "paper_id_2": "e4c7569e-1de7-40c7-83d7-ea1c3d7a9fff",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -3669,7 +3669,7 @@
       "paper_id_2": "1858f6eb-f58f-42c6-9b1f-69f2d8681d05",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -3690,7 +3690,7 @@
       "paper_id_2": "1858f6eb-f58f-42c6-9b1f-69f2d8681d05",
       "title_1": "Computer Science & Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 1.0,
@@ -3711,7 +3711,7 @@
       "paper_id_2": "54d50c66-a9b2-4506-be03-34fc2fa52611",
       "title_1": "Computer Science and Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 0.7959,
@@ -3732,7 +3732,7 @@
       "paper_id_2": "46b2332e-c4b4-494a-984c-1b5d0ed70757",
       "title_1": "Computer Science and Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 0.7959,
@@ -3753,7 +3753,7 @@
       "paper_id_2": "70c9614d-ed65-4133-8dba-7fe45975c6f9",
       "title_1": "Computer Science and Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 0.7959,
@@ -3774,7 +3774,7 @@
       "paper_id_2": "b82dd0d7-7128-4d68-9591-14fe30964980",
       "title_1": "Computer Science and Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 0.7959,
@@ -3795,7 +3795,7 @@
       "paper_id_2": "91b5e8fa-15ce-48dc-8b8c-4299d2586c14",
       "title_1": "Computer Science and Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 0.7959,
@@ -3816,7 +3816,7 @@
       "paper_id_2": "a9584c5b-6314-4705-8150-2c5c30e9d0cd",
       "title_1": "Computer Science and Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 0.7959,
@@ -3837,7 +3837,7 @@
       "paper_id_2": "ec7633e0-85ce-4890-8757-feb16458a188",
       "title_1": "Computer Science and Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 0.7959,
@@ -3858,7 +3858,7 @@
       "paper_id_2": "f07a3013-0c58-470c-9f7c-5f3ee2be3b2b",
       "title_1": "Computer Science and Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 0.7959,
@@ -3879,7 +3879,7 @@
       "paper_id_2": "e4c7569e-1de7-40c7-83d7-ea1c3d7a9fff",
       "title_1": "Computer Science and Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 0.7959,
@@ -3900,7 +3900,7 @@
       "paper_id_2": "1858f6eb-f58f-42c6-9b1f-69f2d8681d05",
       "title_1": "Computer Science and Information Technology",
       "title_2": "Computer Science & Information Technology",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 0.7959,
@@ -3921,7 +3921,7 @@
       "paper_id_2": "632fbf0a-faf6-4d2c-a88f-497c2d1e0438",
       "title_1": "INTERNATIONAL JOURNAL OF COMPUTER SCIENCE AND APPLICATIONS",
       "title_2": "International Journal of Advanced Computer Science and Applications",
-      "status": "unreviewed",
+      "status": "not_duplicate",
       "supporting_evidence": {
         "match_reason": "title",
         "title_jaccard": 0.7917,

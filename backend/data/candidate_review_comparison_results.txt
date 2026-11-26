@@ -1,0 +1,15 @@
+Duplicate candidate review ledger reconciliation
+
+Source CSV: backend/data/duplicate_candidate_review_current.csv
+Ledger: backend/data/candidate_review_ground_truth.json
+
+CSV rows: 192
+Planted evaluation pairs excluded: 3
+Non-planted CSV pairs: 189
+JSON ledger pairs: 189
+Matching pairs: 189
+Missing from JSON: 0
+Extra in JSON: 0
+Planted pairs accidentally included in JSON: 0
+
+Review labels remain provisional. No database changes were made.

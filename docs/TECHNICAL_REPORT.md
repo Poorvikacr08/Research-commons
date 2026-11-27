@@ -142,8 +142,12 @@ production build passed (662 modules, 628.61 kB main JavaScript bundle); Compose
 configuration validation passed; and the ground-truth JSON parsed successfully.
 The project owner's subsequent console output confirms Docker built the backend
 image, started all four services, and ran the evaluator against PostgreSQL.
-The ingestion batch and the new engagement/most-discussed dashboard data have
-not yet been confirmed by a database-backed run.
+The first ingestion attempt revealed an obsolete MIT News AI feed URL (HTTP
+404). It has been replaced with MIT's current `/rss/topic/artificial-intelligence2`
+feed; a direct HTTP check returned 200 for that feed and the Research feed. The
+complete importer still needs to be rerun to confirm MinIO storage and row
+upserts. The new engagement/most-discussed dashboard data also needs a
+database-backed confirmation.
 
 Known data limitations:
 

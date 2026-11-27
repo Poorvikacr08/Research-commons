@@ -14,6 +14,7 @@ import io
 import json
 import os
 import re
+import sys
 import time
 import uuid
 import xml.etree.ElementTree as ET
@@ -42,7 +43,7 @@ OPENALEX_SELECT = ",".join((
 ))
 RSS_FEEDS = (
     ("MIT News Research", "https://news.mit.edu/rss/research"),
-    ("MIT News AI", "https://news.mit.edu/topic/mitartificialintelligence2-rss.xml"),
+    ("MIT News AI", "https://news.mit.edu/rss/topic/artificial-intelligence2"),
 )
 
 
@@ -345,7 +346,9 @@ def main() -> None:
         try:
             ingest_once(args.openalex_limit, args.rss_limit)
         except Exception as exc:
-            print(f"Ingestion batch failed: {type(exc).__name__}: {exc}")
+            print(f"Ingestion batch failed: {type(exc).__name__}: {exc}", file=sys.stderr)
+            if not args.interval_hours:
+                raise SystemExit(1) from exc
         if not args.interval_hours:
             break
         time.sleep(args.interval_hours * 3600)

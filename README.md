@@ -155,7 +155,11 @@ papers, run this once from the repository folder in Windows PowerShell:
 
 The script starts the database if needed, skips the import when papers already
 exist, and otherwise loads the shared catalog. Run the synthetic data generator
-only after the paper rows are present.
+only after the paper rows are present. Existing synthetic accounts can be renamed
+without regenerating posts or activity by running
+`docker compose exec backend python rename_synthetic_users.py`. It changes only
+the 50 synthetic users' display names; IDs and related records stay the same.
+Future generator runs use the same list of fictional names.
 
 ## Auth routes (Member 1)
 

@@ -6,6 +6,7 @@ from datetime import datetime, timedelta, timezone
 
 import bcrypt
 import psycopg
+from synthetic_names import SYNTHETIC_MEMBER_NAMES
 
 
 # --------------------------------------------------
@@ -171,7 +172,7 @@ def main():
             else:
                 role = "student"
 
-            name = f"Demo Member {i:02d}"
+            name = SYNTHETIC_MEMBER_NAMES[i - 1]
             email = f"{EMAIL_PREFIX}{i:02d}@researchcommons.demo"
 
             bio = (

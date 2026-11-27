@@ -192,3 +192,20 @@ Known data limitations:
 
 For public deployment, replace the demo credentials and local secrets, use
 HTTPS, set access controls and backups, and run ingestion as a monitored job.
+
+## Knowledge Threads update (27 November 2026)
+
+The paper detail page now includes a Knowledge Threads panel. It extracts up to
+four matching topics from the paper title and abstract using a compact
+vocabulary, with a title-term fallback when no vocabulary phrase matches.
+Selecting a topic queries the existing `/api/search` endpoint and displays up
+to three related papers, researchers, and discussions. Loading, empty, and
+unavailable states are handled in the UI. This is a frontend discovery
+visualization built on the existing search service; it does not add a graph
+database or a new backend route.
+
+The React production build passed after this change (664 modules transformed),
+and `git diff --check` reported no whitespace errors. The implementation was
+pushed to `main` in commit `487f749` (`Add paper knowledge threads`). The new
+panel has not yet received a separate manual browser walkthrough; verify it on
+a paper detail page before the viva.

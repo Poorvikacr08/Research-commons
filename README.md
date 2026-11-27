@@ -2,6 +2,8 @@
 
 Research platform for Chanakya University — Data Mining and Warehousing course project.
 
+Project documentation: [Final project report](docs/FINAL_PROJECT_REPORT.md) · [Technical completion report](docs/TECHNICAL_REPORT.md).
+
 | Member | Owns |
 | --- | --- |
 | Member 1 | App & UI — F1 accounts, F2 posts, F3 library, all React screens |

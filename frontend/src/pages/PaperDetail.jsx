@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { api, apiOptional } from "../api.js";
 import Panel from "../components/Panel.jsx";
+import KnowledgeThread from "../components/KnowledgeThread.jsx";
 import ResultItem from "../components/ResultItem.jsx";
 import SaveButton from "../components/SaveButton.jsx";
 
@@ -43,6 +44,7 @@ export default function PaperDetail() {
         </p>
       </article>
 
+      <KnowledgeThread paper={paper} />
       <AddToCollection paper={paper} onDone={load} />
       <AlsoSaved paperId={paper.id} />
 

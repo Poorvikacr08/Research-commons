@@ -103,7 +103,6 @@ def main():
         "description": "Synthetic test data for Chanakya Research Commons",
         "generated_at": now.isoformat(),
         "synthetic_email_prefix": EMAIL_PREFIX,
-        "test_password": PASSWORD,
         "duplicate_ground_truth_complete": False,
         "spam_accounts": [],
         "topic_spikes": [
@@ -443,6 +442,39 @@ def main():
 
         if not paper_ids:
             raise RuntimeError("No papers found in the database.")
+
+        # Link a subset of tagged discussions to papers so library analytics can
+        # report the most-discussed records instead of showing an empty panel.
+        catalog_rows = conn.execute("""
+            SELECT id, title, abstract, keywords
+            FROM papers
+            WHERE COALESCE(source_record_id, '') NOT LIKE 'synthetic-dedup-%'
+        """).fetchall()
+        searchable_papers = [
+            (row[0], " ".join([
+                str(row[1] or ""), str(row[2] or ""),
+                " ".join(str(value) for value in (row[3] or [])),
+            ]).lower())
+            for row in catalog_rows
+        ]
+        tagged_posts = conn.execute("SELECT post_id, tag FROM post_tags").fetchall()
+        post_paper_records = []
+        for post_id, tag in tagged_posts:
+            if random.random() >= 0.30:
+                continue
+            relevant = [
+                paper_id for paper_id, search_text in searchable_papers
+                if tag.lower() in search_text
+            ]
+            # Keep analytics relationships meaningful: don't attach an
+            # unrelated random paper when no catalog text matches the tag.
+            if relevant:
+                post_paper_records.append((post_id, random.choice(relevant)))
+        conn.cursor().executemany("""
+            INSERT INTO post_papers (post_id, paper_id)
+            VALUES (%s, %s) ON CONFLICT DO NOTHING
+        """, post_paper_records)
+        print(f"{len(post_paper_records)} topic-matched paper links added to posts.")
 
         event_records = []
 

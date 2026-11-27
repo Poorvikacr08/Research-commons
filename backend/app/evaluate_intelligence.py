@@ -21,7 +21,7 @@ from app.db import engine
 from app.evaluation_labels import normalize_ground_truth
 from app.mining.duplicates import find_near_duplicates, pair_metrics
 from app.mining.evaluation import mean_reciprocal_rank, precision_at_k
-from app.routers.intel import _deduplicate_papers, _paper_rows, _tfidf_scores
+from app.routers.intel import _deduplicate_papers, _hybrid_scores, _paper_rows, _tfidf_scores
 
 
 def _paper_text(paper: Dict[str, Any]) -> str:
@@ -31,8 +31,12 @@ def _paper_text(paper: Dict[str, Any]) -> str:
     return " ".join(str(paper.get(key) or "") for key in ("title", "abstract", "authors")) + " " + str(keywords)
 
 
-def _rank(query: str, papers: Sequence[Dict[str, Any]], expand: bool) -> List[str]:
-    scores = _tfidf_scores(query, [_paper_text(paper) for paper in papers], expand=expand)
+def _rank(query: str, papers: Sequence[Dict[str, Any]], method: str) -> List[str]:
+    documents = [_paper_text(paper) for paper in papers]
+    if method == "semantic":
+        scores = _hybrid_scores(query, documents, expand=True)
+    else:
+        scores = _tfidf_scores(query, documents, expand=(method == "aliases"))
     return [str(paper["id"]) for paper, score in sorted(zip(papers, scores), key=lambda row: row[1], reverse=True)]
 
 
@@ -42,13 +46,15 @@ def _search_metrics(papers: Sequence[Dict[str, Any]], qrels_rows: Sequence[Dict[
         str(row["query"]): [canonical_for_id.get(str(pid), str(pid)) for pid in row.get("relevant_paper_ids", [])]
         for row in qrels_rows
     }
+    semantic: Dict[str, List[str]] = {}
     expanded: Dict[str, List[str]] = {}
     lexical: Dict[str, List[str]] = {}
     for query in qrels:
-        expanded[query] = _rank(query, papers, expand=True)
-        lexical[query] = _rank(query, papers, expand=False)
+        semantic[query] = _rank(query, papers, method="semantic")
+        expanded[query] = _rank(query, papers, method="aliases")
+        lexical[query] = _rank(query, papers, method="lexical")
     result = {}
-    for name, rankings in (("TF-IDF + aliases", expanded), ("TF-IDF lexical baseline", lexical)):
+    for name, rankings in (("LSI semantic + aliases", semantic), ("TF-IDF + aliases", expanded), ("TF-IDF lexical baseline", lexical)):
         result[name] = {
             "Precision@10": round(sum(precision_at_k(ranked, qrels[q], 10) for q, ranked in rankings.items()) / len(qrels), 4),
             "MRR": round(mean_reciprocal_rank(rankings, qrels), 4),

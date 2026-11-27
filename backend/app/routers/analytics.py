@@ -33,6 +33,12 @@ class TopSaved(BaseModel):
     save_count: int
 
 
+class TopDiscussed(BaseModel):
+    paper_id: str
+    title: str
+    discussion_count: int
+
+
 class CrossDept(BaseModel):
     from_department: str
     to_department: str
@@ -42,6 +48,7 @@ class CrossDept(BaseModel):
 class OverviewOut(BaseModel):
     kpis: Kpis
     top_saved: List[TopSaved]
+    top_discussed: List[TopDiscussed]
     cross_department: List[CrossDept]
 
 
@@ -66,6 +73,17 @@ class TopicsOut(BaseModel):
     periods: List[str]
     series: List[Series]
     breakdown: Breakdown
+
+
+class EngagementSeries(BaseModel):
+    key: str
+    label: str
+    counts: List[int]
+
+
+class EngagementOut(BaseModel):
+    periods: List[str]
+    series: List[EngagementSeries]
 
 
 # Shared activity query
@@ -135,6 +153,17 @@ def overview(
         LIMIT 8
     """)).all()
 
+    discussed_rows = session.exec(text("""
+        SELECT pp.paper_id::text AS paper_id, p.title,
+               COUNT(c.id)::integer AS discussion_count
+        FROM post_papers pp
+        JOIN papers p ON p.id = pp.paper_id
+        JOIN comments c ON c.post_id = pp.post_id
+        GROUP BY pp.paper_id, p.title
+        ORDER BY discussion_count DESC, p.title
+        LIMIT 8
+    """)).all()
+
     cross_rows = session.exec(text("""
         SELECT
             actor.department AS from_department,
@@ -175,6 +204,14 @@ def overview(
             )
             for r in top_rows
         ],
+        top_discussed=[
+            TopDiscussed(
+                paper_id=str(r.paper_id),
+                title=r.title,
+                discussion_count=int(r.discussion_count),
+            )
+            for r in discussed_rows
+        ],
         cross_department=[
             CrossDept(
                 from_department=r.from_department,
@@ -182,6 +219,56 @@ def overview(
                 count=int(r.count),
             )
             for r in cross_rows
+        ],
+    )
+
+
+@router.get("/engagement", response_model=EngagementOut)
+def engagement(
+    months: int = 6,
+    session: Session = Depends(get_session),
+    admin: User = Depends(require_admin),
+):
+    """Monthly post, comment, upvote, and save counts for the admin dashboard."""
+    if months < 1 or months > 24:
+        raise HTTPException(
+            400,
+            detail={"code": "invalid_months", "message": "Months must be between 1 and 24."},
+        )
+
+    periods = session.exec(text("""
+        SELECT to_char(month_start, 'YYYY-MM') AS period
+        FROM generate_series(
+            date_trunc('month', now()) - make_interval(months => :months - 1),
+            date_trunc('month', now()),
+            interval '1 month'
+        ) AS months_series(month_start)
+        ORDER BY month_start
+    """), params={"months": months}).all()
+    labels = [row.period for row in periods]
+    index = {period: i for i, period in enumerate(labels)}
+    counts = {name: [0] * len(labels) for name in ("posts", "comments", "upvotes", "saves")}
+
+    activity = session.exec(text("""
+        SELECT to_char(date_trunc('month', ts), 'YYYY-MM') AS period, kind, COUNT(*) AS n
+        FROM (
+            SELECT created_at AS ts, 'posts' AS kind FROM posts
+            UNION ALL SELECT created_at, 'comments' FROM comments
+            UNION ALL SELECT created_at, 'upvotes' FROM upvotes
+            UNION ALL SELECT saved_at, 'saves' FROM saves
+        ) events
+        WHERE ts >= date_trunc('month', now()) - make_interval(months => :months - 1)
+        GROUP BY 1, 2
+    """), params={"months": months}).all()
+    for row in activity:
+        if row.period in index and row.kind in counts:
+            counts[row.kind][index[row.period]] = int(row.n)
+
+    return EngagementOut(
+        periods=labels,
+        series=[
+            EngagementSeries(key=name, label=name.title(), counts=values)
+            for name, values in counts.items()
         ],
     )
 

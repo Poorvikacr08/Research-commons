@@ -1,8 +1,8 @@
 """Member 3: unified search, recommendations, trends, flags, and grounded Q&A.
 
-The implementation is local and dependency-light. Search and passage ranking use
-TF-IDF cosine similarity with a small, explicit research-term alias map; no paid
-API or hosted model is required.
+Search combines TF-IDF with corpus-fitted latent semantic indexing (LSI) and a
+small, explicit research-term alias map. It runs locally without a paid API or
+hosted model.
 """
 from __future__ import annotations
 
@@ -11,9 +11,12 @@ import re
 import uuid
 from collections import Counter
 from datetime import datetime, timezone
+from functools import lru_cache
 from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 from fastapi import APIRouter, Depends, HTTPException, Query, status
+from sklearn.decomposition import TruncatedSVD
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sqlalchemy import text
 from sqlmodel import Session
 
@@ -92,6 +95,53 @@ def _tfidf_scores(query: str, documents: Sequence[str], expand: bool = True) -> 
         d_norm = math.sqrt(sum(value * value for value in weighted.values())) or 1.0
         scores.append(max(0.0, min(1.0, dot / (q_norm * d_norm))))
     return scores
+
+
+@lru_cache(maxsize=2)
+def _semantic_index(documents: Tuple[str, ...]):
+    """Fit a reusable local LSI model for an ordered paper/document corpus."""
+    if len(documents) < 3:
+        return None
+    vectorizer = TfidfVectorizer(
+        stop_words=sorted(STOP_WORDS), ngram_range=(1, 2),
+        sublinear_tf=True, max_features=15000,
+    )
+    matrix = vectorizer.fit_transform(documents)
+    components = min(96, matrix.shape[0] - 1, matrix.shape[1] - 1)
+    if components < 2:
+        return None
+    reducer = TruncatedSVD(n_components=components, n_iter=7, random_state=17)
+    vectors = reducer.fit_transform(matrix)
+    norms = (vectors ** 2).sum(axis=1) ** 0.5
+    norms[norms == 0] = 1.0
+    return vectorizer, reducer, vectors / norms[:, None]
+
+
+def _semantic_scores(query: str, documents: Sequence[str], expand: bool = True) -> List[float]:
+    """Cosine similarity in a locally learned latent semantic space."""
+    if not documents:
+        return []
+    try:
+        model = _semantic_index(tuple(str(document or "") for document in documents))
+        if model is None:
+            return _tfidf_scores(query, documents, expand=expand)
+        vectorizer, reducer, document_vectors = model
+        terms = _expanded_query(query) if expand else _tokens(query)
+        query_vector = reducer.transform(vectorizer.transform([" ".join(terms)]))[0]
+        norm = math.sqrt(float(query_vector @ query_vector))
+        if norm == 0:
+            return _tfidf_scores(query, documents, expand=expand)
+        scores = (document_vectors @ query_vector) / norm
+        return [max(0.0, min(1.0, float(score))) for score in scores]
+    except ValueError:
+        return _tfidf_scores(query, documents, expand=expand)
+
+
+def _hybrid_scores(query: str, documents: Sequence[str], expand: bool = True) -> List[float]:
+    """Blend latent topic similarity with exact lexical relevance."""
+    semantic = _semantic_scores(query, documents, expand=expand)
+    lexical = _tfidf_scores(query, documents, expand=expand)
+    return [0.7 * meaning + 0.3 * words for meaning, words in zip(semantic, lexical)]
 
 
 def _table_exists(session: Session, name: str) -> bool:
@@ -251,7 +301,7 @@ def _limit(value: int, maximum: int = 50) -> int:
 
 def _rank(query: str, docs: Sequence[Dict[str, Any]], text_for) -> List[Tuple[Dict[str, Any], float]]:
     values = [text_for(d) or "" for d in docs]
-    scores = _tfidf_scores(query, values)
+    scores = _hybrid_scores(query, values)
     ranked = sorted(zip(docs, scores), key=lambda pair: pair[1], reverse=True)
     return [(doc, score) for doc, score in ranked if score > 0]
 

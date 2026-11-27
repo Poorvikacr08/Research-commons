@@ -5,12 +5,12 @@ Research platform for Chanakya University — Data Mining and Warehousing course
 | Member | Owns |
 | --- | --- |
 | Member 1 | App & UI — F1 accounts, F2 posts, F3 library, all React screens |
-| Member 2 | Data platform — F4 ingestion, papers table, synthetic data, MinIO/Parquet/DuckDB, F9 analytics |
+| Member 2 | Data platform — F4 ingestion, papers table, synthetic data, MinIO, F9 analytics |
 | Member 3 | Search & intelligence — F5 search, F6 recommendations, F7 trends, F8 research assistant |
 
 ## Stack
 
-React (Vite) · FastAPI · PostgreSQL 16 · MinIO · Docker Compose
+React (Vite) · FastAPI · PostgreSQL 16 · MinIO · Docker Compose · scikit-learn (local LSI search)
 
 ## Run it
 
@@ -36,6 +36,8 @@ The database schema loads automatically **on the first start only**:
 | `db/init/01_schema.sql` | App tables (users, posts, comments, saves, events…) | Member 1 |
 | `db/init/02_papers.sql` | Papers table | Member 2 |
 | `db/init/03_paper_links.sql` | Links app tables to `papers(id)` | shared |
+| `db/init/04_admin_account.sql` | Creates the local demo admin account | shared |
+| `db/papers_data.sql` | Loads the shared 500-row paper catalog after the schema | Member 2 |
 
 After changing any file in `db/init/`, reset the database:
 
@@ -109,6 +111,32 @@ and the API returns `{"error": {"code": ..., "message": ...}}`.
 
 Fake users from the data generator log in with their email and `Demo@123`.
 
+## Paper and news ingestion (F4)
+
+The checked-in batch importer fetches article metadata from OpenAlex and curated
+research stories from the MIT News Research and AI RSS feeds. It saves each
+unmodified OpenAlex response page and RSS document in MinIO, then upserts
+normalized papers, authors, and source metadata into PostgreSQL. Repeated runs
+are safe to repeat; they do not delete existing catalog or application rows.
+
+Run a one-time batch after the normal stack is up:
+
+```powershell
+docker compose run --rm backend python -m app.ingest_external --openalex-limit 100 --rss-limit 20
+```
+
+Enable daily scheduled ingestion as an optional Compose profile:
+
+```powershell
+docker compose --profile ingestion up -d --build
+```
+
+The scheduled worker fetches up to 100 OpenAlex articles and 20 new RSS stories
+per feed every 24 hours. Change the arguments in the `ingestion` service in
+`docker-compose.yml` to adjust that schedule or batch size. This source ingestion
+needs internet access; the rest of the application runs locally without a paid
+API or service.
+
 ## Shared paper catalog
 
 The 500-paper PostgreSQL export is stored in `db/papers_data.sql`. On a brand-new
@@ -153,4 +181,4 @@ The Member 3 intelligence router is registered from `backend/app/main.py` and us
 | `GET /api/admin/duplicates` | Admin-only MinHash/LSH candidates, verified with exact Jaccard. |
 | `POST /api/ask` | Extractive answers from stored abstracts with numbered citations and passages. |
 
-Search uses local TF-IDF with curated aliases for common research terms (for example, `AI` and `artificial intelligence`). This is a free, explainable baseline rather than a dense embedding model. Duplicate pair metrics are in `backend/app/mining/duplicates.py`; ranking Precision@K, Recall@K, and MRR helpers are in `backend/app/mining/evaluation.py`. Compute and report metric values once Member 2 supplies generated data and duplicate ground-truth labels.
+Search combines local TF-IDF, corpus-fitted latent semantic indexing (LSI), and curated aliases for common research terms (for example, `AI` and `artificial intelligence`). It requires no hosted model or paid API. The evaluation command reports LSI, alias-enhanced lexical, and lexical-baseline Precision@10 and MRR, planted-pair recall, and a synthetic leave-one-out recommendation comparison. Duplicate precision/F1 are withheld while any review labels remain provisional. See `docs/TECHNICAL_REPORT.md` for the current measured results and limitations.

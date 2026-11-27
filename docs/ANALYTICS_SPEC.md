@@ -1,7 +1,7 @@
-# F9 Analytics API — spec for Member 2
+# F9 Analytics API — admin analytics
 
-The admin dashboard is already built and calls the two routes below.
-Starter file with the exact shapes: `backend/app/routers/analytics.py` — fill in the two `TODO`s.
+The admin dashboard calls the overview, monthly engagement, and topic drill-down
+routes implemented in `backend/app/routers/analytics.py`.
 
 - Both routes are **admin-only**: keep `Depends(require_admin)`.
 - Register once in `backend/app/main.py`:
@@ -103,7 +103,13 @@ Tags are already stored lower-case and trimmed by the app, so match them exactly
 
 ---
 
-## How to test
+## 3. `GET /api/analytics/engagement?months=6`
+
+Admin-only monthly totals for posts, comments, upvotes, and saves. The response
+contains the same calendar-month labels (including months with zero activity)
+and one integer count per period for each series. `months` must be 1–24.
+
+## How to verify
 
 1. Make yourself admin:
    `docker compose exec db psql -U rc_admin -d research_commons -c "UPDATE users SET role='admin' WHERE email='you@...'"`

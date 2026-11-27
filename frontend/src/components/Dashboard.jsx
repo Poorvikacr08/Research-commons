@@ -29,6 +29,10 @@ export default function Dashboard() {
         <CrossDepartment state={overview} />
         <MostSaved state={overview} />
       </div>
+      <div className="dash-two">
+        <MostDiscussed state={overview} />
+        <EngagementTrend />
+      </div>
     </>
   );
 }
@@ -212,6 +216,58 @@ function MostSaved({ state }) {
           </li>
         ))}
       </ol>
+    </Panel>
+  );
+}
+
+// ---------- most discussed papers ----------
+function MostDiscussed({ state }) {
+  const papers = state?.data?.top_discussed || [];
+  return (
+    <Panel title="💬 Most-discussed papers" state={state} isEmpty={!papers.length} empty="No papers have been attached to commented posts yet.">
+      <ol className="top-saved">
+        {papers.slice(0, 8).map((p) => (
+          <li key={p.paper_id}>
+            <Link to={`/papers/${p.paper_id}`}>{p.title}</Link>
+            <span className="muted">{p.discussion_count} comments</span>
+          </li>
+        ))}
+      </ol>
+    </Panel>
+  );
+}
+
+// ---------- monthly engagement ----------
+function EngagementTrend() {
+  const [state, setState] = useState(null);
+  useEffect(() => {
+    apiOptional("/analytics/engagement?months=6").then(setState);
+  }, []);
+  const data = state?.data;
+  const series = data?.series || [];
+  const rows = (data?.periods || []).map((period, index) => {
+    const row = { period };
+    series.forEach((item) => { row[item.key] = item.counts[index] ?? 0; });
+    return row;
+  });
+  const colors = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100"];
+  return (
+    <Panel title="📈 Engagement over time" state={state} isEmpty={!rows.length} empty="No engagement recorded in this period.">
+      <div className="legend">
+        {series.map((item, index) => <span key={item.key}><i style={{ background: colors[index % colors.length] }} />{item.label}</span>)}
+      </div>
+      <ResponsiveContainer width="100%" height={260}>
+        <LineChart data={rows} margin={{ top: 10, right: 16, bottom: 0, left: -10 }}>
+          <CartesianGrid stroke={GRID} vertical={false} />
+          <XAxis dataKey="period" tick={{ fill: MUTED, fontSize: 12 }} axisLine={{ stroke: GRID }} tickLine={false} />
+          <YAxis tick={{ fill: MUTED, fontSize: 12 }} axisLine={false} tickLine={false} allowDecimals={false} tickFormatter={fmt} />
+          <Tooltip contentStyle={{ borderRadius: 8, borderColor: GRID, fontSize: 13 }} />
+          {series.map((item, index) => (
+            <Line key={item.key} dataKey={item.key} name={item.label} stroke={colors[index % colors.length]} strokeWidth={2} dot={false} isAnimationActive={false} />
+          ))}
+        </LineChart>
+      </ResponsiveContainer>
+      <p className="muted small-text">Counts of posts, comments, upvotes, and paper saves per calendar month.</p>
     </Panel>
   );
 }

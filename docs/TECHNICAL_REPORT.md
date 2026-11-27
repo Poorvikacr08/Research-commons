@@ -18,11 +18,10 @@ The checked project database previously reported 503 paper records with
 abstracts (the 500-row harvested catalog plus three planted duplicate test
 copies). The 189 candidate review labels remain provisional: 159 not duplicate,
 22 likely duplicate pending verification, and 8 ambiguous. Do not claim a final
-unique-work count or duplicate precision/F1 until the provisional labels have
-been resolved. The existing search evaluation was lexical: Precision@10 0.10
-and MRR 1.00 for both TF-IDF variants. The new LSI hybrid is now included in the
-evaluator, so its updated metric must be captured by rerunning that command on
-the course database.
+unique-work count or duplicate precision/F1 until those labels are verified.
+The latest database-backed search evaluation reports LSI hybrid P@10 0.10 and
+MRR 0.8333, compared with P@10 0.10 and MRR 1.00 for both TF-IDF variants. LSI
+did not improve the current labeled query set.
 
 ## Faculty criteria coverage
 
@@ -32,7 +31,7 @@ the course database.
 | F2 Research community | Posts, tags, paper attachments, comments/replies, upvotes and feed | Implemented. Generator creates 600 posts and 1,600 comments (2,200 combined), plus engagement rows. Discussion-to-paper links are now created only when the topic matches paper metadata. |
 | F3 Shared library | Save by paper/identifier/URL, collections/private notes, shared save counts | Implemented in the library routes and PostgreSQL schema. Generator inserts real save rows as well as events. |
 | F4 External data pipeline | Scholarly metadata and RSS, raw source capture, normalized PostgreSQL records, refresh | Reproducible importer added. OpenAlex response pages and RSS XML are stored unchanged in MinIO; paper, author and source tables are upserted. One-time and daily Compose commands are documented. Run it with internet access. |
-| F5 Search | Four panels, unified deduplicated paper results, keyword and semantic ranking | Hybrid local TF-IDF + LSI with research-term aliases is implemented. Re-run evaluation to record LSI metrics; existing recorded lexical baseline was P@10 0.10, MRR 1.00. |
+| F5 Search | Four panels, unified deduplicated paper results, keyword and semantic ranking | Hybrid local TF-IDF + LSI with research-term aliases is implemented. Latest evaluation: LSI P@10 0.10, MRR 0.8333; TF-IDF + aliases P@10 0.10, MRR 1.00. |
 | F6 Recommendations | Paper and people recommendations, co-save suggestions, cold start | Implemented. Existing synthetic leave-one-out result was 0.1064 hit@10 versus 0.1702 for popularity across 47 users. Synthetic saves were not validated as realistic preferences, so this is a pipeline check, not a claim of recommendation quality. |
 | F7 Trends and abuse signals | Topic spikes, admin spam/anomaly flags | Implemented and synthetic burst activity is available. Precision/recall for the flags has not been measured against reviewed labels. |
 | F8 Research assistant | Grounded answer, numbered citations and retrieved passages | Implemented as extractive retrieval over stored abstracts, with citations and passage scores. This is the cost-free, explainable baseline; a local Ollama model remains an optional extension. |
@@ -104,20 +103,22 @@ and F1 remain suppressed unless the duplicate labels are declared complete.
 
 ## Evaluation evidence and interpretation
 
-The previous database-backed run reported:
+The latest database-backed run reported:
 
 | Measure | Recorded result | Interpretation |
 | --- | ---: | --- |
-| TF-IDF + aliases P@10 / MRR | 0.1000 / 1.0000 | One relevant result in the top ten on average; first relevant result ranked first for each labeled query. |
-| Lexical TF-IDF P@10 / MRR | 0.1000 / 1.0000 | Alias expansion did not improve this label set. |
+| LSI semantic + aliases P@10 / MRR | 0.1000 / 0.8333 | Same top-ten precision as the lexical baseline, with lower reciprocal rank on this qrel set. |
+| TF-IDF + aliases P@10 / MRR | 0.1000 / 1.0000 | First relevant result ranked first for each labeled query. |
+| Lexical TF-IDF P@10 / MRR | 0.1000 / 1.0000 | Alias expansion did not change these metrics for this label set. |
 | Planted duplicate pairs found | 3 / 3 | Recall 1.0 on the three deliberately planted test pairs. |
 | Unreviewed detector candidates | 189 | Not verified true/false positives. |
 | Co-save hit@10 vs. popularity | 0.1064 vs. 0.1702 | Synthetic preference signal trails the simple popularity baseline. |
 | Users in recommendation evaluation | 47 | Leave-one-out evaluation requires at least two distinct saved works. |
 
-The LSI method and new analytics were added after those measurements. Report
-fresh values only after running the command above against the integrated local
-database; do not copy the older lexical results under the LSI label.
+The run was performed after the LSI method was added. The implementation
+provides a semantic retrieval path, but these labels do not show an improvement
+over the lexical baselines. Describe that result honestly and avoid claiming
+that LSI performed better.
 
 ## Verification and limits
 
@@ -130,20 +131,19 @@ individual save, settings, search and analytics drill-down interactions was not
 all manually exercised in that pass.
 
 This completion pass changed search dependencies, ingestion, admin analytics,
-and generated discussion links. Rebuild the containers and rerun the test and
-database-backed evaluation commands before the final viva. Docker execution
-depends on Docker Desktop's Linux engine being available. RSS/OpenAlex ingestion
-depends on network access. The repository does not include an automated browser
-test suite.
+and generated discussion links. The project owner subsequently rebuilt the
+Docker stack and ran the database-backed evaluator successfully. RSS/OpenAlex
+ingestion still needs a run with internet access. The repository does not
+include an automated browser test suite.
 
 Checks run during this completion pass: Python `compileall` passed; all 13
 backend unit/contract tests passed when run from `backend/`; the React Vite
 production build passed (662 modules, 628.61 kB main JavaScript bundle); Compose
 configuration validation passed; and the ground-truth JSON parsed successfully.
-The Compose services could not be started from this execution environment
-because access to Docker Desktop's Linux engine was denied by its named-pipe
-permissions. Therefore the newly added LSI metrics, ingestion batch, and
-database-backed analytics were not run here.
+The project owner's subsequent console output confirms Docker built the backend
+image, started all four services, and ran the evaluator against PostgreSQL.
+The ingestion batch and the new engagement/most-discussed dashboard data have
+not yet been confirmed by a database-backed run.
 
 Known data limitations:
 

@@ -20,6 +20,7 @@ from sqlmodel import Session
 from app.auth import get_current_user, require_admin
 from app.db import get_session
 from app.events import log_event
+from app.intelligence_helpers import compose_evidence_answer, is_catalog_description, paper_member_ids, partition_paper_results, select_evidence_findings
 from app.models import User
 from app.mining.duplicates import find_near_duplicates
 
@@ -221,7 +222,7 @@ def _deduplicate_papers(papers: Sequence[Dict[str, Any]]) -> List[Dict[str, Any]
 
 
 def _paper_member_ids(paper: Dict[str, Any]) -> List[str]:
-    return paper.get("_member_ids") or [str(paper["id"])]
+    return paper_member_ids(paper)
 
 
 def _paper_save_count(paper: Dict[str, Any], counts: Dict[str, int]) -> int:
@@ -333,16 +334,20 @@ def unified_search(
     errors: Dict[str, str] = {}
     papers = _safe_panel(session, errors, "external", lambda: _paper_rows(session))
     ranked_papers = _rank(query, papers, lambda p: f"{p['title']} {p.get('title', '')} {p.get('abstract') or ''} {p.get('authors') or ''} {' '.join(p.get('keywords') or []) if isinstance(p.get('keywords'), (list, tuple)) else (p.get('keywords') or '')}")
-    external = [_paper_item(p, score) for p, score in ranked_papers[:limit]]
 
-    def library_panel():
+    def library_save_counts():
         saved = session.exec(text("""
             SELECT paper_id, save_count FROM library_save_counts
         """)).all()
-        counts = {str(r.paper_id): int(r.save_count) for r in saved}
-        matches = [(p, score) for p, score in ranked_papers if any(pid in counts for pid in _paper_member_ids(p))]
-        return [_paper_item(p, score, "library", _paper_save_count(p, counts)) for p, score in matches[:limit]]
-    library = _safe_panel(session, errors, "library", library_panel)
+        return {str(r.paper_id): int(r.save_count) for r in saved}
+
+    counts = _safe_panel(session, errors, "library", library_save_counts)
+    external_matches, library_matches = partition_paper_results(ranked_papers, counts, limit)
+    external = [_paper_item(p, score) for p, score in external_matches]
+    library = [
+        _paper_item(p, score, "library", _paper_save_count(p, counts))
+        for p, score in library_matches
+    ]
 
     def people_panel():
         members = [m for m in _member_rows(session) if str(m["id"]) != str(me.id)]
@@ -662,7 +667,13 @@ def admin_duplicate_candidates(
     return {"threshold": threshold, "algorithm": "MinHash + LSH + exact Jaccard", "items": pairs[:_limit(limit, 500)]}
 
 def _sentences(text_value: str) -> List[str]:
-    return [s.strip() for s in re.split(r"(?<=[.!?])\s+", text_value or "") if len(s.strip()) > 20]
+    # Some harvested abstracts omit spaces after sentence punctuation. Split on
+    # those boundaries too so Ask does not return an entire abstract as one quote.
+    return [
+        sentence.strip()
+        for sentence in re.split(r"(?<=[.!?])\s+|(?<=[.!?])(?=[A-Z])", text_value or "")
+        if len(sentence.strip()) > 20
+    ]
 
 
 @router.post("/ask")
@@ -676,10 +687,13 @@ def ask_research_assistant(
     question = (data.get("question") or "").strip()
     if not question:
         raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY, detail={"code": "empty_question", "message": "Enter a research question."})
-    papers = [p for p in _paper_rows(session) if p.get("abstract")]
+    papers = [
+        paper for paper in _paper_rows(session)
+        if paper.get("abstract") and not is_catalog_description(paper)
+    ]
     ranked = _rank(question, papers, lambda p: f"{p['title']} {p.get('abstract') or ''}")[:_limit(limit, 10)]
-    citations, passages, answer_parts = [], [], []
-    for number, (paper, paper_score) in enumerate(ranked, start=1):
+    findings = []
+    for paper, paper_score in ranked:
         sentences = _sentences(paper.get("abstract") or "")
         if not sentences:
             continue
@@ -688,11 +702,20 @@ def ask_research_assistant(
         passage_score = max(sentence_scores[best_index], paper_score * 0.75)
         if passage_score <= 0:
             continue
+        findings.append({
+            "paper": paper,
+            "text": sentences[best_index],
+            "score": passage_score,
+        })
+    selected = select_evidence_findings(findings)
+    citations, passages = [], []
+    for number, finding in enumerate(selected, start=1):
+        finding["n"] = number
+        paper = finding["paper"]
         pid = str(paper["id"])
         citations.append({"n": number, "paper_id": pid, "title": paper["title"], "url": _paper_url(paper)})
-        passages.append({"n": number, "paper_id": pid, "text": sentences[best_index], "score": round(passage_score, 4)})
-        answer_parts.append(f"{sentences[best_index]} [{number}]")
-    answer = " ".join(answer_parts) if answer_parts else "I couldn't find a relevant passage in the papers currently stored in the library. Try a more specific research question."
+        passages.append({"n": number, "paper_id": pid, "text": finding["text"], "score": round(finding["score"], 4)})
+    answer = compose_evidence_answer(selected)
     return {"answer": answer, "citations": citations, "passages": passages}
 
 

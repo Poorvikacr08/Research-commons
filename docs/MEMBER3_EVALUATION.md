@@ -26,3 +26,14 @@ For duplicate pairs, use the stable paper UUIDs in the database. DOI or arXiv
 matches, exact normalized abstracts, and exact normalized titles count as
 duplicate evidence. Other title-only matches use the configured
 MinHash/Jaccard threshold.
+
+To export candidates with both abstracts and identifiers for human review, run
+from the repository root:
+
+```powershell
+docker compose exec backend python -m app.export_duplicate_candidates
+```
+
+The CSV appears at `backend/data/duplicate_candidate_review.csv` on the host.
+Pairs outside the planted labels remain unreviewed until someone adjudicates
+them; do not count them as false positives before that review.

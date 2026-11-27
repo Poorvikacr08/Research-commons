@@ -30,7 +30,7 @@ did not improve the current labeled query set.
 | F1 Accounts and profiles | Student/faculty/researcher/admin accounts, profiles, interests and follows | Implemented in FastAPI and React; synthetic dataset contains 50 synthetic accounts across six departments, in addition to the admin. |
 | F2 Research community | Posts, tags, paper attachments, comments/replies, upvotes and feed | Implemented. Generator creates 600 posts and 1,600 comments (2,200 combined), plus engagement rows. Discussion-to-paper links are now created only when the topic matches paper metadata. |
 | F3 Shared library | Save by paper/identifier/URL, collections/private notes, shared save counts | Implemented in the library routes and PostgreSQL schema. Generator inserts real save rows as well as events. |
-| F4 External data pipeline | Scholarly metadata and RSS, raw source capture, normalized PostgreSQL records, refresh | Reproducible importer added. OpenAlex response pages and RSS XML are stored unchanged in MinIO; paper, author and source tables are upserted. One-time and daily Compose commands are documented. Run it with internet access. |
+| F4 External data pipeline | Scholarly metadata and RSS, raw source capture, normalized PostgreSQL records, refresh | Reproducible importer added and run successfully: 72 OpenAlex works processed, 10 new RSS stories inserted, with raw payloads stored in MinIO. Paper, author and source tables are upserted. |
 | F5 Search | Four panels, unified deduplicated paper results, keyword and semantic ranking | Hybrid local TF-IDF + LSI with research-term aliases is implemented. Latest evaluation: LSI P@10 0.10, MRR 0.8333; TF-IDF + aliases P@10 0.10, MRR 1.00. |
 | F6 Recommendations | Paper and people recommendations, co-save suggestions, cold start | Implemented. Existing synthetic leave-one-out result was 0.1064 hit@10 versus 0.1702 for popularity across 47 users. Synthetic saves were not validated as realistic preferences, so this is a pipeline check, not a claim of recommendation quality. |
 | F7 Trends and abuse signals | Topic spikes, admin spam/anomaly flags | Implemented and synthetic burst activity is available. Precision/recall for the flags has not been measured against reviewed labels. |
@@ -143,11 +143,12 @@ configuration validation passed; and the ground-truth JSON parsed successfully.
 The project owner's subsequent console output confirms Docker built the backend
 image, started all four services, and ran the evaluator against PostgreSQL.
 The first ingestion attempt revealed an obsolete MIT News AI feed URL (HTTP
-404). It has been replaced with MIT's current `/rss/topic/artificial-intelligence2`
+404). It was replaced with MIT's current `/rss/topic/artificial-intelligence2`
 feed; a direct HTTP check returned 200 for that feed and the Research feed. The
-complete importer still needs to be rerun to confirm MinIO storage and row
-upserts. The new engagement/most-discussed dashboard data also needs a
-database-backed confirmation.
+subsequent batch completed: 72 OpenAlex works processed and 10 RSS stories
+inserted, with the command reporting raw payloads stored in MinIO. The new
+engagement/most-discussed dashboard data still needs a database-backed
+confirmation.
 
 Known data limitations:
 

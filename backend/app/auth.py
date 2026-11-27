@@ -12,7 +12,6 @@ Dependencies for other routers:
   get_current_user_optional  -> user or None (e.g. public search)
   require_admin              -> must be logged in AND role == "admin"
 """
-import os
 import uuid
 from datetime import datetime, timedelta, timezone
 from typing import Optional
@@ -22,10 +21,11 @@ from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from sqlmodel import Session
 
+from app.config import load_jwt_secret
 from app.db import get_session
 from app.models import User
 
-JWT_SECRET = os.environ.get("JWT_SECRET", "dev-only-secret-change-me")
+JWT_SECRET = load_jwt_secret()
 JWT_ALGORITHM = "HS256"
 TOKEN_HOURS = 24
 

@@ -17,9 +17,14 @@ React (Vite) · FastAPI · PostgreSQL 16 · MinIO · Docker Compose · scikit-le
 Needs Docker Desktop (or Docker Engine + Compose).
 
 ```bash
-cp .env.example .env        # then change the passwords in .env
+cp .env.example .env        # then replace every placeholder with a private value
 docker compose up --build
 ```
+
+Keep `.env` private and untracked. If any real secret is ever exposed, rotate
+the database, MinIO, and JWT values; removing a secret from the latest commit
+does not erase older Git history. Generate a JWT secret with
+`python -c "import secrets; print(secrets.token_urlsafe(48))"`.
 
 | Service | URL |
 | --- | --- |

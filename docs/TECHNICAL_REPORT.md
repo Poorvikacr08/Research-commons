@@ -14,14 +14,17 @@ and monthly engagement, a reproducible OpenAlex/RSS-to-PostgreSQL/MinIO batch
 ingester, and an additive script for linking existing synthetic discussions to
 topically matching papers.
 
-The checked project database previously reported 503 paper records with
-abstracts (the 500-row harvested catalog plus three planted duplicate test
-copies). The 189 candidate review labels remain provisional: 159 not duplicate,
-22 likely duplicate pending verification, and 8 ambiguous. Do not claim a final
-unique-work count or duplicate precision/F1 until those labels are verified.
-The latest database-backed search evaluation reports LSI hybrid P@10 0.10 and
-MRR 0.8333, compared with P@10 0.10 and MRR 1.00 for both TF-IDF variants. LSI
-did not improve the current labeled query set.
+The earlier project database reported 503 paper records with abstracts (the
+500-row harvested catalog plus three planted duplicate test copies). The latest
+local health check after ingestion reports 605 paper rows; the final unique-work
+count is still uncertified. The 189 candidate review labels remain provisional:
+159 not duplicate, 22 likely duplicate pending verification, and 8 ambiguous.
+Do not claim a final unique-work count or duplicate precision/F1 until those
+labels are verified.
+The evaluation on the earlier 503-row catalog reported LSI hybrid P@10 0.10
+and MRR 0.8333, compared with P@10 0.10 and MRR 1.00 for both TF-IDF variants.
+LSI did not improve that labeled query set. Metrics have not been rerun on the
+605-row post-ingestion catalog.
 
 ## Faculty criteria coverage
 
@@ -103,7 +106,7 @@ and F1 remain suppressed unless the duplicate labels are declared complete.
 
 ## Evaluation evidence and interpretation
 
-The latest database-backed run reported:
+The earlier database-backed run on the 503-row catalog reported:
 
 | Measure | Recorded result | Interpretation |
 | --- | ---: | --- |
@@ -122,27 +125,35 @@ that LSI performed better.
 
 ## Verification and limits
 
-The earlier integration pass recorded a successful React production build,
-Python compilation, ground-truth parsing, 13 backend contract/regression tests,
-database-backed synthetic generation/evaluation, and manual browser smoke
-checks of the Home, Library, Search, Ask, Settings and Admin screens. The admin
-screen and cited assistant response were manually checked. In this pass, the
-admin role opened the dashboard and the university→department→topic→member
-drill-down was exercised; the most-discussed and engagement panels populated
-after synthetic paper links were added. Individual save, settings, and search
-workflows were not re-exercised in this pass.
+Earlier integration checks included database-backed evaluation and manual
+screens for Home, Library, Search, Ask, Settings and Admin. In the latest local
+browser pass, the signed-in admin loaded the dashboard and all three drill-down
+levels; Home and each of the four search result panels returned data; saving a
+paper added it to My Library, and unsaving it removed it again; the research
+assistant returned an answer with three paper citations and source links; and
+Settings loaded. Admin charts, most-saved/discussed lists, spam flags and the
+topic spike were populated. No browser console errors appeared during these
+checks.
 
 This completion pass changed search dependencies, ingestion, admin analytics,
 and generated discussion links. The project owner subsequently rebuilt the
-Docker stack and ran the database-backed evaluator successfully. RSS/OpenAlex
-ingestion still needs a run with internet access. The repository does not
-include an automated browser test suite.
+Docker stack and ran the database-backed evaluator and RSS/OpenAlex ingestion
+successfully. The repository does not include an automated browser test suite.
 
 Checks run during this completion pass: Python `compileall` passed; all 13
 backend unit/contract tests passed when run from `backend/`; the React Vite
 production build passed (662 modules, 628.61 kB main JavaScript bundle); Compose
 configuration validation passed; and the ground-truth JSON parsed successfully.
-The project owner's console output confirms Docker built the backend image,
+The subsequent recheck passed 18 backend unit/contract tests, Python
+`compileall`, Compose configuration, and a production build with 663 modules.
+Route-level lazy loading reduced the initial JavaScript entry to 177.94 kB
+(58.21 kB gzip); the Admin chart chunk is 407.08 kB (111.78 kB gzip), with no
+chunk over Vite's 500 kB warning threshold. The JWT startup configuration now
+rejects missing, placeholder, known-default, or shorter-than-32-character
+secrets; five tests cover these cases. `.env` is ignored and not tracked, and
+`.env.example` contains unusable placeholders. A browser request to `/api/health`
+returned `status: ok` and database counts of 51 users, 605 papers, 600 posts,
+1,600 comments, 300 saves, and 14,137 events. The project owner's console output confirms Docker built the backend image,
 started all four services, ran the evaluator against PostgreSQL, completed
 OpenAlex/RSS ingestion, and added 600 topic-matched paper links for synthetic
 posts.
@@ -158,9 +169,10 @@ series, and the expected flag and spike panels.
 
 Known data limitations:
 
-- 503 catalog rows and abstracts were observed; three rows are planted
-  duplicate-evaluation copies. The final unique-work total is not certified
-  while other candidate reviews remain provisional.
+- 605 catalog rows were observed after ingestion; 503 were observed before the
+  latest ingestion, including three planted duplicate-evaluation copies. The
+  final unique-work total is not certified while other candidate reviews remain
+  provisional.
 - Candidate labels currently comprise 159 not duplicate, 22 likely duplicate
   pending verification, and 8 ambiguous. Precision/F1 is therefore not a valid
   reported result.
@@ -172,6 +184,11 @@ Known data limitations:
 - The assistant is extractive and the search LSI model is trained on the
   current catalog at runtime. A larger or better-labeled corpus can change the
   rankings and evaluation values.
+- Settings currently save notification toggles only in the browser; actual
+  in-app notification delivery and per-profile visibility controls are not
+  implemented. Compose runs Vite's development server, so public production
+  hosting still needs a production frontend server, HTTPS, deployment-specific
+  access controls, and backups.
 
 For public deployment, replace the demo credentials and local secrets, use
 HTTPS, set access controls and backups, and run ingestion as a monitored job.

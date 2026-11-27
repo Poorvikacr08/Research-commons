@@ -12,4 +12,7 @@ Missing from JSON: 0
 Extra in JSON: 0
 Planted pairs accidentally included in JSON: 0
 
-Review labels remain provisional. No database changes were made.
+Final provisional status counts: ambiguous=8, likely_duplicate_pending_verification=22, not_duplicate=159
+Review notes were reconciled against the candidate CSV; mismatched copied notes were corrected.
+Labels remain provisional and require authoritative metadata confirmation where noted.
+No database changes were made.

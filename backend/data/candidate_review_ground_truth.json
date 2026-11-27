@@ -18,9 +18,15 @@
     "planted_pairs_excluded": 3,
     "non_planted_candidate_pairs": 189,
     "status_counts": {
-      "unreviewed": 169,
-      "likely_duplicate_pending_verification": 14,
-      "ambiguous": 6
+      "ambiguous": 8,
+      "likely_duplicate_pending_verification": 22,
+      "not_duplicate": 159
+    },
+    "review_note_cleanup": {
+      "generic_not_yet_reviewed_notes_reconciled": 75,
+      "misassigned_pair_notes_corrected": 9,
+      "labels_changed": 0,
+      "database_changes": false
     }
   },
   "candidate_pairs": [
@@ -43,7 +49,7 @@
         "abstract_length_1": 2915,
         "abstract_length_2": 2830
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-002",
@@ -64,7 +70,7 @@
         "abstract_length_1": 58,
         "abstract_length_2": 299
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: “Computer Science” is a generic title; the abstracts describe different content (normalized abstract Jaccard=0.0000). The DOI values are absent and https://doi.org/10.5040/9798216037736.0015; no shared DOI or matching abstract supports a duplicate. Labeled not_duplicate based on the available metadata."
     },
     {
       "candidate_id": "cand-003",
@@ -85,7 +91,7 @@
         "abstract_length_1": 58,
         "abstract_length_2": 2406
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: “Computer Science” is a generic title; the abstracts describe different content (normalized abstract Jaccard=0.0006). The DOI values are absent and https://doi.org/10.18517/ijaseit.12.3.14832; no shared DOI or matching abstract supports a duplicate. Labeled not_duplicate based on the available metadata."
     },
     {
       "candidate_id": "cand-004",
@@ -106,7 +112,7 @@
         "abstract_length_1": 58,
         "abstract_length_2": 357
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: “Computer Science” is a generic title; the abstracts describe different content (normalized abstract Jaccard=0.0000). The DOI values are absent and https://doi.org/10.1002/9780470619926.ch2; no shared DOI or matching abstract supports a duplicate. Labeled not_duplicate based on the available metadata."
     },
     {
       "candidate_id": "cand-005",
@@ -127,7 +133,7 @@
         "abstract_length_1": 58,
         "abstract_length_2": 622
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: “Computer Science” is a generic title; the abstracts describe different content (normalized abstract Jaccard=0.0000). The DOI values are absent and https://doi.org/10.1007/978-1-4899-6667-4_7; no shared DOI or matching abstract supports a duplicate. Labeled not_duplicate based on the available metadata."
     },
     {
       "candidate_id": "cand-006",
@@ -148,7 +154,7 @@
         "abstract_length_1": 58,
         "abstract_length_2": 622
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: “Computer Science” is a generic title; the abstracts describe different content (normalized abstract Jaccard=0.0000). The DOI values are absent and https://doi.org/10.1007/978-0-8176-4775-9_7; no shared DOI or matching abstract supports a duplicate. Labeled not_duplicate based on the available metadata."
     },
     {
       "candidate_id": "cand-007",
@@ -169,7 +175,7 @@
         "abstract_length_1": 58,
         "abstract_length_2": 1062
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: “Computer Science” is a generic title; the abstracts describe different content (normalized abstract Jaccard=0.0000). The DOI values are absent and https://doi.org/10.1002/9781119072218.ch5; no shared DOI or matching abstract supports a duplicate. Labeled not_duplicate based on the available metadata."
     },
     {
       "candidate_id": "cand-008",
@@ -190,7 +196,7 @@
         "abstract_length_1": 58,
         "abstract_length_2": 58
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: both entries use the generic title “Computer Science,” but the abstracts identify Nepali Class 9–10 Part 2 (2050) and Part 1 (2049), respectively. They are different textbook parts, not duplicate records."
     },
     {
       "candidate_id": "cand-009",
@@ -211,7 +217,7 @@
         "abstract_length_1": 58,
         "abstract_length_2": 679
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: “Computer Science” is a generic title; the abstracts describe different content (normalized abstract Jaccard=0.0000). The DOI values are absent and https://doi.org/10.12737/1014656; no shared DOI or matching abstract supports a duplicate. Labeled not_duplicate based on the available metadata."
     },
     {
       "candidate_id": "cand-010",
@@ -232,7 +238,7 @@
         "abstract_length_1": 58,
         "abstract_length_2": 694
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: “Computer Science” is a generic title; the abstracts describe different content (normalized abstract Jaccard=0.0000). The DOI values are absent and https://doi.org/10.12737/1069776; no shared DOI or matching abstract supports a duplicate. Labeled not_duplicate based on the available metadata."
     },
     {
       "candidate_id": "cand-011",
@@ -253,7 +259,7 @@
         "abstract_length_1": 58,
         "abstract_length_2": 567
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: “Computer Science” is a generic title; the abstracts describe different content (normalized abstract Jaccard=0.0040). The DOI values are absent and https://doi.org/10.1117/3.100026.ch22; no shared DOI or matching abstract supports a duplicate. Labeled not_duplicate based on the available metadata."
     },
     {
       "candidate_id": "cand-012",
@@ -274,7 +280,7 @@
         "abstract_length_1": 58,
         "abstract_length_2": 924
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: “Computer Science” is a generic title; the abstracts describe different content (normalized abstract Jaccard=0.0029). The DOI values are absent and https://doi.org/10.12737/1200564; no shared DOI or matching abstract supports a duplicate. Labeled not_duplicate based on the available metadata."
     },
     {
       "candidate_id": "cand-013",
@@ -295,7 +301,7 @@
         "abstract_length_1": 58,
         "abstract_length_2": 1371
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: “Computer Science” is a generic title; the abstracts describe different content (normalized abstract Jaccard=0.0000). The DOI values are absent and https://doi.org/10.1201/9781003665618-10; no shared DOI or matching abstract supports a duplicate. Labeled not_duplicate based on the available metadata."
     },
     {
       "candidate_id": "cand-014",
@@ -316,7 +322,7 @@
         "abstract_length_1": 58,
         "abstract_length_2": 1083
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: “Computer Science” is a generic title; the abstracts describe different content (normalized abstract Jaccard=0.0000). The DOI values are absent and https://doi.org/10.4324/9781315545813-10; no shared DOI or matching abstract supports a duplicate. Labeled not_duplicate based on the available metadata."
     },
     {
       "candidate_id": "cand-015",
@@ -337,7 +343,7 @@
         "abstract_length_1": 299,
         "abstract_length_2": 2406
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: “Computer Science” is a generic title; the abstracts describe different content (normalized abstract Jaccard=0.0336). The DOI values are https://doi.org/10.5040/9798216037736.0015 and https://doi.org/10.18517/ijaseit.12.3.14832; no shared DOI or matching abstract supports a duplicate. Labeled not_duplicate based on the available metadata."
     },
     {
       "candidate_id": "cand-016",
@@ -358,7 +364,7 @@
         "abstract_length_1": 299,
         "abstract_length_2": 357
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: “Computer Science” is a generic title; the abstracts describe different content (normalized abstract Jaccard=0.0474). The DOI values are https://doi.org/10.5040/9798216037736.0015 and https://doi.org/10.1002/9780470619926.ch2; no shared DOI or matching abstract supports a duplicate. Labeled not_duplicate based on the available metadata."
     },
     {
       "candidate_id": "cand-017",
@@ -379,7 +385,7 @@
         "abstract_length_1": 299,
         "abstract_length_2": 622
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: “Computer Science” is a generic title; the abstracts describe different content (normalized abstract Jaccard=0.0320). The DOI values are https://doi.org/10.5040/9798216037736.0015 and https://doi.org/10.1007/978-1-4899-6667-4_7; no shared DOI or matching abstract supports a duplicate. Labeled not_duplicate based on the available metadata."
     },
     {
       "candidate_id": "cand-018",
@@ -400,7 +406,7 @@
         "abstract_length_1": 299,
         "abstract_length_2": 622
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: “Computer Science” is a generic title; the abstracts describe different content (normalized abstract Jaccard=0.0320). The DOI values are https://doi.org/10.5040/9798216037736.0015 and https://doi.org/10.1007/978-0-8176-4775-9_7; no shared DOI or matching abstract supports a duplicate. Labeled not_duplicate based on the available metadata."
     },
     {
       "candidate_id": "cand-019",
@@ -421,7 +427,7 @@
         "abstract_length_1": 299,
         "abstract_length_2": 1062
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: “Computer Science” is a generic title; the abstracts describe different content (normalized abstract Jaccard=0.0525). The DOI values are https://doi.org/10.5040/9798216037736.0015 and https://doi.org/10.1002/9781119072218.ch5; no shared DOI or matching abstract supports a duplicate. Labeled not_duplicate based on the available metadata."
     },
     {
       "candidate_id": "cand-020",
@@ -442,7 +448,7 @@
         "abstract_length_1": 299,
         "abstract_length_2": 58
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: “Computer Science” is a generic title; the abstracts describe different content (normalized abstract Jaccard=0.0000). The DOI values are https://doi.org/10.5040/9798216037736.0015 and absent; no shared DOI or matching abstract supports a duplicate. Labeled not_duplicate based on the available metadata."
     },
     {
       "candidate_id": "cand-021",
@@ -463,7 +469,7 @@
         "abstract_length_1": 299,
         "abstract_length_2": 679
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: “Computer Science” is a generic title; the abstracts describe different content (normalized abstract Jaccard=0.0566). The DOI values are https://doi.org/10.5040/9798216037736.0015 and https://doi.org/10.12737/1014656; no shared DOI or matching abstract supports a duplicate. Labeled not_duplicate based on the available metadata."
     },
     {
       "candidate_id": "cand-022",
@@ -484,7 +490,7 @@
         "abstract_length_1": 299,
         "abstract_length_2": 694
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: “Computer Science” is a generic title; the abstracts describe different content (normalized abstract Jaccard=0.0578). The DOI values are https://doi.org/10.5040/9798216037736.0015 and https://doi.org/10.12737/1069776; no shared DOI or matching abstract supports a duplicate. Labeled not_duplicate based on the available metadata."
     },
     {
       "candidate_id": "cand-023",
@@ -505,7 +511,7 @@
         "abstract_length_1": 299,
         "abstract_length_2": 567
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: “Computer Science” is a generic title; the abstracts describe different content (normalized abstract Jaccard=0.0420). The DOI values are https://doi.org/10.5040/9798216037736.0015 and https://doi.org/10.1117/3.100026.ch22; no shared DOI or matching abstract supports a duplicate. Labeled not_duplicate based on the available metadata."
     },
     {
       "candidate_id": "cand-024",
@@ -526,7 +532,7 @@
         "abstract_length_1": 299,
         "abstract_length_2": 924
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: “Computer Science” is a generic title; the abstracts describe different content (normalized abstract Jaccard=0.0422). The DOI values are https://doi.org/10.5040/9798216037736.0015 and https://doi.org/10.12737/1200564; no shared DOI or matching abstract supports a duplicate. Labeled not_duplicate based on the available metadata."
     },
     {
       "candidate_id": "cand-025",
@@ -547,7 +553,7 @@
         "abstract_length_1": 299,
         "abstract_length_2": 1371
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: “Computer Science” is a generic title; the abstracts describe different content (normalized abstract Jaccard=0.0382). The DOI values are https://doi.org/10.5040/9798216037736.0015 and https://doi.org/10.1201/9781003665618-10; no shared DOI or matching abstract supports a duplicate. Labeled not_duplicate based on the available metadata."
     },
     {
       "candidate_id": "cand-026",
@@ -568,7 +574,7 @@
         "abstract_length_1": 299,
         "abstract_length_2": 1083
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: “Computer Science” is a generic title; the abstracts describe different content (normalized abstract Jaccard=0.0538). The DOI values are https://doi.org/10.5040/9798216037736.0015 and https://doi.org/10.4324/9781315545813-10; no shared DOI or matching abstract supports a duplicate. Labeled not_duplicate based on the available metadata."
     },
     {
       "candidate_id": "cand-027",
@@ -589,7 +595,7 @@
         "abstract_length_1": 2771,
         "abstract_length_2": 2763
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-028",
@@ -608,9 +614,13 @@
         "arxiv_id_1": null,
         "arxiv_id_2": null,
         "abstract_length_1": 289,
-        "abstract_length_2": 1908
+        "abstract_length_2": 1908,
+        "external_verification": [
+          "https://dl.acm.org/doi/10.1145/360018.360022",
+          "https://explore.openaire.eu/search/publication?pid=10.1145%2F1283920.1283930"
+        ]
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed: both DOI records identify Allen Newell and Herbert A. Simon’s 1976 Communications of the ACM article with this exact title (volume 19, issue 3, pages 113–126). One source contains the article abstract and the other a Turing Award citation, explaining the abstract difference. Retain as likely_duplicate_pending_verification; confirm DOI alias/version handling against authoritative ACM metadata."
     },
     {
       "candidate_id": "cand-029",
@@ -631,7 +641,7 @@
         "abstract_length_1": 593,
         "abstract_length_2": 140
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: one record is the publisher description of the book; the other is a 1984 American Mathematical Monthly review citation. These are different publication records, not duplicate copies of the same work."
     },
     {
       "candidate_id": "cand-030",
@@ -1030,7 +1040,7 @@
         "abstract_length_1": 841,
         "abstract_length_2": 723
       },
-      "reviewer_notes": "Different textbook parts and publication years; not the same work."
+      "reviewer_notes": "The source CSV identifies Mark Weiser’s article under the same title in Communications of the ACM (1993) and ACM SIGMOBILE Mobile Computing and Communications Review (1999). This may be a republication/version relationship; retain the provisional likely-duplicate label pending ACM metadata verification. The previous textbook note did not describe this pair."
     },
     {
       "candidate_id": "cand-049",
@@ -1051,7 +1061,7 @@
         "abstract_length_1": 882,
         "abstract_length_2": 933
       },
-      "reviewer_notes": "Nepali school textbook versus a university-level computer science textbook; different works."
+      "reviewer_notes": "Both records concern the same-titled Scratch middle-school computer-science study and have closely related abstracts. Their DOI/venue metadata differs (a 2013 Computer Science Education journal record and an ACM SIGCSE record), so a journal/conference version relationship is plausible but requires author and publication-history verification. The previous textbook note did not describe this pair."
     },
     {
       "candidate_id": "cand-050",
@@ -1072,7 +1082,7 @@
         "abstract_length_1": 83,
         "abstract_length_2": 415
       },
-      "reviewer_notes": "Nepali school textbook versus a different computer science book; different works."
+      "reviewer_notes": "Both records have the exact title “Computer science and game theory” and concern Yoav Shoham’s 2008 work; the abstracts differ in coverage/length and the DOI identifiers differ. Retain the provisional likely-duplicate label while verifying the ACM/AAMAS publication relationship. The previous textbook note did not describe this pair."
     },
     {
       "candidate_id": "cand-051",
@@ -1345,7 +1355,7 @@
         "abstract_length_1": 999,
         "abstract_length_2": 196
       },
-      "reviewer_notes": "Same title, but abstracts differ and DOI identifiers point to different records."
+      "reviewer_notes": "Both records have the same title and author D. E. Stevenson; the metadata points to a 1993 ACM conference record and a 1994 Communications of the ACM article. These may be conference/journal versions of the same work. The abstracts are not identical, so retain the provisional label pending publication-history verification."
     },
     {
       "candidate_id": "cand-064",
@@ -1366,7 +1376,7 @@
         "abstract_length_1": 1036,
         "abstract_length_2": 1067
       },
-      "reviewer_notes": "Title variation only; abstracts differ substantially and DOI metadata does not establish the same work."
+      "reviewer_notes": "The titles refer to the same Dan Gusfield book, but one abstract is a publisher description and the other is table-of-contents text; the second record has no DOI in the candidate CSV. This may be a book record paired with a contents/edition record. Keep the label provisional and verify record type and edition before confirming a duplicate."
     },
     {
       "candidate_id": "cand-065",
@@ -1387,7 +1397,7 @@
         "abstract_length_1": 616,
         "abstract_length_2": 616
       },
-      "reviewer_notes": "The matching abstract belongs to the second record; the first record has an unrelated Nepali textbook abstract. Not the same work.",
+      "reviewer_notes": "The source CSV shows identical title and normalized abstract in both records, with different ACM DOI identifiers. This is a likely ACM publication-version/record duplicate; retain the provisional label pending authoritative metadata verification. The previous Nepali-textbook note did not describe this pair.",
       "work_group_id": "teaching-objects-first",
       "work_group_note": "Three pair relationships belong to one three-record work group; count this connected group as one work, not three independent duplicate groups."
     },
@@ -1410,7 +1420,7 @@
         "abstract_length_1": 616,
         "abstract_length_2": 616
       },
-      "reviewer_notes": "The matching abstract belongs to the second record; the first record has an unrelated Nepali textbook abstract. Not the same work.",
+      "reviewer_notes": "The source CSV shows identical title and normalized abstract in both records, with different ACM DOI identifiers. This is a likely ACM publication-version/record duplicate; retain the provisional label pending authoritative metadata verification. The previous Nepali-textbook note did not describe this pair.",
       "work_group_id": "teaching-objects-first",
       "work_group_note": "Three pair relationships belong to one three-record work group; count this connected group as one work, not three independent duplicate groups."
     },
@@ -1433,7 +1443,7 @@
         "abstract_length_1": 332,
         "abstract_length_2": 323
       },
-      "reviewer_notes": "The first record has an unrelated Nepali textbook abstract; the second describes a different work."
+      "reviewer_notes": "Both records are titled “Handbook of Logic in Computer Science” and their abstracts describe closely related semantic-modelling/semantics volumes. Their Oxford book DOI identifiers differ, so they may be separate volumes or editions in the same series. Keep ambiguous pending title-page and volume-level verification. The previous Nepali-textbook note did not describe this pair."
     },
     {
       "candidate_id": "cand-068",
@@ -1452,9 +1462,12 @@
         "arxiv_id_1": null,
         "arxiv_id_2": null,
         "abstract_length_1": 953,
-        "abstract_length_2": 953
+        "abstract_length_2": 953,
+        "external_verification": [
+          "https://explore.openaire.eu/search/publication?pid=10.1145%2F782941.782998"
+        ]
       },
-      "reviewer_notes": "Different textbook parts and publication years; not the same work."
+      "reviewer_notes": "The source CSV shows identical title and normalized abstract under two ACM DOI identifiers. This is a likely duplicate publication record; retain the provisional label pending authoritative ACM metadata verification. The previous textbook note did not describe this pair."
     },
     {
       "candidate_id": "cand-069",
@@ -2989,7 +3002,7 @@
         "abstract_length_1": 3127,
         "abstract_length_2": 2866
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-142",
@@ -3010,7 +3023,7 @@
         "abstract_length_1": 3127,
         "abstract_length_2": 2673
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-143",
@@ -3031,7 +3044,7 @@
         "abstract_length_1": 3127,
         "abstract_length_2": 3216
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-144",
@@ -3052,7 +3065,7 @@
         "abstract_length_1": 3127,
         "abstract_length_2": 3138
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-145",
@@ -3073,7 +3086,7 @@
         "abstract_length_1": 3127,
         "abstract_length_2": 3168
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-146",
@@ -3094,7 +3107,7 @@
         "abstract_length_1": 3127,
         "abstract_length_2": 2762
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-147",
@@ -3115,7 +3128,7 @@
         "abstract_length_1": 3127,
         "abstract_length_2": 3228
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-148",
@@ -3136,7 +3149,7 @@
         "abstract_length_1": 3157,
         "abstract_length_2": 2866
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-149",
@@ -3157,7 +3170,7 @@
         "abstract_length_1": 3157,
         "abstract_length_2": 2673
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-150",
@@ -3178,7 +3191,7 @@
         "abstract_length_1": 3157,
         "abstract_length_2": 3216
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-151",
@@ -3199,7 +3212,7 @@
         "abstract_length_1": 3157,
         "abstract_length_2": 3138
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-152",
@@ -3220,7 +3233,7 @@
         "abstract_length_1": 3157,
         "abstract_length_2": 3168
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-153",
@@ -3241,7 +3254,7 @@
         "abstract_length_1": 3157,
         "abstract_length_2": 2762
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-154",
@@ -3262,7 +3275,7 @@
         "abstract_length_1": 3157,
         "abstract_length_2": 3228
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-155",
@@ -3283,7 +3296,7 @@
         "abstract_length_1": 2866,
         "abstract_length_2": 2673
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-156",
@@ -3304,7 +3317,7 @@
         "abstract_length_1": 2866,
         "abstract_length_2": 3216
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-157",
@@ -3325,7 +3338,7 @@
         "abstract_length_1": 2866,
         "abstract_length_2": 3138
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-158",
@@ -3346,7 +3359,7 @@
         "abstract_length_1": 2866,
         "abstract_length_2": 3168
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-159",
@@ -3367,7 +3380,7 @@
         "abstract_length_1": 2866,
         "abstract_length_2": 2762
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-160",
@@ -3388,7 +3401,7 @@
         "abstract_length_1": 2866,
         "abstract_length_2": 3228
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-161",
@@ -3409,7 +3422,7 @@
         "abstract_length_1": 2673,
         "abstract_length_2": 3216
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-162",
@@ -3430,7 +3443,7 @@
         "abstract_length_1": 2673,
         "abstract_length_2": 3138
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-163",
@@ -3451,7 +3464,7 @@
         "abstract_length_1": 2673,
         "abstract_length_2": 3168
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-164",
@@ -3472,7 +3485,7 @@
         "abstract_length_1": 2673,
         "abstract_length_2": 2762
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-165",
@@ -3493,7 +3506,7 @@
         "abstract_length_1": 2673,
         "abstract_length_2": 3228
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-166",
@@ -3514,7 +3527,7 @@
         "abstract_length_1": 3216,
         "abstract_length_2": 3138
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-167",
@@ -3535,7 +3548,7 @@
         "abstract_length_1": 3216,
         "abstract_length_2": 3168
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-168",
@@ -3556,7 +3569,7 @@
         "abstract_length_1": 3216,
         "abstract_length_2": 2762
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-169",
@@ -3577,7 +3590,7 @@
         "abstract_length_1": 3216,
         "abstract_length_2": 3228
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-170",
@@ -3598,7 +3611,7 @@
         "abstract_length_1": 3138,
         "abstract_length_2": 3168
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-171",
@@ -3619,7 +3632,7 @@
         "abstract_length_1": 3138,
         "abstract_length_2": 2762
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-172",
@@ -3640,7 +3653,7 @@
         "abstract_length_1": 3138,
         "abstract_length_2": 3228
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-173",
@@ -3661,7 +3674,7 @@
         "abstract_length_1": 3168,
         "abstract_length_2": 2762
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-174",
@@ -3682,7 +3695,7 @@
         "abstract_length_1": 3168,
         "abstract_length_2": 3228
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-175",
@@ -3703,7 +3716,7 @@
         "abstract_length_1": 2762,
         "abstract_length_2": 3228
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-176",
@@ -3724,7 +3737,7 @@
         "abstract_length_1": 2744,
         "abstract_length_2": 2710
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-177",
@@ -3745,7 +3758,7 @@
         "abstract_length_1": 2744,
         "abstract_length_2": 3127
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-178",
@@ -3766,7 +3779,7 @@
         "abstract_length_1": 2744,
         "abstract_length_2": 3157
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-179",
@@ -3787,7 +3800,7 @@
         "abstract_length_1": 2744,
         "abstract_length_2": 2866
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-180",
@@ -3808,7 +3821,7 @@
         "abstract_length_1": 2744,
         "abstract_length_2": 2673
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-181",
@@ -3829,7 +3842,7 @@
         "abstract_length_1": 2744,
         "abstract_length_2": 3216
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-182",
@@ -3850,7 +3863,7 @@
         "abstract_length_1": 2744,
         "abstract_length_2": 3138
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-183",
@@ -3871,7 +3884,7 @@
         "abstract_length_1": 2744,
         "abstract_length_2": 3168
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-184",
@@ -3892,7 +3905,7 @@
         "abstract_length_1": 2744,
         "abstract_length_2": 2762
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-185",
@@ -3913,7 +3926,7 @@
         "abstract_length_1": 2744,
         "abstract_length_2": 3228
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the shared title is a generic proceedings/series label. The abstracts list different conference events and/or years; their repeated language is series boilerplate. The DOI records are distinct, so this is not the same paper."
     },
     {
       "candidate_id": "cand-186",
@@ -3934,7 +3947,7 @@
         "abstract_length_1": 425,
         "abstract_length_2": 1451
       },
-      "reviewer_notes": "Not yet reviewed."
+      "reviewer_notes": "Reviewed against the source CSV: the first abstract describes the scope of the International Journal of Computer Science and Applications; the second describes a smart-dome/ventilation study about a mosque. The similar journal-like titles do not represent the same paper."
     },
     {
       "candidate_id": "cand-187",
